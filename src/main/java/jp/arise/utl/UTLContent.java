@@ -24,6 +24,11 @@ public class UTLContent {
 	public String STR_TWO = "2";
 
 	/**
+	 * String型：空白
+	 */
+	public String BLANK = " ";
+
+	/**
 	 * int型：0
 	 */
 	public int INT_ZERO = 0;
