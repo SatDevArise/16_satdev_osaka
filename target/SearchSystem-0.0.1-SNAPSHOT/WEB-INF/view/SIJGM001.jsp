@@ -17,7 +17,8 @@
 		<spring:url value="/initSijGm001" var="actionUrl"/>
     	<form:form modelAttribute="SIJGM001Form">
     		<form:input path="user" />
-    		<input type="submit" class="btn btn-primary" value="確定" name="entrySijGm001" formaction="${actionUrl}">
+    		<input type="submit" class="btn btn-primary" value="編集" name="goToSijGm002" formaction="${actionUrl}">
+    		<input type="submit" class="btn btn-warning" value="戻る" name="backComGm002" formaction="${actionUrl}">
     	</form:form>
 	</body>
 </html>

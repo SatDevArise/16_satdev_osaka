@@ -14,12 +14,13 @@
 		<title>GBJGM002 現場情報新規登録・編集画面</title>
 	</head>
 	<body>
+	    <spring:url value="/initGbjGm002" var="actionUrl"/>
     	<form:form modelAttribute="GBJGM002Form">
     		<form:input path="user" />
-		 	<button type="button" class="btn btn-default">1</button>
-			<button type="button" class="btn btn-success">2</button>
-			<button type="button" class="btn btn-info">3</button>
-			<button type="button" class="btn btn-warning">4</button>
+    		<input type="submit" class="btn btn-default" value="新規登録" name="entryGbjGm002" formaction="${actionUrl}">
+    		<input type="submit" class="btn btn-success" value="更新" name="updateGbjGm002" formaction="${actionUrl}">
+    		<input type="submit" class="btn btn-info" value="戻る" name="backComGm002" formaction="${actionUrl}">
+    		<input type="submit" class="btn btn-warning" value="戻る" name="backGbjGm001" formaction="${actionUrl}">
     	</form:form>
 	</body>
 </html>

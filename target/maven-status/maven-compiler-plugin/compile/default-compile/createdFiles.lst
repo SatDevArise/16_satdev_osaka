@@ -9,6 +9,7 @@ jp\arise\com\service\COMGM001Servise.class
 jp\arise\gbj\service\GBJGM001Servise.class
 jp\arise\gbj\dao\GBJGM001Dao.class
 jp\arise\gbj\message\GBJMessage.class
+jp\arise\utl\LoginInfo.class
 jp\arise\sij\form\SIJGM002Form.class
 jp\arise\sij\dao\SIJGM001Dao.class
 jp\arise\com\dto\COMGM001Dto.class
@@ -18,6 +19,7 @@ jp\arise\com\dto\COMGM002Dto.class
 jp\arise\sij\controller\SIJGM001Controller.class
 jp\arise\com\form\COMGM001Form.class
 jp\arise\gbj\form\GBJGM002Form.class
+jp\arise\utl\LoginInfoDto.class
 jp\arise\com\modelandview\COMGM002MAV.class
 jp\arise\com\service\COMGM002Servise.class
 jp\arise\gbj\controller\GBJGM002Controller.class

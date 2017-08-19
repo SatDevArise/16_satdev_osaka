@@ -19,6 +19,8 @@
     <context:component-scan base-package="jp.arise.gbj.service" />
     <context:component-scan base-package="jp.arise.gbj.dao" />
 
+    <context:component-scan base-package="jp.arise.utl" />
+
     <mvc:annotation-driven />
 
 	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

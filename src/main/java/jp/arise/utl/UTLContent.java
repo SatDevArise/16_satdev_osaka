@@ -19,6 +19,11 @@ public class UTLContent {
 	public String STR_ONE = "1";
 
 	/**
+	 * String型：2
+	 */
+	public String STR_TWO = "2";
+
+	/**
 	 * int型：0
 	 */
 	public int INT_ZERO = 0;

@@ -17,10 +17,10 @@
 	   <spring:url value="/initComGm002" var="actionUrl"/>
     	<form:form modelAttribute="COMGM002Form">
     		<form:input path="user" />
-		 	<input type="submit" class="btn btn-default" value="画面1" name="entrySijGm001" formaction="${actionUrl}">
-			<input type="submit" class="btn btn-success" value="画面2" name="entrySijGm002" formaction="${actionUrl}">
-			<input type="submit" class="btn btn-info" value="画面3" name="entryGbjGm001" formaction="${actionUrl}">
-			<input type="submit" class="btn btn-warning" value="画面4" name="entryGbjGm002" formaction="${actionUrl}">
+		 	<input type="submit" class="btn btn-default" value="社員情報一覧表示画面" name="goSijGm001" formaction="${actionUrl}">
+			<input type="submit" class="btn btn-success" value="社員情報新規登録・編集画面" name="goSijGm002" formaction="${actionUrl}">
+			<input type="submit" class="btn btn-info" value="現場情報一覧表示画面" name="goGbjGm001" formaction="${actionUrl}">
+			<input type="submit" class="btn btn-warning" value="現場情報新規登録・編集画面" name="goGbjGm002" formaction="${actionUrl}">
     	</form:form>
 	</body>
 </html>

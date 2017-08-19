@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <beans:beans xmlns="http://www.springframework.org/schema/security"
     xmlns:beans="http://www.springframework.org/schema/beans"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -8,33 +9,11 @@
 
     <http auto-config="true" >
         <!-- 認可の設定 -->
-        <intercept-url pattern="/COMGM001*" access="hasRole('ROLE_USER')" />
-
-        <!-- 権限なし時の遷移先 -->
-        <access-denied-handler error-page="/COMGM001*" />
-
-        <!-- 認証のログイン処理 -->
-        <form-login
-            login-page="/COMGM002*"
-            default-target-url="/COMGM001*"
-            authentication-failure-url="/COMGM001*"/>
-
-        <!-- 認証のログアウト処理 -->
-        <logout
-            logout-url="/COMGM001*"
-            logout-success-url="/COMGM002*"
-            invalidate-session="true"/>
-
-        <!-- anonymousユーザのROLE -->
-        <anonymous granted-authority="ROLE_ANONYMOUS" />
+        <!-- サーバー接続が上手く行かない為保留 -->
+        <!-- <intercept-url pattern="/**" requires-channel = "https" /> -->
     </http>
 
-    <!-- ユーザとROLEを定義 -->
+    <!-- 認証マネージャー -->
     <authentication-manager>
-        <authentication-provider>
-            <user-service>
-                <user name="user" password="user" authorities="ROLE_USER" />
-            </user-service>
-        </authentication-provider>
     </authentication-manager>
 </beans:beans>
