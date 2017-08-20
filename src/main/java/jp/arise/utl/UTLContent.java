@@ -44,6 +44,12 @@ public class UTLContent {
 	 */
 	public String GMID_COMGM001 = "COMGM001";
 
+	/**
+	 * String型：COMGM002
+	 * メニュー画面ID
+	 */
+	public String GMID_COMGM002 = "COMGM002";
+
 
 
 
