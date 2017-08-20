@@ -38,6 +38,13 @@ public class UTLContent {
 	 */
 	public int INT_ONE = 1;
 
+	/**
+	 * String型：COMGM001
+	 * ログイン画面ID
+	 */
+	public String GMID_COMGM001 = "COMGM001";
+
+
 
 
 
