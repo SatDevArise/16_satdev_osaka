@@ -46,6 +46,7 @@
     		現場名：<input type = "text" name = "現場名">
     		<br>
     		参画日：<input type = "text" name = "参画日">
+
     	</form:form>
 	</body>
 </html>
