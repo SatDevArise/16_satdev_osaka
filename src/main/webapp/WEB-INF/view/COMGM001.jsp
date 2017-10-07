@@ -14,6 +14,9 @@
 		<title>COMGM001 ログイン画面</title>
 	</head>
 	<body>
+		<div align="center">社員情報管理システム</div>
+		<p>ユーザーID</p>
+
     	<form:form modelAttribute="COMGM001Form">
     		<form:input path="user" />
     		<input type="submit" class="btn btn-primary" value="確定" name="entryComGm001">
