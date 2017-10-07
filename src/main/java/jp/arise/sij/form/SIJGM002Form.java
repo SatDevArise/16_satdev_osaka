@@ -12,6 +12,7 @@ public class SIJGM002Form {
 	 * ユーザー
 	 */
 	private String user;
+	private String a;
 
 	/**
 	 * ユーザーを取得
@@ -28,5 +29,17 @@ public class SIJGM002Form {
 	public void setUser(String user) {
 		this.user = user;
 	}
+
+public String geta() {
+	return a;
+}
+
+/**
+ * ユーザーを設定
+ * @param user
+ */
+public void seta(String a) {
+	this.a = a;
+}
 
 }
