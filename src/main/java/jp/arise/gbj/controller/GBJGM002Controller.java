@@ -96,6 +96,7 @@ public class GBJGM002Controller {
 	 */
 	@RequestMapping(value = "/initGbjGm002",params = "updateGbjGm002", method = RequestMethod.POST)
 	public String updateGbjGm002(GBJGM002Form gbjGm002Form,Model model) {
+		System.out.println(gbjGm002Form.getGenba_id());
 		return "GBJGM002";
 	}
 

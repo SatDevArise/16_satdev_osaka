@@ -18,8 +18,8 @@
 	    <spring:url value="/initGbjGm002" var="actionUrl"/>
     	<form:form modelAttribute="GBJGM002Form">
     		<form:input path="user" />
-    		<p>現場ID：<form:input path="a" type="text" name="ID"/></p>
-    		<p>現場名：<input type="text" name="現場名"></p>
+    		<p>現場ID：<form:input path="genba_id" type="text" name="ID"/></p>
+    		<p>現場名：<input path="genba_na" type="text" name="現場名"></p>
     		<p>住所：<TEXTAREA cols="20" rows="2"></TEXTAREA></p>
     		最寄り駅：<input type="text" name="駅名">
     		<input type="text" name="駅名">
