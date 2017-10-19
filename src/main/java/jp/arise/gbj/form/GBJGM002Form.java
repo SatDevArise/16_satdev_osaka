@@ -13,6 +13,21 @@ public class GBJGM002Form {
 	 */
 	private String user;
 
+
+	/**
+	 * 現場ID
+	 */
+	private String genba_id;
+
+	/**
+	 * 現場名
+	 */
+
+	private String genba_na;
+
+
+
+
 	/**
 	 * ユーザーを取得
 	 * @return user
@@ -27,6 +42,37 @@ public class GBJGM002Form {
 	 */
 	public void setUser(String user) {
 		this.user = user;
+	}
+
+	/**
+	 * 現場IDを取得
+	 * @return genba_id
+	 */
+	public String getGenba_id() {
+		return genba_id;
+	}
+
+	/**
+	 * 現場IDを設定
+	 * @param genba_id
+	 */
+	public void setGenba_id1(String genba_id) {
+		this.genba_id = genba_id;
+	}
+	/**
+	 * 現場IDを取得
+	 * @return getGenba_na
+	 */
+	public String getGenba_na() {
+		return getGenba_na();
+	}
+
+	/**
+	 * 現場IDを設定
+	 * @param getGenba_na
+	 */
+	public void setGenba_na(String genba_na) {
+		this.genba_na = genba_na;
 	}
 
 }
