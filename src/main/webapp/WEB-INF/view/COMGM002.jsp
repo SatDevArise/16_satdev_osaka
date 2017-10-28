@@ -16,11 +16,29 @@
 	<body>
 	   <spring:url value="/initComGm002" var="actionUrl"/>
     	<form:form modelAttribute="COMGM002Form">
-    		<form:input path="user" />
-		 	<input type="submit" class="btn btn-default" value="社員情報一覧表示画面" name="goSijGm001" formaction="${actionUrl}">
-			<input type="submit" class="btn btn-success" value="社員情報新規登録・編集画面" name="goSijGm002" formaction="${actionUrl}">
-			<input type="submit" class="btn btn-info" value="現場情報一覧表示画面" name="goGbjGm001" formaction="${actionUrl}">
-			<input type="submit" class="btn btn-warning" value="現場情報新規登録・編集画面" name="goGbjGm002" formaction="${actionUrl}">
+    	<div align="center">
+    		<h1>メニュー画面</h1>
+    	</div>
+    	<div align="right">
+    		<input type="submit" class="btn btn-logout" value="ログアウト" name="">
+    	</div>
+
+		 	<input type="submit" class="btn btn-default" value="社員情報一覧表示" name="goSijGm001"
+		 		style="WIDTH: 240px; HEIGHT: 35px" formaction="${actionUrl}">
+		 			　　　　　　　　　　<u>社員情報を一覧表示します</u><br><br>
+			<input type="submit" class="btn btn-success" value="社員情報新規登録" name="goSijGm002"
+				style="WIDTH: 240px; HEIGHT: 35px" formaction="${actionUrl}">
+					　　　　　　　　　　<u>社員情報の新規登録を行います</u><br><br>
+			<input type="submit" class="btn btn-info" value="現場情報一覧表示" name="goGbjGm001"
+				style="WIDTH: 240px; HEIGHT: 35px" formaction="${actionUrl}">
+					　　　　　　　　　　<u>現場情報を一覧表示します</u><br><br>
+			<input type="submit" class="btn btn-warning" value="現場情報新規登録" name="goGbjGm002"
+				style="WIDTH: 240px; HEIGHT: 35px" formaction="${actionUrl}">
+					　　　　　　　　　　<u>現場情報の新規登録を行います</u><br><br>
+			<input type="submit" class="btn sys-kanri" value="システム管理" name=""
+				style="WIDTH: 240px; HEIGHT: 35px" formaction="${actionUrl}">
+					　　　　　　　　　　<u>システム情報を管理します</u><br><br>
+
     	</form:form>
 	</body>
 </html>
