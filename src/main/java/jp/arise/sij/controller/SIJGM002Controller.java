@@ -96,7 +96,6 @@ public class SIJGM002Controller {
 	 */
 	@RequestMapping(value = "/initSijGm002",params = "updateSijGm002", method = RequestMethod.POST)
 	public String updateSijGm002(SIJGM002Form sijGm002Form,Model model) {
-		System.out.println(sijGm002Form.geta());
 		return "SIJGM002";
 	}
 

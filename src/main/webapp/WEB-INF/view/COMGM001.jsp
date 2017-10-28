@@ -14,12 +14,19 @@
 		<title>COMGM001 ログイン画面</title>
 	</head>
 	<body>
-		<div align="center">社員情報管理システム</div>
-		<p>ユーザーID</p>
+		<div align="center">
+			<p>Arise member information management system</p>
+			<p>社員情報管理システム</p>
+			<p>Log in</p>
+		</div>
 
     	<form:form modelAttribute="COMGM001Form">
-    		<form:input path="user" />
+    		<form:input path="user_id" />
+    		<form:password path="password" />
     		<input type="submit" class="btn btn-primary" value="確定" name="entryComGm001">
+
     	</form:form>
+
+
 	</body>
 </html>
