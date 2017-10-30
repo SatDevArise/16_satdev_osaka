@@ -19,16 +19,16 @@ public class SIJGM002Form {
 	private String moyori_1_station;
 	private String moyori_2_station;
 	private String moyori_3_station;
-	private String area_cd;
-	private String city_cd;
-	private String subscriber_no;
+	private String phoneNumber;
 	private String previous;
 	private String birth_place;
 	private String position;
+	private String nyusya_dt;
 	private String team_na;
 	private String phase_kb;
 	private String tanka;
 	private String genba_na;
+	private String sankaku_dt;
 	private String kensakuKeyList;
 	private String page;
 
@@ -98,33 +98,15 @@ public class SIJGM002Form {
 	}
 
 	/**
-	 * エリアコードを取得
+	 * 連絡先を取得
 	 *
-	 * @return area_cd
+	 * @return contact
 	 */
-	public String getArea_cd() {
-		return area_cd;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
 
-	/**
-	 * 市外局番地を取得
-	 *
-	 * @return city_cd
-	 */
-	public String getCity_cd() {
-		return city_cd;
-	}
-
-	/**
-	 * 加入者番号を取得
-	 *
-	 * @return subscriber_no
-	 */
-	public String getSubscriber_no() {
-		return subscriber_no;
-	}
-
-	/**
+		/**
 	 * 前職を取得
 	 *
 	 * @return previous
@@ -149,6 +131,15 @@ public class SIJGM002Form {
 	 */
 	public String getPosition() {
 		return position;
+	}
+
+	/**
+	 * 入社日を取得
+	 *
+	 * @return nyusya_dt
+	 */
+	public String getNyusya_dt() {
+		return nyusya_dt;
 	}
 
 	/**
@@ -185,6 +176,15 @@ public class SIJGM002Form {
 	 */
 	public String getGenba_na() {
 		return genba_na;
+	}
+
+	/**
+	 * 参画日を取得
+	 *
+	 * @return sankaku_dt
+	 */
+	public String getSankaku_dt() {
+		return sankaku_dt;
 	}
 
 	/**
@@ -271,30 +271,12 @@ public class SIJGM002Form {
 	}
 
 	/**
-	 * エリアコードを設定
+	 * 連絡先を設定
 	 *
-	 * @param area_cd
+	 * @param phoneNumber
 	 */
-	public void setArea_cd(String area_cd) {
-		this.area_cd = area_cd;
-	}
-
-	/**
-	 * 市街局番地を設定
-	 *
-	 * @param city_cd
-	 */
-	public void setCity_cd(String city_cd) {
-		this.city_cd = city_cd;
-	}
-
-	/**
-	 * 加入者番号を設定
-	 *
-	 * @param subscriber_no
-	 */
-	public void setSubscriber_no(String subscriber_no) {
-		this.subscriber_no = subscriber_no;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 
 	/**
@@ -322,6 +304,15 @@ public class SIJGM002Form {
 	 */
 	public void setPosition(String position) {
 		this.position = position;
+	}
+
+	/**
+	 * 入社日を設定
+	 *
+	 * @param nyusya_dt
+	 */
+	public void setNyusya_dt(String nyusya_dt) {
+		this.nyusya_dt = nyusya_dt;
 	}
 
 	/**
@@ -358,6 +349,15 @@ public class SIJGM002Form {
 	 */
 	public void setGenba_na(String genba_na) {
 		this.genba_na = genba_na;
+	}
+
+	/**
+	 * 参画日を設定
+	 *
+	 * @param sankaku_dt
+	 */
+	public void setSankaku_dt(String sankaku_dt) {
+		this.sankaku_dt = sankaku_dt;
 	}
 
 	/**

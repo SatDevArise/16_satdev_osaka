@@ -25,20 +25,19 @@
 			<form:input path="syain_id"/>
     		<p>社員ID：<form:input path="syain_id" type = "text" name = "社員ID"/></p>
 			<p>氏名：<form:input path="name" type = "text" name = "氏名"/> 生年月日：<form:input path="birth"type ="text" name = "生年月日"/></p>
-    		<form:input path="moyori_1_station,moyori_2_station,moyori_3_station"/>
     		<p>最寄り駅：<form:input path="moyori_1_station" type = "text" name = "最寄り駅"/>
     					 <form:input path="moyori_2_station" type = "text" name = "最寄り駅2"/>
     					 <form:input path="moyori_3_station" type = "text" name = "最寄り駅3"/></p>
-    		<p>連絡先：<input type = "text" name = "連絡先"></p>
-    		<p>前職：<input type = "text" name = "前職">
-    		   出身地：<input type = "text" name = "出身地"></p>
-    		<p>役職：<input type = "text" name = "役職">
-    		   入社日：<input type = "text" name = "入社日"></p>
-    		<p>チーム：<input type = "text" name = "チーム"></p>
-    		<p>フェーズ：<input type = "text" name = "フェーズ">
-    		   単価：<input type = "text" name = "単価"></p>
-    		<p>現場名：<input type = "text" name = "現場名"></p>
-    		<p>参画日：<input type = "text" name = "参画日"></p>
+    		<p>連絡先：<form:input path ="contact"type = "text" name = "連絡先"/></p>
+    		<p>前職：<form:input path="previous"type = "text" name = "前職"/>
+    		   出身地：<form:input path="birth_place" type = "text" name = "出身地"/></p>
+    		<p>役職：<form:input path="position"type = "text" name = "役職"/>
+    		   入社日：<form:input path="hiredate" type = "text" name = "入社日"/></p>
+    		<p>チーム：<form:input path ="team_na" type = "text" name = "チーム"/></p>
+    		<p>フェーズ：<form:input path="phase" type = "text" name = "フェーズ"/>
+    		   単価：<form:input path = "tanka" type = "text" name = "単価"/></p>
+    		<p>現場名：<form:input path="genba_na" type = "text" name = "現場名"/></p>
+    		<p>参画日：<form:input path="sankaku_dt" type = "text" name = "参画日"/></p>
     	</form:form>
 	</body>
 </html>
