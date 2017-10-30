@@ -52,7 +52,7 @@ public class GBJGM002Controller {
 		System.out.println(loginInfoDto.getUser());
 
 		GBJGM002Form gbjGm002Form = new GBJGM002Form();
-		gbjGm002Form.setUser("山田太郎");
+		gbjGm002Form.setUser("");
 		model.addAttribute("GBJGM002Form",gbjGm002Form);
 		return "GBJGM002";
 	}
