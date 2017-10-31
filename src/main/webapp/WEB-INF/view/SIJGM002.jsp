@@ -37,7 +37,7 @@
     		<p>フェーズ：<form:input path="phase" type = "text" name = "フェーズ"/>
     		   単価：<form:input path = "tanka" type = "text" name = "単価"/></p>
     		<p>現場名：<form:input path="genba_na" type = "text" name = "現場名"/></p>
-    		<p>参画日04：<form:input path="sankaku_dt" type = "text" name = "参画日"/></p>
+    		<p>参画日0：<form:input path="sankaku_dt" type = "text" name = "参画日"/></p>
     	</form:form>
 	</body>
 </html>
