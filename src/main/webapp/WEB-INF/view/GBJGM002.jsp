@@ -27,7 +27,7 @@
  				</div>
 			</form>
     		<%--<p>住所：<form:TEXTAREA cols="20" rows="3"></TEXTAREA></p> --%>
-    		最寄り駅：<form:inputpath ="moyori_1_station" type="text" name="駅名"/>
+    		最寄り駅：<form:input path ="moyori_1_station" type="text" name="駅名"/>
     		<form:input path ="Moyori_2_station" type="text" name="駅名"/>
 			<form:input path ="Moyori_3_station" type="text" name="駅名"/>
     		<p>作業内容：<form:input path ="work" type="text" name="作業内容"/></p>
@@ -39,11 +39,11 @@
     		<option value="サンプル5">選択肢のサンプル5</option>
     		</select>
 			</p>
-    		<p><form:input path ="create_btn" type="submit"style="position: absolute; right: 31.5%; bottom: 0px" class="btn btn-default" value="新規作成" name="entryGbjGm002" formaction="${actionUrl}"/>
-    		<form:input path ="update_btn" type="submit"style="position: absolute; right: 26.5%; bottom: 0px" class="btn btn-success" value="更新" name="updateGbjGm002" formaction="${actionUrl}"/>
-    		<form:input path ="delete_btn" type="submit"style="position: absolute; right: 21.5%; bottom: 0px" class="btn btn-success" value="削除" name="deleteGbjGm002" formaction="${actionUrl}"/>
-    		<form:input path ="back_btn" type="submit"style="position: absolute;right: 0px; top: 0px" class="btn btn-info" value="戻る" name="backComGm002" formaction="${actionUrl}"/>
-    		<form:input path ="back_btn1" type="submit"style="position: absolute;right: 0px; bottom: 0px" class="btn btn-warning" value="戻る" name="backGbjGm001" formaction="${actionUrl}"/>
+    		<p><form:input path ="create_btn" type="submit" style="position: absolute; right: 31.5%; bottom: 0px" class="btn btn-default" value="新規作成" name="entryGbjGm002" formaction="${actionUrl}"/>
+    		<form:input path ="update_btn" type="submit" style="position: absolute; right: 26.5%; bottom: 0px" class="btn btn-success" value="更新" name="updateGbjGm002" formaction="${actionUrl}"/>
+    		<form:input path ="delete_btn" type="submit" style="position: absolute; right: 21.5%; bottom: 0px" class="btn btn-success" value="削除" name="deleteGbjGm002" formaction="${actionUrl}"/>
+    		<form:input path ="back_btn" type="submit" style="position: absolute;right: 0px; top: 0px" class="btn btn-info" value="戻る" name="backComGm002" formaction="${actionUrl}"/>
+    		<form:input path ="back_btn1" type="submit" style="position: absolute;right: 0px; bottom: 0px" class="btn btn-warning" value="戻る" name="backGbjGm001" formaction="${actionUrl}"/>
 			</p>
 
     	</form:form>
