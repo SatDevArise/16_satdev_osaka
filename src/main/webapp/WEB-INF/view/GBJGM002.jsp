@@ -17,20 +17,28 @@
 		<font size="2"style="position: absolute; right: 32.5%; top: 0px" color="blue">現場情報新規登録・編集画面</font><br>
 	    <spring:url value="/initGbjGm002" var="actionUrl"/>
     	<form:form modelAttribute="GBJGM002Form">
-    		<form:input path="user" />
-    		<form:input path="genba_id" />
-    		<%--<form:input path ="genba_id" />--%>
-    		<p>現場名：<form:input path ="genba_na"  /></p>
+    		<p>
+    現場ID：<form:input path="genba_id" />
+    		</p>
+    		<p>
+	現場名：<form:input path ="genba_na"  />
+    		</p>
     		住所：<form:textarea path ="address"  cols="20" rows="3" />
-    		最寄り駅：<form:input path ="moyori_1_station" type="text" name="駅名"/>
+    		<p>
+  最寄り駅：<form:input path ="moyori_1_station" type="text" name="駅名"/>
     		<form:input path ="Moyori_2_station" />
 			<form:input path ="Moyori_3_station" />
-    		<p>作業内容：<form:input path ="work" /></p>
-    		<%--<p>フェーズ：<form:select path ="phase" >
-    		 <form:options items="サンプル" />
-    		<form:options items="サンプル1" />
+			</p>
+    		<p>
+  作業内容：<form:input path ="work" />
+    		</p>
+    		<p>
+  フェーズ：<form:select path ="phase">
+			<%--<form:option value="サンプル"/> --%>
+			<form:options items="${phaseList}"/>
+    		<%--<options value="サンプル1" /> --%>
     		</form:select>
-			</p>--%>
+			</p>
     		<p>
     		<input style="position: absolute; right: 31.5%; bottom: 0px" class="btn btn-default" value="新規作成" name="entryGbjGm002" formaction="${actionUrl}"/>
     		<input style="position: absolute; right: 26.5%; bottom: 0px" class="btn btn-success" value="更新" name="updateGbjGm002" formaction="${actionUrl}"/>
