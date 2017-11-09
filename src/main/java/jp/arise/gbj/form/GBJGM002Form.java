@@ -1,5 +1,8 @@
 package jp.arise.gbj.form;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * GBJGM002 現場情報新規登録・編集画面用Formクラス
  * JSPとController間の値受け渡し用
@@ -19,7 +22,8 @@ public class GBJGM002Form {
 	private String Moyori_2_station;
 	private String Moyori_3_station;
 	private String work;
-	private String phase;
+	//private String phase;
+	private Map<Integer,Integer> phase = new HashMap<Integer,Integer>();
 
 	/**
 	 * ユーザーを取得
@@ -137,14 +141,14 @@ public class GBJGM002Form {
 	 * フェーズを取得
 	 * @return phase
 	 */
-	public String getPhase() {
-		return phase;
-	}
+	 public Map<Integer,Integer> getPhase() {
+		   return phase;
+		  }
 	/**
 	 * フェーズを設定
 	 * @param phase
 	 */
-	public void setPhase(String phase) {
+	public void setPhase(Map<Integer, Integer> phase) {
 		this.phase = phase;
 	}
 }

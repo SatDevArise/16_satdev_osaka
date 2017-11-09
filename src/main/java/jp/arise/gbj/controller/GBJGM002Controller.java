@@ -1,5 +1,8 @@
 package jp.arise.gbj.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -149,5 +152,13 @@ public class GBJGM002Controller {
 		gbjGm002MAV.setUser(gbjGm002Form.getUser());
 		return new ModelAndView("forward:/initGbjGm001","GBJGM002MAV",gbjGm002MAV);
 	}
-
+//    Map<Integer,Integer> phaseList = new HashMap<Integer,Integer>();
+//    phaseList.put(0, "sample");
+//    model.addAttribute("phaseList", phaseList);
+//    form.setPhase(phaseList.get(1));
+//    phaseList.put(1, "2017/04/30：Ｄさん");
+//    phaseList.put(2, "2017/04/30：Ｃさん");
+//    phaseList.put(3, "2017/03/31：Ｂさん");
+//    phaseList.put(4, "2017/02/28：Ａさん");
 }
+

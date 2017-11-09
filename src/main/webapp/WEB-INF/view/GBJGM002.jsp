@@ -33,11 +33,10 @@
   作業内容：<form:input path ="work" />
     		</p>
     		<p>
-  フェーズ：<form:select path ="phase">
-			<%--<form:option value="サンプル"/> --%>
-			<form:options items="${phaseList}"/>
-    		<%--<options value="サンプル1" /> --%>
-    		</form:select>
+  フェーズ：<form:select path="optionValues" multiple="false">
+ 				<form:option value="-" label="--Please Select"/>
+ 				<form:options items="${form.phase}" />
+			</form:select><br>
 			</p>
     		<p>
     		<input style="position: absolute; right: 31.5%; bottom: 0px" class="btn btn-default" value="新規作成" name="entryGbjGm002" formaction="${actionUrl}"/>
