@@ -83,6 +83,9 @@ public class SIJGM002Controller {
 	 */
 	@RequestMapping(value = "/initSijGm002",params = "entrySijGm002", method = RequestMethod.POST)
 	public String entrySijGm002(SIJGM002Form sijGm002Form,Model model) {
+		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+		sijGm002Dto.setGenba_na(sijGm002Form.getGenba_na());
+
 		return "SIJGM002";
 	}
 
