@@ -22,17 +22,28 @@ public class SIJGM001Servise {
 
 
 	public SIJGM001Dto inputCheck(SIJGM001Dto dto) {
-        String user = dto.getUser();
-        System.out.println(user);
+//        String user = dto.getUser_id();
+//        System.out.println(user);
+//
+//        dto.setUser_id("山田太郎");
 
-        dto.setUserId(2);
+        //List<SIJGM001Dto> resultList = sijGm001Dao.getUser(dto);
 
-        List<SIJGM001Dto> resultList = sijGm001Dao.getUser(dto);
-
-        System.out.println(resultList.get(0).getUser());
+       // System.out.println(resultList.get(0).getUser_id());
 
         System.out.println(SIJMessage.SIJE001.getMessage());
 
 		return dto;
+	}
+
+	/**
+	 * 社員情報全件取得
+	 * @param SIJGM001Dto
+	 * @return 社員情報リスト
+	 */
+	public List<SIJGM001Dto> getSyainListInfo(SIJGM001Dto dto) {
+
+		return sijGm001Dao.getSyainListInfo(dto) ;
+
 	}
 }

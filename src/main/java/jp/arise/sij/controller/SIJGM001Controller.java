@@ -1,5 +1,7 @@
 package jp.arise.sij.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,7 +33,7 @@ public class SIJGM001Controller {
 	private SIJGM001Servise sijGm001Service;
 
     @ModelAttribute
-    public SIJGM001Form setSIJGM001Formm() {
+    public SIJGM001Form setSIJGM001Form() {
     	SIJGM001Form sijGm001Form = new SIJGM001Form();
         return sijGm001Form;
     }
@@ -51,10 +53,30 @@ public class SIJGM001Controller {
 		loginInfoDto = loginInfo.getAttribute();
 		System.out.println(loginInfoDto.getUser());
 
-		SIJGM001Form sijGm001Form = new SIJGM001Form();
-		sijGm001Form.setUser("山田 太郎");
-		model.addAttribute("SIJGM001Form",sijGm001Form);
+//		SIJGM001Form sijGm001Form = new SIJGM001Form();
+//		sijGm001Form.setUser_id("山田 太郎");
+//		model.addAttribute("SIJGM001Form",sijGm001Form);
 
+		// 社員情報一覧を取得
+		SIJGM001Dto sijgm001Dto = new SIJGM001Dto();
+		List<SIJGM001Dto> syainList = sijGm001Service.getSyainListInfo(sijgm001Dto);
+		if(syainList != null){
+			for(int i = 0; i < syainList.size(); i++){
+				System.out.println("---------------------------------------------");
+				System.out.println("社員ID：" + syainList.get(i).getSyainId());
+				System.out.println("社員名：" + syainList.get(i).getSyainNa());
+				System.out.println("役職CD：" + syainList.get(i).getYakusyokuCd());
+				System.out.println("生年月日：" + syainList.get(i).getBirthDt());
+				System.out.println("所属チーム：" + syainList.get(i).getSyozokuTeam());
+				System.out.println("現場名：" + syainList.get(i).getGenbaNa());
+				System.out.println("現場ID：" + syainList.get(i).getSyainId());
+				System.out.println("経過年数：" + syainList.get(i).getKeikaYm());
+				System.out.println("フェーズ区分：" + syainList.get(i).getPhaseCd());
+				System.out.println("使用路線：" + syainList.get(i).getSiyoRosenNa());
+				System.out.println("単価：" + syainList.get(i).getTankaVal());
+				System.out.println("---------------------------------------------");
+			}
+		}
 		return "SIJGM001";
 	}
 
@@ -84,9 +106,9 @@ public class SIJGM001Controller {
 	 */
 	@RequestMapping(value = "/initSijGm001",params = "goToSijGm002",method = RequestMethod.POST)
 	public ModelAndView  goToSijGm002(SIJGM001Form sijGm001Form,Model model) {
-		SIJGM001Dto sijGm001Dto = new SIJGM001Dto();
-		sijGm001Dto.setUser(sijGm001Form.getUser());
-		sijGm001Service.inputCheck(sijGm001Dto);
+//		SIJGM001Dto sijGm001Dto = new SIJGM001Dto();
+//		sijGm001Dto.setUser_id(sijGm001Form.getUser_id());
+//		sijGm001Service.inputCheck(sijGm001Dto);
 
 		SIJGM001MAV sijGm001MAV = new SIJGM001MAV();
 		sijGm001MAV.setUser(sijGm001Form.getUser());
@@ -104,9 +126,9 @@ public class SIJGM001Controller {
 	 */
 	@RequestMapping(value = "/initSijGm001",params = "backComGm002",method = RequestMethod.POST)
 	public ModelAndView  backComGm002(SIJGM001Form sijGm001Form,Model model) {
-		SIJGM001Dto sijGm001Dto = new SIJGM001Dto();
-		sijGm001Dto.setUser(sijGm001Form.getUser());
-		sijGm001Service.inputCheck(sijGm001Dto);
+//		SIJGM001Dto sijGm001Dto = new SIJGM001Dto();
+//		sijGm001Dto.setUser_id(sijGm001Form.getUser_id());
+//		sijGm001Service.inputCheck(sijGm001Dto);
 
 		SIJGM001MAV sijGm001MAV = new SIJGM001MAV();
 		sijGm001MAV.setUser(sijGm001Form.getUser());
