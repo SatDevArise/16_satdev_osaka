@@ -14,6 +14,7 @@ import jp.arise.com.modelandview.COMGM001MAV;
 import jp.arise.com.service.COMGM001Servise;
 import jp.arise.utl.LoginInfo;
 import jp.arise.utl.LoginInfoDto;
+import jp.arise.utl.UTLContent;
 
 
 /**
@@ -70,10 +71,12 @@ public class COMGM001Controller {
 		COMGM001MAV comGm001MAV = new COMGM001MAV();
 		comGm001MAV.setUser(comGm001Form.getUser_id());
 
-		//ログイン情報設定
+		//セッションに情報設定
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
-		loginInfoDto.setUser("testuser");
-		loginInfoDto.setUserId("0001");
+		loginInfoDto.setUser_id("ログインユーザー情報テーブルから取得しセット");
+		loginInfoDto.setUser_na("ログインユーザー情報テーブルから取得しセット");
+		loginInfoDto.setUnyoubi("ログインユーザー情報テーブルから取得しセット");
+		loginInfoDto.setGamen_id(UTLContent.GMID_COMGM001);
 		loginInfo.setAttribute(loginInfoDto);
 
 		return new ModelAndView("forward:/initComGm002","COMGM001MAV",comGm001MAV);
