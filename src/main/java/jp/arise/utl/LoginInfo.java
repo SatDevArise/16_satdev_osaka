@@ -24,8 +24,11 @@ public class LoginInfo {
 	 * @since 2017/07/177
 	 */
 	public void setAttribute(LoginInfoDto loginInfoDto) {
-		    session.setAttribute("USER", loginInfoDto.getUser());
-			session.setAttribute("USERID", loginInfoDto.getUserId());
+		    session.setAttribute("USERID", loginInfoDto.getUser_id());
+			session.setAttribute("USERNA", loginInfoDto.getUser_na());
+		    session.setAttribute("UNYOUBI", loginInfoDto.getUnyoubi());
+			session.setAttribute("GAMENID", loginInfoDto.getGamen_id());
+
 	}
 
 	/**
@@ -36,8 +39,10 @@ public class LoginInfo {
 	 */
 	public LoginInfoDto getAttribute() {
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
-		loginInfoDto.setUser(session.getAttribute("USER"));
-		loginInfoDto.setUserId(session.getAttribute("USERID"));
+		loginInfoDto.setUser_id(session.getAttribute("USERID"));
+		loginInfoDto.setUser_na(session.getAttribute("USERNA"));
+		loginInfoDto.setUnyoubi(session.getAttribute("UNYOUBI"));
+		loginInfoDto.setGamen_id(session.getAttribute("GAMENID"));
 		return loginInfoDto;
 	}
 
