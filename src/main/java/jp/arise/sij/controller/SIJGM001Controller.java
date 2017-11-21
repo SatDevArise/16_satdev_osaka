@@ -48,10 +48,10 @@ public class SIJGM001Controller {
 	 */
     @RequestMapping(value = "/initSijGm001", method = RequestMethod.POST)
 	public String initSijGm001(Model model) {
-    	//ログイン情報取得
+    	//セッション情報取得
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
 		loginInfoDto = loginInfo.getAttribute();
-		System.out.println(loginInfoDto.getUser());
+		System.out.println(loginInfoDto.getUser_id());
 
 //		SIJGM001Form sijGm001Form = new SIJGM001Form();
 //		sijGm001Form.setUser_id("山田 太郎");
