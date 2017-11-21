@@ -1,7 +1,7 @@
 package jp.arise.gbj.controller;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,7 +13,6 @@ import org.springframework.web.servlet.ModelAndView;
 
 import jp.arise.gbj.dto.GBJGM002Dto;
 import jp.arise.gbj.form.GBJGM002Form;
-import jp.arise.gbj.form.ListDateModel;
 import jp.arise.gbj.modelandview.GBJGM001MAV;
 import jp.arise.gbj.modelandview.GBJGM002MAV;
 import jp.arise.gbj.service.GBJGM002Servise;
@@ -153,30 +152,16 @@ public class GBJGM002Controller {
 		gbjGm002MAV.setUser(gbjGm002Form.getUser());
 		return new ModelAndView("forward:/initGbjGm001","GBJGM002MAV",gbjGm002MAV);
 	}
-    private List<ListDateModel> getList(){
-    	List<ListDateModel> List = new ArrayList<ListDateModel>();
-    	List.add(new ListDateModel("マック","mac"));
-    	List.add(new ListDateModel("ウィンドウズ","windows"));
-    	List.add(new ListDateModel("リナックス","linux"));
-    	return List;
-    }
-
-	@RequestMapping(value = "/helo", method = RequestMethod.GET)
-	public String helo(Model model) {
-		model.addAttribute("title", "sample");
-		model.addAttribute("messege","Select");
-		GBJGM002Form gbjm002Form = new GBJGM002Form();
-		gbjm002Form.setPhase("mac");
-		model.addAttribute("gbjm002Form",gbjm002Form);
-		model.addAttribute("optionlist",getList());
-		return "shoMessage";
-	}
-	@RequestMapping(value = "/helo", method = RequestMethod.POST)
-	public String form(@ModelAttribute GBJGM002Form gbjgm002Form,Model model){
-		model.addAttribute("teitle","Sample");
-		model.addAttribute("teitle","Sample :" + gbjgm002Form.getPhase());
-		model.addAttribute("gbjgm002Form",gbjgm002Form);
-		model.addAttribute("optionlist",getList());
+	//プルダウンリストを作成
+	@RequestMapping(value = "/sample", method = RequestMethod.GET)
+	public String firstSamplePage(Model model) {
+		Map<String, String> phase = new HashMap<String, String>();
+		phase.put("development", "開発");
+		phase.put("evaluation", "評価");
+		model.addAttribute("phaseList", phase);
+		model.addAttribute("messege","フェーズを選択してください");
 		return "showMessage";
 	}
 }
+
+

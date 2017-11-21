@@ -33,7 +33,8 @@
   作業内容：<form:input path ="work" />
     		</p>
     		<p>
-  フェーズ：<form:select path="phase" name="phase" items ="${optionlist}" itemlabel ="label" itemValue="data" size="2" multiple="false">
+  フェーズ：<form:select path="phase">
+				<form:options items="${phaseList}"/>
 			</form:select><br>
 			</p>
     		<p>
