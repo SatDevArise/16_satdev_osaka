@@ -11,6 +11,27 @@ import java.io.Serializable;
 public class SIJGM002Dto implements Serializable{
 
 	/**
+	 * test
+	 */
+	private String test;
+
+	/**
+	 * testを取得
+	 * @return user
+	 */
+	public String getTest() {
+		return test;
+	}
+
+	/**
+	 * testを設定
+	 * @param test
+	 */
+	public void setTest(String test) {
+		this.test = test;
+	}
+
+	/**
 	 * ユーザー
 	 */
 	private String user;
