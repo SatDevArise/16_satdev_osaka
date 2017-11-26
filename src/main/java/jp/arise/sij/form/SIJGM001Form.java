@@ -8,6 +8,7 @@ import java.util.List;
  * JSPとController間の値受け渡し用
  * @author AtsushiNishizawa
  * @since 2017/07/17
+ * @version ver.1.00 新規作成 2017/11/26 KenshiKouno
  */
 public class SIJGM001Form {
 
@@ -25,8 +26,8 @@ public class SIJGM001Form {
 	private String nyusyaDt;
 	/** 現場参画日 **/
 	private String genbaSankakuDt;
-	/** 役職コード */
-	private String yakusyokuCd;
+	/** 役職名 */
+	private String yakusyokuNa;
 	/** フェーズ区分 */
 	private String phaseCd;
 	/** 最寄駅1 **/
@@ -69,7 +70,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 社員IDを取得します。
+	 * 社員IDを取得します．
 	 * @return syainId
 	 */
 	public String getSyainId() {
@@ -77,7 +78,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 現場IDを取得します。
+	 * 現場IDを取得します．
 	 * @return genbaId
 	 */
 	public String getGenbaId() {
@@ -85,7 +86,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 社員名を取得します。
+	 * 社員名を取得します．
 	 * @return syainNa
 	 */
 	public String getSyainNa() {
@@ -93,7 +94,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 社員グループコードを取得します。
+	 * 社員グループコードを取得します．
 	 * @return syainGroupCd
 	 */
 	public String getSyainGroupCd() {
@@ -101,7 +102,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 入社日を取得します。
+	 * 入社日を取得します．
 	 * @return nyusyaDt
 	 */
 	public String getNyusyaDt() {
@@ -109,7 +110,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 現場参画日を取得します。
+	 * 現場参画日を取得します．
 	 * @return genbaSankakuDt
 	 */
 	public String getGenbaSankakuDt() {
@@ -117,15 +118,15 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 役職コードを取得します。
-	 * @return yakusyokuCd
+	 * 役職名を取得します．
+	 * @return yakusyokuNa
 	 */
-	public String getYakusyokuCd() {
-		return yakusyokuCd;
+	public String getYakusyokuNa() {
+		return yakusyokuNa;
 	}
 
 	/**
-	 * フェーズ区分を取得します。
+	 * フェーズ区分を取得します．
 	 * @return phaseCd
 	 */
 	public String getPhaseCd() {
@@ -133,7 +134,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 最寄駅1を取得します。
+	 * 最寄駅1を取得します．
 	 * @return moyoriEki_1
 	 */
 	public String getMoyoriEki_1() {
@@ -141,7 +142,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 最寄駅2を取得します。
+	 * 最寄駅2を取得します．
 	 * @return moyoriEki_2
 	 */
 	public String getMoyoriEki_2() {
@@ -149,7 +150,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 最寄駅3を取得します。
+	 * 最寄駅3を取得します．
 	 * @return moyoriEki_3
 	 */
 	public String getMoyoriEki_3() {
@@ -157,7 +158,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 使用路線名を取得します。
+	 * 使用路線名を取得します．
 	 * @return siyoRosenNa
 	 */
 	public String getSiyoRosenNa() {
@@ -165,7 +166,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 所属チームを取得します。
+	 * 所属チームを取得します．
 	 * @return syozokuTeam
 	 */
 	public String getSyozokuTeam() {
@@ -173,7 +174,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 生年月日を取得します。
+	 * 生年月日を取得します．
 	 * @return birthDt
 	 */
 	public String getBirthDt() {
@@ -181,7 +182,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 経過年数を取得します。
+	 * 経過年数を取得します．
 	 * @return keikaYm
 	 */
 	public String getKeikaYm() {
@@ -189,7 +190,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 単価を取得します。
+	 * 単価を取得します．
 	 * @return tankaVal
 	 */
 	public BigDecimal getTankaVal() {
@@ -197,7 +198,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 前職を取得します。
+	 * 前職を取得します．
 	 * @return zensyokuNa
 	 */
 	public String getZensyokuNa() {
@@ -205,7 +206,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 住所を取得します。
+	 * 住所を取得します．
 	 * @return syainAddress
 	 */
 	public String getSyainAddress() {
@@ -213,7 +214,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 出身地を取得します。
+	 * 出身地を取得します．
 	 * @return syussinNa
 	 */
 	public String getSyussinNa() {
@@ -221,7 +222,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 連絡先を取得します。
+	 * 連絡先を取得します．
 	 * @return syainRenrakusaki
 	 */
 	public String getSyainRenrakusaki() {
@@ -229,7 +230,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 現場名を取得します。
+	 * 現場名を取得します．
 	 * @return genbaNa
 	 */
 	public String getGenbaNa() {
@@ -237,7 +238,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 有効フラグを取得します。
+	 * 有効フラグを取得します．
 	 * @return yukoFg
 	 */
 	public String getYukoFg() {
@@ -245,7 +246,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 削除フラグを取得します。
+	 * 削除フラグを取得します．
 	 * @return sakujoFg
 	 */
 	public String getSakujoFg() {
@@ -253,7 +254,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 検索キーリストを設定します。
+	 * 検索キーリストを設定します．
 	 * @param sijgm001Form
 	 */
 	public void setSijgm001Form(List sijgm001Form) {
@@ -261,7 +262,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 社員IDを設定します。
+	 * 社員IDを設定します．
 	 * @param syainId
 	 */
 	public void setSyainId(String syainId) {
@@ -269,7 +270,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 現場IDを設定します。
+	 * 現場IDを設定します．
 	 * @param genbaId
 	 */
 	public void setGenbaId(String genbaId) {
@@ -277,7 +278,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 社員名を設定します。
+	 * 社員名を設定します．
 	 * @param syainNa
 	 */
 	public void setSyainNa(String syainNa) {
@@ -285,7 +286,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 社員グループコードを設定します。
+	 * 社員グループコードを設定します．
 	 * @param syainGroupCd
 	 */
 	public void setSyainGroupCd(String syainGroupCd) {
@@ -293,7 +294,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 入社日を設定します。
+	 * 入社日を設定します．
 	 * @param nyusyaDt
 	 */
 	public void setNyusyaDt(String nyusyaDt) {
@@ -301,7 +302,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 現場参画日を設定します。
+	 * 現場参画日を設定します．
 	 * @param genbaSankakuDt
 	 */
 	public void setGenbaSankakuDt(String genbaSankakuDt) {
@@ -309,15 +310,15 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 役職コードを設定します。
-	 * @param yakusyokuCd セットする yakusyokuCd
+	 * 役職名を設定します．
+	 * @param yakusyokuNa
 	 */
-	public void setYakusyokuCd(String yakusyokuCd) {
-		this.yakusyokuCd = yakusyokuCd;
+	public void setYakusyokuNa(String yakusyokuNa) {
+		this.yakusyokuNa = yakusyokuNa;
 	}
 
 	/**
-	 * フェーズ区分を設定します。
+	 * フェーズ区分を設定します．
 	 * @param phaseCd
 	 */
 	public void setPhaseCd(String phaseCd) {
@@ -325,7 +326,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 最寄駅1を設定します。
+	 * 最寄駅1を設定します．
 	 * @param moyoriEki_1
 	 */
 	public void setMoyoriEki_1(String moyoriEki_1) {
@@ -333,7 +334,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 最寄駅2を設定します。
+	 * 最寄駅2を設定します．
 	 * @param moyoriEki_2
 	 */
 	public void setMoyoriEki_2(String moyoriEki_2) {
@@ -341,7 +342,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 最寄駅3を設定します。
+	 * 最寄駅3を設定します．
 	 * @param moyoriEki_3
 	 */
 	public void setMoyoriEki_3(String moyoriEki_3) {
@@ -349,7 +350,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 使用路線を設定します。
+	 * 使用路線を設定します．
 	 * @param siyoRosenNa
 	 */
 	public void setSiyoRosenNa(String siyoRosenNa) {
@@ -357,7 +358,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 所属チームを設定します。
+	 * 所属チームを設定します．
 	 * @param syozokuTeam セットする syozokuTeam
 	 */
 	public void setSyozokuTeam(String syozokuTeam) {
@@ -365,7 +366,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 生年月日を設定します。
+	 * 生年月日を設定します．
 	 * @param birthDt
 	 */
 	public void setBirthDt(String birthDt) {
@@ -373,7 +374,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 経過年数を設定します。
+	 * 経過年数を設定します．
 	 * @param keikaYm
 	 */
 	public void setKeikaYm(String keikaYm) {
@@ -381,7 +382,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 単価を設定します。
+	 * 単価を設定します．
 	 * @param tankaVal
 	 */
 	public void setTankaVal(BigDecimal tankaVal) {
@@ -389,7 +390,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 前職を設定します。
+	 * 前職を設定します．
 	 * @param zensyokuNa
 	 */
 	public void setZensyokuNa(String zensyokuNa) {
@@ -397,7 +398,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 住所を設定します。
+	 * 住所を設定します．
 	 * @param syainAddress
 	 */
 	public void setSyainAddress(String syainAddress) {
@@ -405,7 +406,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 出身地を設定します。
+	 * 出身地を設定します．
 	 * @param syussinNa
 	 */
 	public void setSyussinNa(String syussinNa) {
@@ -413,7 +414,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 連絡先を設定します。
+	 * 連絡先を設定します．
 	 * @param syainRenrakusaki
 	 */
 	public void setSyainRenrakusaki(String syainRenrakusaki) {
@@ -421,7 +422,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 現場名を設定します。
+	 * 現場名を設定します．
 	 * @param genbaNa
 	 */
 	public void setGenbaNa(String genbaNa) {
@@ -429,7 +430,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 有効フラグを設定します。
+	 * 有効フラグを設定します．
 	 * @param yukoFg
 	 */
 	public void setYukoFg(String yukoFg) {
@@ -437,7 +438,7 @@ public class SIJGM001Form {
 	}
 
 	/**
-	 * 削除フラグを設定します。
+	 * 削除フラグを設定します．
 	 * @param sakujoFg
 	 */
 	public void setSakujoFg(String sakujoFg) {

@@ -13,6 +13,7 @@ import jp.arise.sij.message.SIJMessage;
  * SIJGM001 社員情報一覧表示画面用サービス
  * @author AtsushiNishizawa
  * @since 2017/07/17
+ * @version ver.1.00 新規作成 2017/11/26 KenshiKouno
  */
 @Service
 public class SIJGM001Servise {

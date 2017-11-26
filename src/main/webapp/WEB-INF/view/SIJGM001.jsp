@@ -58,13 +58,13 @@
 				<c:forEach var="syainInfoList" items="${SIJGM001Form}">
 					<th><c:out value="${syainInfoList.syainId}" /></th>
 					<th><c:out value="${syainInfoList.syainNa}" /></th>
-					<th><c:out value="${syainInfoList.yakusyokuCd}" /></th>
+					<th><c:out value="${syainInfoList.yakusyokuNa}" /></th>
 					<th><c:out value="${syainInfoList.birthDt}" /></th>
 					<th><c:out value="${syainInfoList.syozokuTeam}" /></th>
 					<th><c:out value="${syainInfoList.genbaNa}" /></th>
 					<th><c:out value="${syainInfoList.keikaYm}" /></th>
-					<th><c:out value="${syainInfoList.siyoRosenNa}" /></th>
 					<th><c:out value="${syainInfoList.phaseCd}" /></th>
+					<th><c:out value="${syainInfoList.siyoRosenNa}" /></th>
 					<th><c:out value="${syainInfoList.tankaVal}" /></th>
 				</c:forEach>
 

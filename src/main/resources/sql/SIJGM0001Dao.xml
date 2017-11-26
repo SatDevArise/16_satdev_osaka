@@ -3,8 +3,6 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- 全件取得SQL -->
-<!-- テスト用 -->
-<!-- 検索条件によって抽出条件が変わるため全件取得はほぼ利用想定ないかも？ -->
 <mapper namespace="jp.arise.sij.dao.SIJGM001Dao">
 	<resultMap id="resultSIJGM001Dto" type="jp.arise.sij.dto.SIJGM001Dto">
 		<result column="syain_id" property="syainId" />
@@ -78,5 +76,7 @@
 		WHERE
 			sd.yuko_fg ='1'
 			AND sd.sakujo_fg = '0'
+		ORDER BY
+			sd.syain_id
 	</select>
 </mapper>

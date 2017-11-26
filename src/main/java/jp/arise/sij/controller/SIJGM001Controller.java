@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import jp.arise.code.YakusyokuCd;
 import jp.arise.sij.dto.SIJGM001Dto;
 import jp.arise.sij.form.SIJGM001Form;
 import jp.arise.sij.modelandview.SIJGM001MAV;
@@ -23,6 +24,7 @@ import jp.arise.utl.LoginInfoDto;
  * SIJGM001 社員情報一覧表示画面用コントローラー
  * @author AtsushiNishizawa
  * @since 2017/07/17
+ * @version ver.1.00 新規作成 2017/11/26 KenshiKouno
  */
 @Controller
 public class SIJGM001Controller {
@@ -38,9 +40,6 @@ public class SIJGM001Controller {
     	SIJGM001Form sijGm001Form = new SIJGM001Form();
         return sijGm001Form;
     }
-
-    /** SIJGM001Form **/
-    private SIJGM001Form sijGm001Form;
 
 	/**
 	 * 初期処理（遷移元：メニュー画面）
@@ -79,9 +78,13 @@ public class SIJGM001Controller {
 	 */
     @RequestMapping(value = "/initSijGm001",params = "backSijGm001", method = RequestMethod.POST)
 	public String initSijGm001(SIJGM002MAV sijGm002MAV,Model model) {
-//		SIJGM001Form sijGm001Form = new SIJGM001Form();
-//		sijGm001Form.setUser(sijGm002MAV.getUser());
-		model.addAttribute("SIJGM001Form",sijGm001Form);
+		// 社員情報一覧の取得
+		SIJGM001Dto sijgm001Dto = new SIJGM001Dto();
+		List<SIJGM001Dto> syainList = sijGm001Service.getSyainListInfo(sijgm001Dto);
+
+		// fromの設定
+		List<SIJGM001Form> sijGmForm = setSijgm001FormList(syainList);
+		model.addAttribute("SIJGM001Form",sijGmForm);
 		return "SIJGM001";
 	}
 
@@ -91,7 +94,7 @@ public class SIJGM001Controller {
 	 * @return SIJGM002.jsp
 	 * @throws
 	 * @author AtsushiNishizawa
-	 * @since 2017/07/177
+	 * @since 2017/07/17
 	 */
 	@RequestMapping(value = "/initSijGm001",params = "goToSijGm002",method = RequestMethod.POST)
 	public ModelAndView  goToSijGm002(SIJGM001Form sijGm001Form,Model model) {
@@ -111,7 +114,7 @@ public class SIJGM001Controller {
 	 * @return COMGM002Controller.java
 	 * @throws
 	 * @author AtsushiNishizawa
-	 * @since 2017/07/177
+	 * @since 2017/07/17
 	 */
 	@RequestMapping(value = "/initSijGm001",params = "backComGm002",method = RequestMethod.POST)
 	public ModelAndView  backComGm002(SIJGM001Form sijGm001Form,Model model) {
@@ -126,8 +129,12 @@ public class SIJGM001Controller {
 	}
 
 	/**
-	 * 社員リストを設定します。
+	 * 社員情報リストを設定します。
 	 * @param syainList
+	 * @return sijgm001FormList
+	 * @throws
+	 * @author KenshiKouno
+	 * @since 2017/11/26
 	 */
 	private List<SIJGM001Form> setSijgm001FormList(List<SIJGM001Dto> syainList){
 
@@ -140,7 +147,8 @@ public class SIJGM001Controller {
 
 				sijGm001Form.setSyainId(syainList.get(i).getSyainId());
 				sijGm001Form.setSyainNa(syainList.get(i).getSyainNa());
-				sijGm001Form.setYakusyokuCd(syainList.get(i).getYakusyokuCd());
+				YakusyokuCd yakusyokuCd = YakusyokuCd.decode(syainList.get(i).getYakusyokuCd());
+				sijGm001Form.setYakusyokuNa(yakusyokuCd.getName());
 				sijGm001Form.setBirthDt(syainList.get(i).getBirthDt());
 				sijGm001Form.setSyozokuTeam(syainList.get(i).getSyozokuTeam());
 				sijGm001Form.setGenbaNa(syainList.get(i).getGenbaNa());
