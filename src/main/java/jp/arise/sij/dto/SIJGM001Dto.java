@@ -12,8 +12,6 @@ import java.math.BigDecimal;
  */
 public class SIJGM001Dto implements Serializable{
 
-	/** ユーザーID */
-	private String userId;
 	/** 社員ID */
 	private String syainId;
 	/** 現場ID **/
@@ -60,14 +58,6 @@ public class SIJGM001Dto implements Serializable{
 	private String yukoFg;
 	/** 削除フラグ **/
 	private String sakujoFg;
-
-	/**
-	 * ユーザーIDを取得します。
-	 * @return userId
-	 */
-	public String getUserId() {
-		return userId;
-	}
 
 	/**
 	 * 社員IDを取得します。
@@ -254,14 +244,6 @@ public class SIJGM001Dto implements Serializable{
 	}
 
 	/**
-	 * ユーザーIDを設定します。
-	 * @param userId
-	 */
-	public void setUserId(String userId) {
-		this.userId = userId;
-	}
-
-	/**
 	 * 社員IDを設定します。
 	 * @param syainId
 	 */
@@ -444,8 +426,4 @@ public class SIJGM001Dto implements Serializable{
 	public void setSakujoFg(String sakujoFg) {
 		this.sakujoFg = sakujoFg;
 	}
-
-
-
-
 }

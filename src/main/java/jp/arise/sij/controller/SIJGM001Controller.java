@@ -1,5 +1,6 @@
 package jp.arise.sij.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,9 @@ public class SIJGM001Controller {
         return sijGm001Form;
     }
 
+    /** SIJGM001Form **/
+    private SIJGM001Form sijGm001Form;
+
 	/**
 	 * 初期処理（遷移元：メニュー画面）
 	 * @param model
@@ -48,35 +52,20 @@ public class SIJGM001Controller {
 	 */
     @RequestMapping(value = "/initSijGm001", method = RequestMethod.POST)
 	public String initSijGm001(Model model) {
-    	//セッション情報取得
+
+    	// セッション情報取得
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
 		loginInfoDto = loginInfo.getAttribute();
 		System.out.println(loginInfoDto.getUser_id());
 
-//		SIJGM001Form sijGm001Form = new SIJGM001Form();
-//		sijGm001Form.setUser_id("山田 太郎");
-//		model.addAttribute("SIJGM001Form",sijGm001Form);
-
-		// 社員情報一覧を取得
+		// 社員情報一覧の取得
 		SIJGM001Dto sijgm001Dto = new SIJGM001Dto();
 		List<SIJGM001Dto> syainList = sijGm001Service.getSyainListInfo(sijgm001Dto);
-		if(syainList != null){
-			for(int i = 0; i < syainList.size(); i++){
-				System.out.println("---------------------------------------------");
-				System.out.println("社員ID：" + syainList.get(i).getSyainId());
-				System.out.println("社員名：" + syainList.get(i).getSyainNa());
-				System.out.println("役職CD：" + syainList.get(i).getYakusyokuCd());
-				System.out.println("生年月日：" + syainList.get(i).getBirthDt());
-				System.out.println("所属チーム：" + syainList.get(i).getSyozokuTeam());
-				System.out.println("現場名：" + syainList.get(i).getGenbaNa());
-				System.out.println("現場ID：" + syainList.get(i).getSyainId());
-				System.out.println("経過年数：" + syainList.get(i).getKeikaYm());
-				System.out.println("フェーズ区分：" + syainList.get(i).getPhaseCd());
-				System.out.println("使用路線：" + syainList.get(i).getSiyoRosenNa());
-				System.out.println("単価：" + syainList.get(i).getTankaVal());
-				System.out.println("---------------------------------------------");
-			}
-		}
+
+		// fromの設定
+		List<SIJGM001Form> sijGmForm = setSijgm001FormList(syainList);
+		model.addAttribute("SIJGM001Form",sijGmForm);
+
 		return "SIJGM001";
 	}
 
@@ -90,8 +79,8 @@ public class SIJGM001Controller {
 	 */
     @RequestMapping(value = "/initSijGm001",params = "backSijGm001", method = RequestMethod.POST)
 	public String initSijGm001(SIJGM002MAV sijGm002MAV,Model model) {
-		SIJGM001Form sijGm001Form = new SIJGM001Form();
-		sijGm001Form.setUser(sijGm002MAV.getUser());
+//		SIJGM001Form sijGm001Form = new SIJGM001Form();
+//		sijGm001Form.setUser(sijGm002MAV.getUser());
 		model.addAttribute("SIJGM001Form",sijGm001Form);
 		return "SIJGM001";
 	}
@@ -111,7 +100,7 @@ public class SIJGM001Controller {
 //		sijGm001Service.inputCheck(sijGm001Dto);
 
 		SIJGM001MAV sijGm001MAV = new SIJGM001MAV();
-		sijGm001MAV.setUser(sijGm001Form.getUser());
+//		sijGm001MAV.setUser(sijGm001Form.getUser());
 
 		return new ModelAndView("forward:/initSijGm002","SIJGM001MAV",sijGm001MAV);
 	}
@@ -131,9 +120,52 @@ public class SIJGM001Controller {
 //		sijGm001Service.inputCheck(sijGm001Dto);
 
 		SIJGM001MAV sijGm001MAV = new SIJGM001MAV();
-		sijGm001MAV.setUser(sijGm001Form.getUser());
+//		sijGm001MAV.setUser(sijGm001Form.getUser());
 
 		return new ModelAndView("forward:/initComGm002","SIJGM001MAV",sijGm001MAV);
+	}
+
+	/**
+	 * 社員リストを設定します。
+	 * @param syainList
+	 */
+	private List<SIJGM001Form> setSijgm001FormList(List<SIJGM001Dto> syainList){
+
+		SIJGM001Form sijGm001Form = new SIJGM001Form();
+
+		List<SIJGM001Form> sijgm001FormList = new ArrayList<SIJGM001Form>();
+
+		if(syainList != null){
+			for(int i = 0; i < syainList.size(); i++){
+
+				sijGm001Form.setSyainId(syainList.get(i).getSyainId());
+				sijGm001Form.setSyainNa(syainList.get(i).getSyainNa());
+				sijGm001Form.setYakusyokuCd(syainList.get(i).getYakusyokuCd());
+				sijGm001Form.setBirthDt(syainList.get(i).getBirthDt());
+				sijGm001Form.setSyozokuTeam(syainList.get(i).getSyozokuTeam());
+				sijGm001Form.setGenbaNa(syainList.get(i).getGenbaNa());
+				sijGm001Form.setKeikaYm(syainList.get(i).getKeikaYm());
+				sijGm001Form.setPhaseCd(syainList.get(i).getPhaseCd());
+				sijGm001Form.setSiyoRosenNa(syainList.get(i).getSiyoRosenNa());
+				sijGm001Form.setTankaVal(syainList.get(i).getTankaVal());
+				sijgm001FormList.add(sijGm001Form);
+
+				System.out.println("---------------------------------------------");
+				System.out.println("社員ID：" + syainList.get(i).getSyainId());
+				System.out.println("社員名：" + syainList.get(i).getSyainNa());
+				System.out.println("役職CD：" + syainList.get(i).getYakusyokuCd());
+				System.out.println("生年月日：" + syainList.get(i).getBirthDt());
+				System.out.println("所属チーム：" + syainList.get(i).getSyozokuTeam());
+				System.out.println("現場名：" + syainList.get(i).getGenbaNa());
+				System.out.println("経過年数：" + syainList.get(i).getKeikaYm());
+				System.out.println("フェーズ区分：" + syainList.get(i).getPhaseCd());
+				System.out.println("使用路線：" + syainList.get(i).getSiyoRosenNa());
+				System.out.println("単価：" + syainList.get(i).getTankaVal());
+				System.out.println("---------------------------------------------");
+			}
+		}
+
+		return sijgm001FormList;
 	}
 
 }

@@ -2,6 +2,9 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.List"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
@@ -32,7 +35,8 @@
 				style="margin-left: 10px;">
 		</form:form>
 		<!-- 社員情報一覧表示 -->
-		<table class="table table-bordered">
+		<table class="table-bordered" style="margin-top: 30px;">
+
 			<!-- ヘッダ -->
 			<thead style="color: #FFFFFF; background-color: #191970;">
 				<tr>
@@ -45,28 +49,28 @@
 					<th>経過年数</th>
 					<th>フェーズ</th>
 					<th>使用路線</th>
-					<th>社歴</th>
 					<th>単価</th>
 				</tr>
 			</thead>
 
 			<!-- 明細 -->
-			<tbody>
-				<tr class="active">
-					<th>0001</th>
-					<th>河野賢資</th>
-					<th>リーダー</th>
-					<th>19860812</th>
-					<th>デベロップメントチーム</th>
-					<th>VINX</th>
-					<th>1年3ヶ月</th>
-					<th>PG</th>
-					<th>JR学研都市線</th>
-					<th>4年7か月</th>
-					<th>〇〇〇</th>
-				</tr>
-			</tbody>
+			<tr>
+				<c:forEach var="syainInfoList" items="${SIJGM001Form}">
+					<th><c:out value="${syainInfoList.syainId}" /></th>
+					<th><c:out value="${syainInfoList.syainNa}" /></th>
+					<th><c:out value="${syainInfoList.yakusyokuCd}" /></th>
+					<th><c:out value="${syainInfoList.birthDt}" /></th>
+					<th><c:out value="${syainInfoList.syozokuTeam}" /></th>
+					<th><c:out value="${syainInfoList.genbaNa}" /></th>
+					<th><c:out value="${syainInfoList.keikaYm}" /></th>
+					<th><c:out value="${syainInfoList.siyoRosenNa}" /></th>
+					<th><c:out value="${syainInfoList.phaseCd}" /></th>
+					<th><c:out value="${syainInfoList.tankaVal}" /></th>
+				</c:forEach>
+
+			</tr>
 		</table>
+
 	</div>
 </body>
 </html>
