@@ -33,44 +33,49 @@
 			<input type="submit" class="btn btn-warning" value="戻る"
 				name="backComGm002" formaction="${actionUrl}"
 				style="margin-left: 10px;">
+
+			<!-- 社員情報一覧表示 -->
+			<div align="center">
+				<table class="table-bordered" style="margin-top: 30px;">
+
+					<!-- ヘッダ -->
+					<thead style="color: #FFFFFF; background-color: #191970;">
+						<tr>
+							<th>社員ID</th>
+							<th>氏名</th>
+							<th>役職</th>
+							<th>生年月日</th>
+							<th>チーム</th>
+							<th>現場名</th>
+							<th>経過年数</th>
+							<th>フェーズ</th>
+							<th>使用路線</th>
+							<th>単価</th>
+						</tr>
+					</thead>
+
+					<!-- 明細 -->
+					<tr>
+
+						<c:forEach var="syainInfoList" items="${SIJGM001Form}">
+							<th><input type="submit" class="btn btn-link"
+								value="${syainInfoList.syainId}" name="goToSijGm002"
+								formaction="${actionUrl}"></th>
+							<th><c:out value="${syainInfoList.syainNa}" /></th>
+							<th><c:out value="${syainInfoList.yakusyokuNa}" /></th>
+							<th><c:out value="${syainInfoList.birthDt}" /></th>
+							<th><c:out value="${syainInfoList.syozokuTeam}" /></th>
+							<th><c:out value="${syainInfoList.genbaNa}" /></th>
+							<th><c:out value="${syainInfoList.keikaYm}" /></th>
+							<th><c:out value="${syainInfoList.phaseCd}" /></th>
+							<th><c:out value="${syainInfoList.siyoRosenNa}" /></th>
+							<th><c:out value="${syainInfoList.tankaVal}" /></th>
+						</c:forEach>
+
+					</tr>
+				</table>
+			</div>
 		</form:form>
-		<!-- 社員情報一覧表示 -->
-		<table class="table-bordered" style="margin-top: 30px;">
-
-			<!-- ヘッダ -->
-			<thead style="color: #FFFFFF; background-color: #191970;">
-				<tr>
-					<th>社員ID</th>
-					<th>氏名</th>
-					<th>役職</th>
-					<th>生年月日</th>
-					<th>チーム</th>
-					<th>現場名</th>
-					<th>経過年数</th>
-					<th>フェーズ</th>
-					<th>使用路線</th>
-					<th>単価</th>
-				</tr>
-			</thead>
-
-			<!-- 明細 -->
-			<tr>
-				<c:forEach var="syainInfoList" items="${SIJGM001Form}">
-					<th><c:out value="${syainInfoList.syainId}" /></th>
-					<th><c:out value="${syainInfoList.syainNa}" /></th>
-					<th><c:out value="${syainInfoList.yakusyokuNa}" /></th>
-					<th><c:out value="${syainInfoList.birthDt}" /></th>
-					<th><c:out value="${syainInfoList.syozokuTeam}" /></th>
-					<th><c:out value="${syainInfoList.genbaNa}" /></th>
-					<th><c:out value="${syainInfoList.keikaYm}" /></th>
-					<th><c:out value="${syainInfoList.phaseCd}" /></th>
-					<th><c:out value="${syainInfoList.siyoRosenNa}" /></th>
-					<th><c:out value="${syainInfoList.tankaVal}" /></th>
-				</c:forEach>
-
-			</tr>
-		</table>
-
 	</div>
 </body>
 </html>

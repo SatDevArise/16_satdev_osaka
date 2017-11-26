@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import jp.arise.code.YakusyokuCd;
 import jp.arise.sij.dto.SIJGM001Dto;
 import jp.arise.sij.form.SIJGM001Form;
 import jp.arise.sij.modelandview.SIJGM001MAV;
@@ -147,8 +146,8 @@ public class SIJGM001Controller {
 
 				sijGm001Form.setSyainId(syainList.get(i).getSyainId());
 				sijGm001Form.setSyainNa(syainList.get(i).getSyainNa());
-				YakusyokuCd yakusyokuCd = YakusyokuCd.decode(syainList.get(i).getYakusyokuCd());
-				sijGm001Form.setYakusyokuNa(yakusyokuCd.getName());
+//				YakusyokuCd yakusyokuCd = YakusyokuCd.decode(syainList.get(i).getYakusyokuCd());
+//				sijGm001Form.setYakusyokuNa(yakusyokuCd.getName());
 				sijGm001Form.setBirthDt(syainList.get(i).getBirthDt());
 				sijGm001Form.setSyozokuTeam(syainList.get(i).getSyozokuTeam());
 				sijGm001Form.setGenbaNa(syainList.get(i).getGenbaNa());
