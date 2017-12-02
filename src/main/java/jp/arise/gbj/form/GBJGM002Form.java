@@ -20,7 +20,7 @@ public class GBJGM002Form {
 	private String Moyori_3_station;
 	private String work;
 	private String phase;
-//	private Map<String, String> phase = new HashMap<String, String>();
+	//private Map<Integer,Integer> phase = new HashMap<Integer,Integer>();
 
 	/**
 	 * ユーザーを取得
@@ -134,21 +134,14 @@ public class GBJGM002Form {
 	public void setWork(String work) {
 		this.work = work;
 	}
-//	public Map<String, String> getPhase() {
-//		   return phase;
-//	}
-//	public GBJGM002Form() {
-//		phase.put("development", "開発");
-//		phase.put("evaluation", "評価");
-//	}
 	/**
 	 * フェーズを取得
 	 * @return phase
 	 */
 	 public String getPhase() {
 		   return phase;
-	 }
-		   /**
+		  }
+	/**
 	 * フェーズを設定
 	 * @param phase
 	 */

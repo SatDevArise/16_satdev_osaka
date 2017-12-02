@@ -33,8 +33,8 @@
   作業内容：<form:input path ="work" />
     		</p>
     		<p>
-  フェーズ：<form:select path="phase" multiple="false">
-				<form:options items="${gbjGm002Form.phase}"/>
+  フェーズ：<form:select path="phase">
+				<form:options items="${phaseList}"/>
 			</form:select><br>
 			</p>
     		<p>
