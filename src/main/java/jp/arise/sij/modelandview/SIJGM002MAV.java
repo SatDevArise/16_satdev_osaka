@@ -8,6 +8,8 @@ package jp.arise.sij.modelandview;
  */
 public class SIJGM002MAV {
 
+
+
 	/**
 	 * ユーザー
 	 */
