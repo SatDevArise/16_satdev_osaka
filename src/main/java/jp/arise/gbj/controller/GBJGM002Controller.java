@@ -49,10 +49,10 @@ public class GBJGM002Controller {
 	 */
 	@RequestMapping(value = "/initGbjGm002",params = "goGbjGm002", method = RequestMethod.POST)
 	public String initGbjGm002(Model model) {
-    	//ログイン情報取得
+    	//セッション情報取得
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
 		loginInfoDto = loginInfo.getAttribute();
-		System.out.println(loginInfoDto.getUser());
+		System.out.println(loginInfoDto.getUser_id());
 
 		GBJGM002Form gbjGm002Form = new GBJGM002Form();
 		gbjGm002Form.setUser("");

@@ -192,7 +192,7 @@ public class SIJGM002Form {
 	 *
 	 * @return kensakuKeyList
 	 */
-	public String getKensakukeyList() {
+	public String getKensakuKeyList() {
 		return kensakuKeyList;
 	}
 
@@ -365,7 +365,7 @@ public class SIJGM002Form {
 	 *
 	 * @param kensakuKeyList
 	 */
-	public void setkensakuKeyList(String kensakuKeyList) {
+	public void setKensakuKeyList(String kensakuKeyList) {
 		this.kensakuKeyList = kensakuKeyList;
 	}
 
