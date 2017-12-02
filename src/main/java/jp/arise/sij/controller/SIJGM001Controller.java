@@ -22,6 +22,7 @@ import jp.arise.utl.LoginInfoDto;
 
 /**
  * SIJGM001 社員情報一覧表示画面用コントローラー
+ *
  * @author AtsushiNishizawa
  * @since 2017/07/17
  * @version ver.1.00 新規作成 2017/11/26 KenshiKouno
@@ -35,24 +36,25 @@ public class SIJGM001Controller {
 	@Autowired
 	private SIJGM001Servise sijGm001Service;
 
-    @ModelAttribute
-    public SIJGM001Form setSIJGM001Form() {
-    	SIJGM001Form sijGm001Form = new SIJGM001Form();
-        return sijGm001Form;
-    }
+	@ModelAttribute
+	public SIJGM001Form setSIJGM001Form() {
+		SIJGM001Form sijGm001Form = new SIJGM001Form();
+		return sijGm001Form;
+	}
 
 	/**
 	 * 初期処理（遷移元：メニュー画面）
+	 *
 	 * @param model
 	 * @return SIJGM001.jsp
-	 * @throws
-	 * @author AtsushiNishizawa
+	 * @throws @author
+	 *             AtsushiNishizawa
 	 * @since 2017/07/17
 	 */
-    @RequestMapping(value = "/initSijGm001", method = RequestMethod.POST)
+	@RequestMapping(value = "/initSijGm001", method = RequestMethod.POST)
 	public String initSijGm001(Model model) {
 
-    	// セッション情報取得
+		// セッション情報取得
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
 		loginInfoDto = loginInfo.getAttribute();
 		System.out.println(loginInfoDto.getUser_id());
@@ -63,91 +65,96 @@ public class SIJGM001Controller {
 
 		// fromの設定
 		List<SIJGM001Form> sijGmForm = setSijgm001FormList(syainList);
-		model.addAttribute("SIJGM001Form",sijGmForm);
+		model.addAttribute("SIJGM001Form", sijGmForm);
 
 		return "SIJGM001";
 	}
 
 	/**
 	 * 初期処理（遷移元：社員情報新規登録・編集画面）
+	 *
 	 * @param model
 	 * @return SIJGM001.jsp
-	 * @throws
-	 * @author AtsushiNishizawa
+	 * @throws @author
+	 *             AtsushiNishizawa
 	 * @since 2017/07/17
 	 */
-    @RequestMapping(value = "/initSijGm001",params = "backSijGm001", method = RequestMethod.POST)
-	public String initSijGm001(SIJGM002MAV sijGm002MAV,Model model) {
+	@RequestMapping(value = "/initSijGm001", params = "backSijGm001", method = RequestMethod.POST)
+	public String initSijGm001(SIJGM002MAV sijGm002MAV, Model model) {
 		// 社員情報一覧の取得
 		SIJGM001Dto sijgm001Dto = new SIJGM001Dto();
 		List<SIJGM001Dto> syainList = sijGm001Service.getSyainListInfo(sijgm001Dto);
 
 		// fromの設定
 		List<SIJGM001Form> sijGmForm = setSijgm001FormList(syainList);
-		model.addAttribute("SIJGM001Form",sijGmForm);
+		model.addAttribute("SIJGM001Form", sijGmForm);
 		return "SIJGM001";
 	}
 
 	/**
 	 * 社員情報新規登録・編集画面遷移処理
+	 *
 	 * @param SIJGM001Form
 	 * @return SIJGM002.jsp
-	 * @throws
-	 * @author AtsushiNishizawa
+	 * @throws @author
+	 *             AtsushiNishizawa
 	 * @since 2017/07/17
 	 */
-	@RequestMapping(value = "/initSijGm001",params = "goToSijGm002",method = RequestMethod.POST)
-	public ModelAndView  goToSijGm002(SIJGM001Form sijGm001Form,Model model) {
-//		SIJGM001Dto sijGm001Dto = new SIJGM001Dto();
-//		sijGm001Dto.setUser_id(sijGm001Form.getUser_id());
-//		sijGm001Service.inputCheck(sijGm001Dto);
+	@RequestMapping(value = "/initSijGm001", params = "goToSijGm002", method = RequestMethod.POST)
+	public ModelAndView goToSijGm002(SIJGM001Form sijGm001Form, Model model) {
+		// SIJGM001Dto sijGm001Dto = new SIJGM001Dto();
+		// sijGm001Dto.setUser_id(sijGm001Form.getUser_id());
+		// sijGm001Service.inputCheck(sijGm001Dto);
 
 		SIJGM001MAV sijGm001MAV = new SIJGM001MAV();
-//		sijGm001MAV.setUser(sijGm001Form.getUser());
+		// sijGm001MAV.setUser(sijGm001Form.getUser());
 
-		return new ModelAndView("forward:/initSijGm002","SIJGM001MAV",sijGm001MAV);
+		return new ModelAndView("forward:/initSijGm002", "SIJGM001MAV", sijGm001MAV);
 	}
 
 	/**
 	 * 戻る処理（遷移先：メニュー画面）
+	 *
 	 * @param SIJGM001Form
 	 * @return COMGM002Controller.java
-	 * @throws
-	 * @author AtsushiNishizawa
+	 * @throws @author
+	 *             AtsushiNishizawa
 	 * @since 2017/07/17
 	 */
-	@RequestMapping(value = "/initSijGm001",params = "backComGm002",method = RequestMethod.POST)
-	public ModelAndView  backComGm002(SIJGM001Form sijGm001Form,Model model) {
-//		SIJGM001Dto sijGm001Dto = new SIJGM001Dto();
-//		sijGm001Dto.setUser_id(sijGm001Form.getUser_id());
-//		sijGm001Service.inputCheck(sijGm001Dto);
+	@RequestMapping(value = "/initSijGm001", params = "backComGm002", method = RequestMethod.POST)
+	public ModelAndView backComGm002(SIJGM001Form sijGm001Form, Model model) {
+		// SIJGM001Dto sijGm001Dto = new SIJGM001Dto();
+		// sijGm001Dto.setUser_id(sijGm001Form.getUser_id());
+		// sijGm001Service.inputCheck(sijGm001Dto);
 
 		SIJGM001MAV sijGm001MAV = new SIJGM001MAV();
-//		sijGm001MAV.setUser(sijGm001Form.getUser());
+		// sijGm001MAV.setUser(sijGm001Form.getUser());
 
-		return new ModelAndView("forward:/initComGm002","SIJGM001MAV",sijGm001MAV);
+		return new ModelAndView("forward:/initComGm002", "SIJGM001MAV", sijGm001MAV);
 	}
 
 	/**
 	 * 社員情報リストを設定します。
+	 *
 	 * @param syainList
 	 * @return sijgm001FormList
-	 * @throws
-	 * @author KenshiKouno
+	 * @throws @author
+	 *             KenshiKouno
 	 * @since 2017/11/26
 	 */
-	private List<SIJGM001Form> setSijgm001FormList(List<SIJGM001Dto> syainList){
+	private List<SIJGM001Form> setSijgm001FormList(List<SIJGM001Dto> syainList) {
 
 		SIJGM001Form sijGm001Form = new SIJGM001Form();
 
 		List<SIJGM001Form> sijgm001FormList = new ArrayList<SIJGM001Form>();
 
-		if(syainList != null){
-			for(int i = 0; i < syainList.size(); i++){
+		if (syainList != null) {
+			for (int i = 0; i < syainList.size(); i++) {
 
 				sijGm001Form.setSyainId(syainList.get(i).getSyainId());
 				sijGm001Form.setSyainNa(syainList.get(i).getSyainNa());
-				if(syainList.get(i).getYakusyokuCd() != null) {
+				// 役職コードは必須にする予定だが、現在必須項目ではないため未入力の場合の対策をする
+				if (syainList.get(i).getYakusyokuCd() != null && !"  ".equals(syainList.get(i).getYakusyokuCd())) {
 					YakusyokuCd yakusyokuCd = YakusyokuCd.decode(syainList.get(i).getYakusyokuCd());
 					sijGm001Form.setYakusyokuNa(yakusyokuCd.getName());
 				}
