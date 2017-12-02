@@ -19,7 +19,12 @@
     <context:component-scan base-package="jp.arise.gbj.service" />
     <context:component-scan base-package="jp.arise.gbj.dao" />
 
+    <context:component-scan base-package="jp.arise.sys.controller" />
+    <context:component-scan base-package="jp.arise.sys.service" />
+    <context:component-scan base-package="jp.arise.sys.dao" />
+
     <context:component-scan base-package="jp.arise.utl" />
+     <context:component-scan base-package="jp.arise.code" />
 
     <mvc:annotation-driven />
 
