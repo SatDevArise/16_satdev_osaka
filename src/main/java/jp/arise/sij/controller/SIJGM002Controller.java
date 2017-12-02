@@ -46,7 +46,7 @@ public class SIJGM002Controller {
 	 */
 	@RequestMapping(value = "/initSijGm002",params = "goSijGm002", method = RequestMethod.POST)
 	public String initSijGm002(Model model) {
-    	//セッション情報取得
+    	//ログイン情報取得
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
 		loginInfoDto = loginInfo.getAttribute();
 		System.out.println(loginInfoDto.getUser_id());
@@ -84,8 +84,27 @@ public class SIJGM002Controller {
 	@RequestMapping(value = "/initSijGm002",params = "entrySijGm002", method = RequestMethod.POST)
 	public String entrySijGm002(SIJGM002Form sijGm002Form,Model model) {
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-		sijGm002Dto.setGenba_na(sijGm002Form.getGenba_na());
+
+		sijGm002Dto.setSyain_id(sijGm002Form.getSyain_id());
+		sijGm002Dto.setName(sijGm002Form.getName());
 		sijGm002Dto.setBirth(sijGm002Form.getBirth());
+		sijGm002Dto.setMoyori_1_station(sijGm002Form.getMoyori_1_station());
+		sijGm002Dto.setMoyori_2_station(sijGm002Form.getMoyori_2_station());
+		sijGm002Dto.setMoyori_3_station(sijGm002Form.getMoyori_3_station());
+		sijGm002Dto.setPhoneNumber(sijGm002Form.getPhoneNumber());
+		sijGm002Dto.setPrevious(sijGm002Form.getPrevious());
+		sijGm002Dto.setBirth_place(sijGm002Form.getBirth_place());
+		sijGm002Dto.setPosition(sijGm002Form.getPosition());
+		sijGm002Dto.setNyusya_dt(sijGm002Form.getNyusya_dt());
+		sijGm002Dto.setTeam_na(sijGm002Form.getTeam_na());
+		sijGm002Dto.setPhase_kb(sijGm002Form.getPhase_kb());
+		sijGm002Dto.setTanka(sijGm002Form.getTanka());
+		sijGm002Dto.setGenba_na(sijGm002Form.getGenba_na());
+		sijGm002Dto.setSankaku_dt(sijGm002Form.getSankaku_dt());
+		sijGm002Dto.setKensakuKeyList(sijGm002Form.getKensakuKeyList());
+		sijGm002Dto.setPage(sijGm002Form.getPage());
+
+
 		return "SIJGM002";
 	}
 
@@ -99,6 +118,26 @@ public class SIJGM002Controller {
 	 */
 	@RequestMapping(value = "/initSijGm002",params = "updateSijGm002", method = RequestMethod.POST)
 	public String updateSijGm002(SIJGM002Form sijGm002Form,Model model) {
+		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+		sijGm002Dto.setSyain_id(sijGm002Form.getSyain_id());
+		sijGm002Dto.setName(sijGm002Form.getName());
+		sijGm002Dto.setBirth(sijGm002Form.getBirth());
+		sijGm002Dto.setMoyori_1_station(sijGm002Form.getMoyori_1_station());
+		sijGm002Dto.setMoyori_2_station(sijGm002Form.getMoyori_2_station());
+		sijGm002Dto.setMoyori_3_station(sijGm002Form.getMoyori_3_station());
+		sijGm002Dto.setPhoneNumber(sijGm002Form.getPhoneNumber());
+		sijGm002Dto.setPrevious(sijGm002Form.getPrevious());
+		sijGm002Dto.setBirth_place(sijGm002Form.getBirth_place());
+		sijGm002Dto.setPosition(sijGm002Form.getPosition());
+		sijGm002Dto.setNyusya_dt(sijGm002Form.getNyusya_dt());
+		sijGm002Dto.setTeam_na(sijGm002Form.getTeam_na());
+		sijGm002Dto.setPhase_kb(sijGm002Form.getPhase_kb());
+		sijGm002Dto.setTanka(sijGm002Form.getTanka());
+		sijGm002Dto.setGenba_na(sijGm002Form.getGenba_na());
+		sijGm002Dto.setSankaku_dt(sijGm002Form.getSankaku_dt());
+		sijGm002Dto.setKensakuKeyList(sijGm002Form.getKensakuKeyList());
+		sijGm002Dto.setPage(sijGm002Form.getPage());
+
 		return "SIJGM002";
 	}
 
@@ -112,6 +151,25 @@ public class SIJGM002Controller {
 	 */
 	@RequestMapping(value = "/initSijGm002",params = "deleteSijGm002", method = RequestMethod.POST)
 	public String deleteSijGm002(SIJGM002Form sijGm002Form,Model model) {
+		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+		sijGm002Dto.setSyain_id(sijGm002Form.getSyain_id());
+		sijGm002Dto.setName(sijGm002Form.getName());
+		sijGm002Dto.setBirth(sijGm002Form.getBirth());
+		sijGm002Dto.setMoyori_1_station(sijGm002Form.getMoyori_1_station());
+		sijGm002Dto.setMoyori_2_station(sijGm002Form.getMoyori_2_station());
+		sijGm002Dto.setMoyori_3_station(sijGm002Form.getMoyori_3_station());
+		sijGm002Dto.setPhoneNumber(sijGm002Form.getPhoneNumber());
+		sijGm002Dto.setPrevious(sijGm002Form.getPrevious());
+		sijGm002Dto.setBirth_place(sijGm002Form.getBirth_place());
+		sijGm002Dto.setPosition(sijGm002Form.getPosition());
+		sijGm002Dto.setNyusya_dt(sijGm002Form.getNyusya_dt());
+		sijGm002Dto.setTeam_na(sijGm002Form.getTeam_na());
+		sijGm002Dto.setPhase_kb(sijGm002Form.getPhase_kb());
+		sijGm002Dto.setTanka(sijGm002Form.getTanka());
+		sijGm002Dto.setGenba_na(sijGm002Form.getGenba_na());
+		sijGm002Dto.setSankaku_dt(sijGm002Form.getSankaku_dt());
+		sijGm002Dto.setKensakuKeyList(sijGm002Form.getKensakuKeyList());
+		sijGm002Dto.setPage(sijGm002Form.getPage());
 		return "SIJGM002";
 	}
 
@@ -126,11 +184,46 @@ public class SIJGM002Controller {
 	@RequestMapping(value = "/initSijGm002",params = "backComGm002", method = RequestMethod.POST)
 	public ModelAndView backComGm002(SIJGM002Form sijGm002Form,Model model) {
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-		sijGm002Dto.setUser(sijGm002Form.getUser());
+		sijGm002Dto.setSyain_id(sijGm002Form.getSyain_id());
+		sijGm002Dto.setName(sijGm002Form.getName());
+		sijGm002Dto.setBirth(sijGm002Form.getBirth());
+		sijGm002Dto.setMoyori_1_station(sijGm002Form.getMoyori_1_station());
+		sijGm002Dto.setMoyori_2_station(sijGm002Form.getMoyori_2_station());
+		sijGm002Dto.setMoyori_3_station(sijGm002Form.getMoyori_3_station());
+		sijGm002Dto.setPhoneNumber(sijGm002Form.getPhoneNumber());
+		sijGm002Dto.setPrevious(sijGm002Form.getPrevious());
+		sijGm002Dto.setBirth_place(sijGm002Form.getBirth_place());
+		sijGm002Dto.setPosition(sijGm002Form.getPosition());
+		sijGm002Dto.setNyusya_dt(sijGm002Form.getNyusya_dt());
+		sijGm002Dto.setTeam_na(sijGm002Form.getTeam_na());
+		sijGm002Dto.setPhase_kb(sijGm002Form.getPhase_kb());
+		sijGm002Dto.setTanka(sijGm002Form.getTanka());
+		sijGm002Dto.setGenba_na(sijGm002Form.getGenba_na());
+		sijGm002Dto.setSankaku_dt(sijGm002Form.getSankaku_dt());
+		sijGm002Dto.setKensakuKeyList(sijGm002Form.getKensakuKeyList());
+		sijGm002Dto.setPage(sijGm002Form.getPage());
 		sijGm002Service.inputCheck(sijGm002Dto);
 
 		SIJGM002MAV sijGm002MAV = new SIJGM002MAV();
 		sijGm002MAV.setUser(sijGm002Form.getUser());
+		sijGm002MAV.setSyain_id(sijGm002Form.getSyain_id());
+		sijGm002MAV.setName(sijGm002Form.getName());
+		sijGm002MAV.setBirth(sijGm002Form.getBirth());
+		sijGm002MAV.setMoyori_1_station(sijGm002Form.getMoyori_1_station());
+		sijGm002MAV.setMoyori_2_station(sijGm002Form.getMoyori_2_station());
+		sijGm002MAV.setMoyori_3_station(sijGm002Form.getMoyori_3_station());
+		sijGm002MAV.setPhoneNumber(sijGm002Form.getPhoneNumber());
+		sijGm002MAV.setPrevious(sijGm002Form.getPrevious());
+		sijGm002MAV.setBirth_place(sijGm002Form.getBirth_place());
+		sijGm002MAV.setPosition(sijGm002Form.getPosition());
+		sijGm002MAV.setNyusya_dt(sijGm002Form.getNyusya_dt());
+		sijGm002MAV.setTeam_na(sijGm002Form.getTeam_na());
+		sijGm002MAV.setPhase_kb(sijGm002Form.getPhase_kb());
+		sijGm002MAV.setTanka(sijGm002Form.getTanka());
+		sijGm002MAV.setGenba_na(sijGm002Form.getGenba_na());
+		sijGm002MAV.setSankaku_dt(sijGm002Form.getSankaku_dt());
+		sijGm002MAV.setKensakuKeyList(sijGm002Form.getKensakuKeyList());
+		sijGm002MAV.setPage(sijGm002Form.getPage());
 		return new ModelAndView("forward:/initComGm002","SIJGM002MAV",sijGm002MAV);
 	}
 
@@ -146,10 +239,47 @@ public class SIJGM002Controller {
 	public ModelAndView backSijGm001(SIJGM002Form sijGm002Form,Model model) {
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
 		sijGm002Dto.setUser(sijGm002Form.getUser());
+		sijGm002Dto.setSyain_id(sijGm002Form.getSyain_id());
+		sijGm002Dto.setName(sijGm002Form.getName());
+		sijGm002Dto.setBirth(sijGm002Form.getBirth());
+		sijGm002Dto.setMoyori_1_station(sijGm002Form.getMoyori_1_station());
+		sijGm002Dto.setMoyori_2_station(sijGm002Form.getMoyori_2_station());
+		sijGm002Dto.setMoyori_3_station(sijGm002Form.getMoyori_3_station());
+		sijGm002Dto.setPhoneNumber(sijGm002Form.getPhoneNumber());
+		sijGm002Dto.setPrevious(sijGm002Form.getPrevious());
+		sijGm002Dto.setBirth_place(sijGm002Form.getBirth_place());
+		sijGm002Dto.setPosition(sijGm002Form.getPosition());
+		sijGm002Dto.setNyusya_dt(sijGm002Form.getNyusya_dt());
+		sijGm002Dto.setTeam_na(sijGm002Form.getTeam_na());
+		sijGm002Dto.setPhase_kb(sijGm002Form.getPhase_kb());
+		sijGm002Dto.setTanka(sijGm002Form.getTanka());
+		sijGm002Dto.setGenba_na(sijGm002Form.getGenba_na());
+		sijGm002Dto.setSankaku_dt(sijGm002Form.getSankaku_dt());
+		sijGm002Dto.setKensakuKeyList(sijGm002Form.getKensakuKeyList());
+		sijGm002Dto.setPage(sijGm002Form.getPage());
 		sijGm002Service.inputCheck(sijGm002Dto);
 
 		SIJGM002MAV sijGm002MAV = new SIJGM002MAV();
 		sijGm002MAV.setUser(sijGm002Form.getUser());
+		sijGm002MAV.setUser(sijGm002Form.getUser());
+		sijGm002MAV.setSyain_id(sijGm002Form.getSyain_id());
+		sijGm002MAV.setName(sijGm002Form.getName());
+		sijGm002MAV.setBirth(sijGm002Form.getBirth());
+		sijGm002MAV.setMoyori_1_station(sijGm002Form.getMoyori_1_station());
+		sijGm002MAV.setMoyori_2_station(sijGm002Form.getMoyori_2_station());
+		sijGm002MAV.setMoyori_3_station(sijGm002Form.getMoyori_3_station());
+		sijGm002MAV.setPhoneNumber(sijGm002Form.getPhoneNumber());
+		sijGm002MAV.setPrevious(sijGm002Form.getPrevious());
+		sijGm002MAV.setBirth_place(sijGm002Form.getBirth_place());
+		sijGm002MAV.setPosition(sijGm002Form.getPosition());
+		sijGm002MAV.setNyusya_dt(sijGm002Form.getNyusya_dt());
+		sijGm002MAV.setTeam_na(sijGm002Form.getTeam_na());
+		sijGm002MAV.setPhase_kb(sijGm002Form.getPhase_kb());
+		sijGm002MAV.setTanka(sijGm002Form.getTanka());
+		sijGm002MAV.setGenba_na(sijGm002Form.getGenba_na());
+		sijGm002MAV.setSankaku_dt(sijGm002Form.getSankaku_dt());
+		sijGm002MAV.setKensakuKeyList(sijGm002Form.getKensakuKeyList());
+		sijGm002MAV.setPage(sijGm002Form.getPage());
 		return new ModelAndView("forward:/initSijGm001","SIJGM002MAV",sijGm002MAV);
 	}
 

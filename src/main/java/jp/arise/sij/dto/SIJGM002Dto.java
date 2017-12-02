@@ -405,7 +405,9 @@ public class SIJGM002Dto implements Serializable{
 	 * 参画日を設定
 	 * @param sankaku_dt
 	 */
-	public void setsankaku_dt(String sankaku_dt) {
+
+	public void setSankaku_dt(String sankaku_dt) {
+
 		this.sankaku_dt = sankaku_dt;
 	}
 

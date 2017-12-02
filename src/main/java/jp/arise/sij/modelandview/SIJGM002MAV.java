@@ -98,6 +98,16 @@ public class SIJGM002MAV {
 	 */
 	private String sankaku_dt;
 
+	/**
+	 * 検索キーリスト
+	 */
+	private String kensakuKeyList;
+
+	/**
+	 * ページ
+	 */
+	private String page;
+
 
 	//以下にgetterを記載
 	/**
@@ -236,6 +246,22 @@ public class SIJGM002MAV {
 		return sankaku_dt;
 	}
 
+	/**
+	 * 検索キーリスト
+	 * @return  kensakuKeyList
+	 */
+	public String getKensakuKeyList() {
+		return  kensakuKeyList;
+	}
+
+	/**
+	 * ページ
+	 * @return page
+	 */
+	public String getPage() {
+		return page;
+	}
+
 	//以下にsetterを記載
 	/**
 	 * ユーザーを設定
@@ -265,7 +291,7 @@ public class SIJGM002MAV {
 	 * 生年月日を設定
 	 * @param birth
 	 */
-	public void setbirth(String birth) {
+	public void setBirth(String birth) {
 		this.birth = birth;
 	}
 
@@ -371,6 +397,23 @@ public class SIJGM002MAV {
 	 */
 	public void setSankaku_dt(String sankaku_dt) {
 		this.sankaku_dt = sankaku_dt;
+	}
+
+	/**
+	 * 検索キーリスト
+	 * @param string
+	 * @return  kensakuKeyList
+	 */
+	public String setKensakuKeyList(String kensakukeylist) {
+		return  kensakuKeyList;
+	}
+
+	/**
+	 * ページ
+	 * @return page
+	 */
+	public String setPage(String page) {
+		return page;
 	}
 
 
