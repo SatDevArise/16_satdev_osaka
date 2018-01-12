@@ -5,6 +5,7 @@
 
 <%@ page import="java.util.ArrayList"%>
 <%@ page import="java.util.List"%>
+<%@ taglib prefix="tg" tagdir="/WEB-INF/tags"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
@@ -17,6 +18,7 @@
 	rel="stylesheet">
 <script src="<c:url value="/resources/bootstrap/js/bootstrap.min.js" />"></script>
 <script src="<c:url value="/resources/js/SIJGM001.js" />"></script>
+
 <title>SIJGM001 社員情報一覧表示画面</title>
 </head>
 <body>
@@ -33,6 +35,7 @@
 			<input type="submit" class="btn btn-warning" value="戻る"
 				name="backComGm002" formaction="${actionUrl}"
 				style="margin-left: 10px;">
+			<br>
 
 			<!-- 社員情報一覧表示 -->
 			<div align="center">
@@ -55,9 +58,10 @@
 					</thead>
 
 					<!-- 明細 -->
-					<tr>
 
-						<c:forEach var="syainInfoList" items="${SIJGM001Form}">
+
+					<c:forEach var="syainInfoList" items="${SIJGM001Form}">
+						<tr>
 							<th><input type="submit" class="btn btn-link"
 								value="${syainInfoList.syainId}" name="goToSijGm002"
 								formaction="${actionUrl}"></th>
@@ -70,12 +74,14 @@
 							<th><c:out value="${syainInfoList.phaseCd}" /></th>
 							<th><c:out value="${syainInfoList.siyoRosenNa}" /></th>
 							<th><c:out value="${syainInfoList.tankaVal}" /></th>
-						</c:forEach>
+						</tr>
+					</c:forEach>
 
-					</tr>
+
 				</table>
 			</div>
 		</form:form>
+
 	</div>
 </body>
 </html>

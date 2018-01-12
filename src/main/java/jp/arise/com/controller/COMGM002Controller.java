@@ -49,7 +49,7 @@ public class COMGM002Controller {
 
 	/**
 	 * 社員情報一覧表示画面遷移処理
-	 * @param COMGM002Form
+	 * @param SYSCOMForm
 	 * @return SIJGM001Controller.java
 	 * @throws
 	 * @author AtsushiNishizawa
@@ -69,7 +69,7 @@ public class COMGM002Controller {
 
 	/**
 	 * 社員情報新規登録・編集画面遷移処理
-	 * @param COMGM002Form
+	 * @param SYSCOMForm
 	 * @return SIJGM002Controller.java
 	 * @throws
 	 * @author AtsushiNishizawa
@@ -89,7 +89,7 @@ public class COMGM002Controller {
 
 	/**
 	 * 現場情報一覧表示画面<遷移処理
-	 * @param COMGM002Form
+	 * @param SYSCOMForm
 	 * @return GBJGM001Controller.java
 	 * @throws
 	 * @author AtsushiNishizawa
@@ -109,7 +109,7 @@ public class COMGM002Controller {
 
 	/**
 	 * 現場情報新規登録・編集画面遷移処理
-	 * @param COMGM002Form
+	 * @param SYSCOMForm
 	 * @return GBJGM002Controller.java
 	 * @throws
 	 * @author AtsushiNishizawa
@@ -127,4 +127,23 @@ public class COMGM002Controller {
 		return new ModelAndView("forward:/initGbjGm002","COMGM002MAV",comGm002MAV);
 	}
 
+	/**
+	 * システム管理画面へ遷移処理
+	 * @param SYSCOMForm
+	 * @return
+	 * @throws
+	 * @author AtsushiNishizawa
+	 * @since 2017/07/17
+	 */
+	@RequestMapping(value = "/initComGm002", params = "goSysComGm",method = RequestMethod.POST)
+	public ModelAndView goSysComGm(COMGM002Form comGm002Form,Model model) {
+		COMGM002Dto comGm002Dto = new COMGM002Dto();
+		comGm002Dto.setUser(comGm002Form.getUser());
+		comGm002Service.inputCheck(comGm002Dto);
+
+		COMGM002MAV comGm002MAV = new COMGM002MAV();
+		comGm002MAV.setUser(comGm002Form.getUser());
+
+		return new ModelAndView("forward:/initSysComGm","COMGM002MAV",comGm002MAV);
+	}
 }

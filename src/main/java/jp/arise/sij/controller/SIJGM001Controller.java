@@ -144,12 +144,11 @@ public class SIJGM001Controller {
 	 */
 	private List<SIJGM001Form> setSijgm001FormList(List<SIJGM001Dto> syainList) {
 
-		SIJGM001Form sijGm001Form = new SIJGM001Form();
-
 		List<SIJGM001Form> sijgm001FormList = new ArrayList<SIJGM001Form>();
 
 		if (syainList != null) {
 			for (int i = 0; i < syainList.size(); i++) {
+				SIJGM001Form sijGm001Form = new SIJGM001Form();
 
 				sijGm001Form.setSyainId(syainList.get(i).getSyainId());
 				sijGm001Form.setSyainNa(syainList.get(i).getSyainNa());
@@ -184,5 +183,4 @@ public class SIJGM001Controller {
 
 		return sijgm001FormList;
 	}
-
 }
