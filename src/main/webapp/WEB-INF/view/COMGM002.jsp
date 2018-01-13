@@ -35,7 +35,7 @@
 			<input type="submit" class="btn btn-warning" value="現場情報新規登録" name="goGbjGm002"
 				style="WIDTH: 240px; HEIGHT: 35px" formaction="${actionUrl}">
 					　　　　　　　　　　<u>現場情報の新規登録を行います</u><br><br>
-			<input type="submit" class="btn sys-kanri" value="システム管理" name=""
+			<input type="submit" class="btn sys-kanri" value="システム管理" name="goSysComGm"
 				style="WIDTH: 240px; HEIGHT: 35px" formaction="${actionUrl}">
 					　　　　　　　　　　<u>システム情報を管理します</u><br><br>
 

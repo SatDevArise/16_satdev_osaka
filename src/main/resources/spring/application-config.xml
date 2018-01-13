@@ -47,4 +47,8 @@
         <property name="basePackage" value="jp.arise.gbj.dao" />
     </bean>
 
+     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="jp.arise.sys.dao" />
+    </bean>
+
 </beans>

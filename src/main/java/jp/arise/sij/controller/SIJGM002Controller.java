@@ -84,7 +84,6 @@ public class SIJGM002Controller {
 	@RequestMapping(value = "/initSijGm002",params = "entrySijGm002", method = RequestMethod.POST)
 	public String entrySijGm002(SIJGM002Form sijGm002Form,Model model) {
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-
 		sijGm002Dto.setSyain_id(sijGm002Form.getSyain_id());
 		sijGm002Dto.setName(sijGm002Form.getName());
 		sijGm002Dto.setBirth(sijGm002Form.getBirth());
@@ -103,7 +102,6 @@ public class SIJGM002Controller {
 		sijGm002Dto.setSankaku_dt(sijGm002Form.getSankaku_dt());
 		sijGm002Dto.setKensakuKeyList(sijGm002Form.getKensakuKeyList());
 		sijGm002Dto.setPage(sijGm002Form.getPage());
-
 
 		return "SIJGM002";
 	}
