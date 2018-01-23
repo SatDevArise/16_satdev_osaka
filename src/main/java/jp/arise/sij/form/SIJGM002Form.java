@@ -221,7 +221,7 @@ public class SIJGM002Form {
 	 *
 	 * @param user
 	 */
-	public void setsyain_id(String syain_id) {
+	public void setSyain_id(String syain_id) {
 		this.syain_id = syain_id;
 	}
 

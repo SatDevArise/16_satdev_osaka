@@ -1,5 +1,6 @@
 package jp.arise.sij.controller;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -84,24 +85,36 @@ public class SIJGM002Controller {
 	@RequestMapping(value = "/initSijGm002",params = "entrySijGm002", method = RequestMethod.POST)
 	public String entrySijGm002(SIJGM002Form sijGm002Form,Model model) {
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+		BeanUtils.copyProperties(sijGm002Form,sijGm002Dto);
 		sijGm002Dto.setSyain_id(sijGm002Form.getSyain_id());
-		sijGm002Dto.setName(sijGm002Form.getName());
-		sijGm002Dto.setBirth(sijGm002Form.getBirth());
-		sijGm002Dto.setMoyori_1_station(sijGm002Form.getMoyori_1_station());
-		sijGm002Dto.setMoyori_2_station(sijGm002Form.getMoyori_2_station());
-		sijGm002Dto.setMoyori_3_station(sijGm002Form.getMoyori_3_station());
-		sijGm002Dto.setPhoneNumber(sijGm002Form.getPhoneNumber());
-		sijGm002Dto.setPrevious(sijGm002Form.getPrevious());
-		sijGm002Dto.setBirth_place(sijGm002Form.getBirth_place());
-		sijGm002Dto.setPosition(sijGm002Form.getPosition());
-		sijGm002Dto.setNyusya_dt(sijGm002Form.getNyusya_dt());
-		sijGm002Dto.setTeam_na(sijGm002Form.getTeam_na());
-		sijGm002Dto.setPhase_kb(sijGm002Form.getPhase_kb());
-		sijGm002Dto.setTanka(sijGm002Form.getTanka());
-		sijGm002Dto.setGenba_na(sijGm002Form.getGenba_na());
-		sijGm002Dto.setSankaku_dt(sijGm002Form.getSankaku_dt());
-		sijGm002Dto.setKensakuKeyList(sijGm002Form.getKensakuKeyList());
-		sijGm002Dto.setPage(sijGm002Form.getPage());
+		System.out.print(sijGm002Dto.getSyain_id());
+		System.out.print(sijGm002Form.getSyain_id());
+		System.out.print(sijGm002Dto.getBirth());
+		System.out.print(sijGm002Form.getBirth());
+		System.out.print(sijGm002Dto.getMoyori_1_station());
+		System.out.print(sijGm002Form.getMoyori_1_station());
+
+
+
+
+
+//		sijGm002Dto.setName(sijGm002Form.getName());
+//		sijGm002Dto.setBirth(sijGm002Form.getBirth());
+//		sijGm002Dto.setMoyori_1_station(sijGm002Form.getMoyori_1_station());
+//		sijGm002Dto.setMoyori_2_station(sijGm002Form.getMoyori_2_station());
+//		sijGm002Dto.setMoyori_3_station(sijGm002Form.getMoyori_3_station());
+//		sijGm002Dto.setPhoneNumber(sijGm002Form.getPhoneNumber());
+//		sijGm002Dto.setPrevious(sijGm002Form.getPrevious());
+//		sijGm002Dto.setBirth_place(sijGm002Form.getBirth_place());
+//		sijGm002Dto.setPosition(sijGm002Form.getPosition());
+//		sijGm002Dto.setNyusya_dt(sijGm002Form.getNyusya_dt());
+//		sijGm002Dto.setTeam_na(sijGm002Form.getTeam_na());
+//		sijGm002Dto.setPhase_kb(sijGm002Form.getPhase_kb());
+//		sijGm002Dto.setTanka(sijGm002Form.getTanka());
+//		sijGm002Dto.setGenba_na(sijGm002Form.getGenba_na());
+//		sijGm002Dto.setSankaku_dt(sijGm002Form.getSankaku_dt());
+//		sijGm002Dto.setKensakuKeyList(sijGm002Form.getKensakuKeyList());
+//		sijGm002Dto.setPage(sijGm002Form.getPage());
 
 		return "SIJGM002";
 	}
