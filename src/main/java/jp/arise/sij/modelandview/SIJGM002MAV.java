@@ -18,7 +18,7 @@ public class SIJGM002MAV {
 	/**
 	 * 社員ID
 	 */
-	private String syain_id;
+	private String syain_Id;
 
 	/**
 	 * 名前
@@ -122,8 +122,8 @@ public class SIJGM002MAV {
 	 * 社員IDを取得
 	 * @return syain_id
 	 */
-	public String getSyain_id() {
-		return syain_id;
+	public String getSyain_Id() {
+		return syain_Id;
 	}
 
 	/**
@@ -275,8 +275,8 @@ public class SIJGM002MAV {
 	 * 社員IDを設定
 	 * @param syain_id
 	 */
-	public void setSyain_id(String syain_id) {
-		this.syain_id = syain_id;
+	public void setSyain_Id(String syain_id) {
+		this.syain_Id = syain_id;
 	}
 
 	/**

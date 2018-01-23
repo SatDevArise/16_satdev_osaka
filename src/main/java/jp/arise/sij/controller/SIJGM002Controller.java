@@ -89,15 +89,10 @@ public class SIJGM002Controller {
 		sijGm002Dto.setSyain_Id(sijGm002Form.getSyain_Id());
 		System.out.print(sijGm002Dto.getSyain_Id());
 		System.out.print(sijGm002Form.getSyain_Id());
-
 		System.out.print(sijGm002Dto.getBirth());
 		System.out.print(sijGm002Form.getBirth());
 		System.out.print(sijGm002Dto.getMoyori_1_station());
 		System.out.print(sijGm002Form.getMoyori_1_station());
-
-
-
-
 
 //		sijGm002Dto.setName(sijGm002Form.getName());
 //		sijGm002Dto.setBirth(sijGm002Form.getBirth());
@@ -131,7 +126,10 @@ public class SIJGM002Controller {
 	@RequestMapping(value = "/initSijGm002",params = "updateSijGm002", method = RequestMethod.POST)
 	public String updateSijGm002(SIJGM002Form sijGm002Form,Model model) {
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-		sijGm002Dto.setSyain_Id(sijGm002Form.getSyain_Id());
+		BeanUtils.copyProperties(sijGm002Form,sijGm002Dto);
+
+
+		/*sijGm002Dto.setSyain_Id(sijGm002Form.getSyain_Id());
 		sijGm002Dto.setName(sijGm002Form.getName());
 		sijGm002Dto.setBirth(sijGm002Form.getBirth());
 		sijGm002Dto.setMoyori_1_station(sijGm002Form.getMoyori_1_station());
@@ -149,7 +147,7 @@ public class SIJGM002Controller {
 		sijGm002Dto.setSankaku_dt(sijGm002Form.getSankaku_dt());
 		sijGm002Dto.setKensakuKeyList(sijGm002Form.getKensakuKeyList());
 		sijGm002Dto.setPage(sijGm002Form.getPage());
-
+		*/
 		return "SIJGM002";
 	}
 
@@ -218,7 +216,7 @@ public class SIJGM002Controller {
 
 		SIJGM002MAV sijGm002MAV = new SIJGM002MAV();
 		sijGm002MAV.setUser(sijGm002Form.getUser());
-		sijGm002MAV.setSyain_id(sijGm002Form.getSyain_Id());
+		sijGm002MAV.setSyain_Id(sijGm002Form.getSyain_Id());
 		sijGm002MAV.setName(sijGm002Form.getName());
 		sijGm002MAV.setBirth(sijGm002Form.getBirth());
 		sijGm002MAV.setMoyori_1_station(sijGm002Form.getMoyori_1_station());
@@ -274,7 +272,7 @@ public class SIJGM002Controller {
 		SIJGM002MAV sijGm002MAV = new SIJGM002MAV();
 		sijGm002MAV.setUser(sijGm002Form.getUser());
 		sijGm002MAV.setUser(sijGm002Form.getUser());
-		sijGm002MAV.setSyain_id(sijGm002Form.getSyain_Id());
+		sijGm002MAV.setSyain_Id(sijGm002Form.getSyain_Id());
 		sijGm002MAV.setName(sijGm002Form.getName());
 		sijGm002MAV.setBirth(sijGm002Form.getBirth());
 		sijGm002MAV.setMoyori_1_station(sijGm002Form.getMoyori_1_station());

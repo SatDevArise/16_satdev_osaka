@@ -12,8 +12,7 @@ public class SIJGM002Form {
 	 * ユーザー
 	 */
 	private String user;
-
-	private String syain_id;
+	private String syain_Id;
 	private String name;
 	private String birth;
 	private String moyori_1_station;
@@ -49,7 +48,7 @@ public class SIJGM002Form {
 	 * @return syain_id
 	 */
 	public String getSyain_Id() {
-		return syain_id;
+		return syain_Id;
 	}
 
 	/**
@@ -218,11 +217,12 @@ public class SIJGM002Form {
 
 	/**
 	 * 社員ID を設定
+	 * @param
 	 *
-	 * @param user
+	 * @param syain_id
 	 */
 	public void setSyain_Id(String syain_id) {
-		this.syain_id = syain_id;
+		this.syain_Id =syain_id ;
 	}
 
 	/**
