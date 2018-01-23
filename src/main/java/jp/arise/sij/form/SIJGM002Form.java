@@ -48,7 +48,7 @@ public class SIJGM002Form {
 	 *
 	 * @return syain_id
 	 */
-	public String getSyain_id() {
+	public String getSyain_Id() {
 		return syain_id;
 	}
 
@@ -174,7 +174,7 @@ public class SIJGM002Form {
 	 *
 	 * @return genba_na
 	 */
-	public String getGenba_na() {
+	public String getGenba_Na() {
 		return genba_na;
 	}
 
@@ -221,7 +221,7 @@ public class SIJGM002Form {
 	 *
 	 * @param user
 	 */
-	public void setSyain_id(String syain_id) {
+	public void setSyain_Id(String syain_id) {
 		this.syain_id = syain_id;
 	}
 
@@ -230,7 +230,7 @@ public class SIJGM002Form {
 	 *
 	 * @param user
 	 */
-	public void setname(String name) {
+	public void setName(String name) {
 		this.name = name;
 	}
 
@@ -347,7 +347,7 @@ public class SIJGM002Form {
 	 *
 	 * @param genba_na
 	 */
-	public void setGenba_na(String genba_na) {
+	public void setGenba_Na(String genba_na) {
 		this.genba_na = genba_na;
 	}
 
