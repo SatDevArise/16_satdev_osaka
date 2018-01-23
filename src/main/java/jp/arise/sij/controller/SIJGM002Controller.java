@@ -89,6 +89,7 @@ public class SIJGM002Controller {
 		sijGm002Dto.setSyain_Id(sijGm002Form.getSyain_Id());
 		System.out.print(sijGm002Dto.getSyain_Id());
 		System.out.print(sijGm002Form.getSyain_Id());
+
 		System.out.print(sijGm002Dto.getBirth());
 		System.out.print(sijGm002Form.getBirth());
 		System.out.print(sijGm002Dto.getMoyori_1_station());
