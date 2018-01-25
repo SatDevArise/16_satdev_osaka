@@ -12,7 +12,7 @@ public class SIJGM002Form {
 	 * ユーザー
 	 */
 	private String user;
-	private String syain_Id;
+	private String syain_id;
 	private String name;
 	private String birth;
 	private String moyori_1_station;
@@ -47,8 +47,8 @@ public class SIJGM002Form {
 	 *
 	 * @return syain_id
 	 */
-	public String getSyain_Id() {
-		return syain_Id;
+	public String getSyain_id() {
+		return syain_id;
 	}
 
 	/**
@@ -173,7 +173,7 @@ public class SIJGM002Form {
 	 *
 	 * @return genba_na
 	 */
-	public String getGenba_Na() {
+	public String getGenba_na() {
 		return genba_na;
 	}
 
@@ -221,8 +221,8 @@ public class SIJGM002Form {
 	 *
 	 * @param syain_id
 	 */
-	public void setSyain_Id(String syain_id) {
-		this.syain_Id =syain_id ;
+	public void setSyain_id(String syain_id) {
+		this.syain_id =syain_id ;
 	}
 
 	/**
@@ -347,7 +347,7 @@ public class SIJGM002Form {
 	 *
 	 * @param genba_na
 	 */
-	public void setGenba_Na(String genba_na) {
+	public void setGenba_na(String genba_na) {
 		this.genba_na = genba_na;
 	}
 

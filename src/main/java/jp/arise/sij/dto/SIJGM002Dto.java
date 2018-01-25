@@ -82,7 +82,7 @@ public class SIJGM002Dto implements Serializable{
 	 * 社員IDを取得
 	 * @return syain_id
 	 */
-	public String getSyain_Id() {
+	public String getSyain_id() {
 		return syain_id;
 	}
 
@@ -90,7 +90,7 @@ public class SIJGM002Dto implements Serializable{
 	 * 社員IDを設定
 	 * @param syain_id
 	 */
-	public void setSyain_Id(String syain_id) {
+	public void setSyain_id(String syain_id) {
 		this.syain_id = syain_id;
 	}
 
@@ -376,7 +376,7 @@ public class SIJGM002Dto implements Serializable{
 	 * 現場名を取得
 	 * @return genba_na
 	 */
-	public String getGenba_Na() {
+	public String getGenba_na() {
 		return genba_na;
 	}
 
@@ -384,7 +384,7 @@ public class SIJGM002Dto implements Serializable{
 	 * 現場名を設定
 	 * @param genba_na
 	 */
-	public void setGenba_Na(String genba_na) {
+	public void setGenba_na(String genba_na) {
 		this.genba_na = genba_na;
 	}
 

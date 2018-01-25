@@ -53,7 +53,7 @@ public class SIJGM002Controller {
 		System.out.println(loginInfoDto.getUser_id());
 
 		SIJGM002Form sijGm002Form = new SIJGM002Form();
-		sijGm002Form.setUser("山田太郎");
+		sijGm002Form.setUser(" ");
 		model.addAttribute("SIJGM002Form",sijGm002Form);
 		return "SIJGM002";
 	}
@@ -86,9 +86,9 @@ public class SIJGM002Controller {
 	public String entrySijGm002(SIJGM002Form sijGm002Form,Model model) {
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
 		BeanUtils.copyProperties(sijGm002Form,sijGm002Dto);
-		sijGm002Dto.setSyain_Id(sijGm002Form.getSyain_Id());
-		System.out.print(sijGm002Dto.getSyain_Id());
-		System.out.print(sijGm002Form.getSyain_Id());
+		sijGm002Dto.setSyain_id(sijGm002Form.getSyain_id());
+		System.out.print(sijGm002Dto.getSyain_id());
+		System.out.print(sijGm002Form.getSyain_id());
 		System.out.print(sijGm002Dto.getBirth());
 		System.out.print(sijGm002Form.getBirth());
 		System.out.print(sijGm002Dto.getMoyori_1_station());
@@ -128,8 +128,25 @@ public class SIJGM002Controller {
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
 		BeanUtils.copyProperties(sijGm002Form,sijGm002Dto);
 
-
-		/*sijGm002Dto.setSyain_Id(sijGm002Form.getSyain_Id());
+		System.out.print(sijGm002Form.getSyain_id());
+		System.out.println(sijGm002Form.getBirth());
+		System.out.println(sijGm002Form.getBirth_place());
+		System.out.println(sijGm002Form.getGenba_na());
+		System.out.println(sijGm002Form.getMoyori_1_station());
+		System.out.println(sijGm002Form.getMoyori_2_station());
+		System.out.println(sijGm002Form.getMoyori_3_station());
+		System.out.println(sijGm002Form.getName());
+		System.out.println(sijGm002Form.getNyusya_dt());
+		System.out.println(sijGm002Form.getPage());
+		System.out.println(sijGm002Form.getPhase_kb());
+		System.out.println(sijGm002Form.getPhoneNumber());
+		System.out.println(sijGm002Form.getPosition());
+		System.out.println(sijGm002Form.getPrevious());
+		System.out.println(sijGm002Form.getSankaku_dt());
+		System.out.println(sijGm002Form.getTanka());
+		System.out.println(sijGm002Form.getTeam_na());
+		System.out.println(sijGm002Form.getUser());
+		/*sijGm002Dto.setSyain_id(sijGm002Form.getSyain_id());
 		sijGm002Dto.setName(sijGm002Form.getName());
 		sijGm002Dto.setBirth(sijGm002Form.getBirth());
 		sijGm002Dto.setMoyori_1_station(sijGm002Form.getMoyori_1_station());
@@ -143,7 +160,7 @@ public class SIJGM002Controller {
 		sijGm002Dto.setTeam_na(sijGm002Form.getTeam_na());
 		sijGm002Dto.setPhase_kb(sijGm002Form.getPhase_kb());
 		sijGm002Dto.setTanka(sijGm002Form.getTanka());
-		sijGm002Dto.setGenba_Na(sijGm002Form.getGenba_Na());
+		sijGm002Dto.setGenba_na(sijGm002Form.getGenba_na());
 		sijGm002Dto.setSankaku_dt(sijGm002Form.getSankaku_dt());
 		sijGm002Dto.setKensakuKeyList(sijGm002Form.getKensakuKeyList());
 		sijGm002Dto.setPage(sijGm002Form.getPage());
@@ -162,7 +179,7 @@ public class SIJGM002Controller {
 	@RequestMapping(value = "/initSijGm002",params = "deleteSijGm002", method = RequestMethod.POST)
 	public String deleteSijGm002(SIJGM002Form sijGm002Form,Model model) {
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-		sijGm002Dto.setSyain_Id(sijGm002Form.getSyain_Id());
+		sijGm002Dto.setSyain_id(sijGm002Form.getSyain_id());
 		sijGm002Dto.setName(sijGm002Form.getName());
 		sijGm002Dto.setBirth(sijGm002Form.getBirth());
 		sijGm002Dto.setMoyori_1_station(sijGm002Form.getMoyori_1_station());
@@ -176,7 +193,7 @@ public class SIJGM002Controller {
 		sijGm002Dto.setTeam_na(sijGm002Form.getTeam_na());
 		sijGm002Dto.setPhase_kb(sijGm002Form.getPhase_kb());
 		sijGm002Dto.setTanka(sijGm002Form.getTanka());
-		sijGm002Dto.setGenba_Na(sijGm002Form.getGenba_Na());
+		sijGm002Dto.setGenba_na(sijGm002Form.getGenba_na());
 		sijGm002Dto.setSankaku_dt(sijGm002Form.getSankaku_dt());
 		sijGm002Dto.setKensakuKeyList(sijGm002Form.getKensakuKeyList());
 		sijGm002Dto.setPage(sijGm002Form.getPage());
@@ -194,7 +211,7 @@ public class SIJGM002Controller {
 	@RequestMapping(value = "/initSijGm002",params = "backComGm002", method = RequestMethod.POST)
 	public ModelAndView backComGm002(SIJGM002Form sijGm002Form,Model model) {
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-		sijGm002Dto.setSyain_Id(sijGm002Form.getSyain_Id());
+		sijGm002Dto.setSyain_id(sijGm002Form.getSyain_id());
 		sijGm002Dto.setName(sijGm002Form.getName());
 		sijGm002Dto.setBirth(sijGm002Form.getBirth());
 		sijGm002Dto.setMoyori_1_station(sijGm002Form.getMoyori_1_station());
@@ -208,7 +225,7 @@ public class SIJGM002Controller {
 		sijGm002Dto.setTeam_na(sijGm002Form.getTeam_na());
 		sijGm002Dto.setPhase_kb(sijGm002Form.getPhase_kb());
 		sijGm002Dto.setTanka(sijGm002Form.getTanka());
-		sijGm002Dto.setGenba_Na(sijGm002Form.getGenba_Na());
+		sijGm002Dto.setGenba_na(sijGm002Form.getGenba_na());
 		sijGm002Dto.setSankaku_dt(sijGm002Form.getSankaku_dt());
 		sijGm002Dto.setKensakuKeyList(sijGm002Form.getKensakuKeyList());
 		sijGm002Dto.setPage(sijGm002Form.getPage());
@@ -216,7 +233,7 @@ public class SIJGM002Controller {
 
 		SIJGM002MAV sijGm002MAV = new SIJGM002MAV();
 		sijGm002MAV.setUser(sijGm002Form.getUser());
-		sijGm002MAV.setSyain_Id(sijGm002Form.getSyain_Id());
+		sijGm002MAV.setSyain_id(sijGm002Form.getSyain_id());
 		sijGm002MAV.setName(sijGm002Form.getName());
 		sijGm002MAV.setBirth(sijGm002Form.getBirth());
 		sijGm002MAV.setMoyori_1_station(sijGm002Form.getMoyori_1_station());
@@ -230,7 +247,7 @@ public class SIJGM002Controller {
 		sijGm002MAV.setTeam_na(sijGm002Form.getTeam_na());
 		sijGm002MAV.setPhase_kb(sijGm002Form.getPhase_kb());
 		sijGm002MAV.setTanka(sijGm002Form.getTanka());
-		sijGm002MAV.setGenba_na(sijGm002Form.getGenba_Na());
+		sijGm002MAV.setGenba_na(sijGm002Form.getGenba_na());
 		sijGm002MAV.setSankaku_dt(sijGm002Form.getSankaku_dt());
 		sijGm002MAV.setKensakuKeyList(sijGm002Form.getKensakuKeyList());
 		sijGm002MAV.setPage(sijGm002Form.getPage());
@@ -249,7 +266,7 @@ public class SIJGM002Controller {
 	public ModelAndView backSijGm001(SIJGM002Form sijGm002Form,Model model) {
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
 		sijGm002Dto.setUser(sijGm002Form.getUser());
-		sijGm002Dto.setSyain_Id(sijGm002Form.getSyain_Id());
+		sijGm002Dto.setSyain_id(sijGm002Form.getSyain_id());
 		sijGm002Dto.setName(sijGm002Form.getName());
 		sijGm002Dto.setBirth(sijGm002Form.getBirth());
 		sijGm002Dto.setMoyori_1_station(sijGm002Form.getMoyori_1_station());
@@ -263,7 +280,7 @@ public class SIJGM002Controller {
 		sijGm002Dto.setTeam_na(sijGm002Form.getTeam_na());
 		sijGm002Dto.setPhase_kb(sijGm002Form.getPhase_kb());
 		sijGm002Dto.setTanka(sijGm002Form.getTanka());
-		sijGm002Dto.setGenba_Na(sijGm002Form.getGenba_Na());
+		sijGm002Dto.setGenba_na(sijGm002Form.getGenba_na());
 		sijGm002Dto.setSankaku_dt(sijGm002Form.getSankaku_dt());
 		sijGm002Dto.setKensakuKeyList(sijGm002Form.getKensakuKeyList());
 		sijGm002Dto.setPage(sijGm002Form.getPage());
@@ -272,7 +289,7 @@ public class SIJGM002Controller {
 		SIJGM002MAV sijGm002MAV = new SIJGM002MAV();
 		sijGm002MAV.setUser(sijGm002Form.getUser());
 		sijGm002MAV.setUser(sijGm002Form.getUser());
-		sijGm002MAV.setSyain_Id(sijGm002Form.getSyain_Id());
+		sijGm002MAV.setSyain_id(sijGm002Form.getSyain_id());
 		sijGm002MAV.setName(sijGm002Form.getName());
 		sijGm002MAV.setBirth(sijGm002Form.getBirth());
 		sijGm002MAV.setMoyori_1_station(sijGm002Form.getMoyori_1_station());
@@ -286,7 +303,7 @@ public class SIJGM002Controller {
 		sijGm002MAV.setTeam_na(sijGm002Form.getTeam_na());
 		sijGm002MAV.setPhase_kb(sijGm002Form.getPhase_kb());
 		sijGm002MAV.setTanka(sijGm002Form.getTanka());
-		sijGm002MAV.setGenba_na(sijGm002Form.getGenba_Na());
+		sijGm002MAV.setGenba_na(sijGm002Form.getGenba_na());
 		sijGm002MAV.setSankaku_dt(sijGm002Form.getSankaku_dt());
 		sijGm002MAV.setKensakuKeyList(sijGm002Form.getKensakuKeyList());
 		sijGm002MAV.setPage(sijGm002Form.getPage());
