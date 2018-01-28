@@ -20,6 +20,18 @@ public class SIJGM002Servise {
 	@Autowired
 	private SIJGM002Dao sijGm002Dao;
 
+	/**
+	 * 社員ID取得処理
+	 * @param dto
+	 * @return
+	 */
+	public SIJGM002Dto getSyain_dt(SIJGM002Dto dto) {
+		String syain_id = dto.getSyain_id();
+		System.out.println(syain_id);
+
+		return dto;
+	}
+
 
 	public SIJGM002Dto inputCheck(SIJGM002Dto dto) {
         String user = dto.getUser();

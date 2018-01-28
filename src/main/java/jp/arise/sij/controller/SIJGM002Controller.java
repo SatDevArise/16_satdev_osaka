@@ -32,7 +32,7 @@ public class SIJGM002Controller {
 	private SIJGM002Servise sijGm002Service;
 
     @ModelAttribute
-    public SIJGM002Form setSijGm002Formm() {
+    public SIJGM002Form setSijGm002Form() {
     	SIJGM002Form sijGm002Form = new SIJGM002Form();
         return sijGm002Form;
     }
@@ -51,6 +51,11 @@ public class SIJGM002Controller {
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
 		loginInfoDto = loginInfo.getAttribute();
 		System.out.println(loginInfoDto.getUser_id());
+
+		//社員ID情報取得
+		SIJGM002Servise sijgm002Servise = new SIJGM002Servise();
+
+
 
 		SIJGM002Form sijGm002Form = new SIJGM002Form();
 		sijGm002Form.setUser(" ");

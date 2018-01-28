@@ -18,4 +18,15 @@ public interface SIJGM002Dao extends Serializable{
 	 * @return user
 	 */
 	public List<SIJGM002Dto> getUser(SIJGM002Dto SIJGM002Dto);
+
+
+	/**
+	 * 社員IDを取得
+	 * @return syain_id
+	 */
+	public List<SIJGM002Dto> getSyain_id(SIJGM002Dto SIJGM002Dto);
+
+	/**
+	 * 入力駅
+	 */
 }
