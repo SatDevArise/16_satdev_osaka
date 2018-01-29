@@ -30,3 +30,5 @@ public interface SIJGM002Dao extends Serializable{
 	 * 入力駅
 	 */
 }
+
+

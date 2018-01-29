@@ -28,11 +28,16 @@ public class SIJGM002Servise {
 	public SIJGM002Dto getSyain_dt(SIJGM002Dto dto) {
 		String syain_id = dto.getSyain_id();
 		System.out.println(syain_id);
-
+		
 		return dto;
 	}
 
 
+	/**
+	 * 入力チェック（サンプル）
+	 * @param dto
+	 * @return
+	 */
 	public SIJGM002Dto inputCheck(SIJGM002Dto dto) {
         String user = dto.getUser();
         System.out.println(user);

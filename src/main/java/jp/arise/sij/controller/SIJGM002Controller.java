@@ -184,7 +184,28 @@ public class SIJGM002Controller {
 	@RequestMapping(value = "/initSijGm002",params = "deleteSijGm002", method = RequestMethod.POST)
 	public String deleteSijGm002(SIJGM002Form sijGm002Form,Model model) {
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-		sijGm002Dto.setSyain_id(sijGm002Form.getSyain_id());
+		BeanUtils.copyProperties(sijGm002Form, sijGm002Dto);
+
+		System.out.print(sijGm002Form.getSyain_id());
+		System.out.println(sijGm002Form.getBirth());
+		System.out.println(sijGm002Form.getBirth_place());
+		System.out.println(sijGm002Form.getGenba_na());
+		System.out.println(sijGm002Form.getMoyori_1_station());
+		System.out.println(sijGm002Form.getMoyori_2_station());
+		System.out.println(sijGm002Form.getMoyori_3_station());
+		System.out.println(sijGm002Form.getName());
+		System.out.println(sijGm002Form.getNyusya_dt());
+		System.out.println(sijGm002Form.getPage());
+		System.out.println(sijGm002Form.getPhase_kb());
+		System.out.println(sijGm002Form.getPhoneNumber());
+		System.out.println(sijGm002Form.getPosition());
+		System.out.println(sijGm002Form.getPrevious());
+		System.out.println(sijGm002Form.getSankaku_dt());
+		System.out.println(sijGm002Form.getTanka());
+		System.out.println(sijGm002Form.getTeam_na());
+		System.out.println(sijGm002Form.getUser());
+
+/*		sijGm002Dto.setSyain_id(sijGm002Form.getSyain_id());
 		sijGm002Dto.setName(sijGm002Form.getName());
 		sijGm002Dto.setBirth(sijGm002Form.getBirth());
 		sijGm002Dto.setMoyori_1_station(sijGm002Form.getMoyori_1_station());
@@ -202,6 +223,7 @@ public class SIJGM002Controller {
 		sijGm002Dto.setSankaku_dt(sijGm002Form.getSankaku_dt());
 		sijGm002Dto.setKensakuKeyList(sijGm002Form.getKensakuKeyList());
 		sijGm002Dto.setPage(sijGm002Form.getPage());
+	*/
 		return "SIJGM002";
 	}
 
