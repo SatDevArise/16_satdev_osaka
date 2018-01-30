@@ -4,8 +4,23 @@
 
 <mapper namespace="jp.arise.sij.dao.SIJGM002Dao">
     <resultMap id="resultSIJGM002Dto" type="jp.arise.sij.dto.SIJGM002Dto">
-        <result column="username" property="user"/>
-        <result column="userid" property="userId"/>
+        <result column="syain_id" property="syain_id"/>
+        <result column="syain_na" property="syain_na"/>
+        <result column="birth" property="birth"/>
+        <result column="moyori_1_station" property="moyori_1_station"/>
+        <result column="moyori_2_station" property="moyori_2_station"/>
+        <result column="moyori_3_station" property="moyori_3_station"/>
+        <result column="phonenumber" property="phonenumber"/>
+        <result column="previous" property="previous"/>
+        <result column="nyusya_dt" property="nyusya_dt"/>
+        <result column="birth_place" property="birth_place"/>
+        <result column="position" property="position"/>
+        <result column="team_na" property="team_na"/>
+        <result column="phase" property="phase"/>
+        <result column="tanka" property="tanka"/>
+        <result column="genba_na" property="genba_na"/>
+        <result column="sakukaku_dt" property="sankaku_dt"/>
+
     </resultMap>
 
     <select id="getUser" resultMap="resultSIJGM002Dto">
@@ -13,4 +28,28 @@
         FROM test
         WHERE userid = #{userId}
     </select>
-</mapper>
+
+    <select id="getSyainListInfo" resultMap="resultSIJGM002Dto">
+    	SELECT
+    		 sd.syain_id
+    		,sd.syain_na
+    		,sd.birth
+    		,sd.moyori_1_station
+    		,sd.moyori_2_station
+    		,sd.moyori_3_station
+    		,sd.phonenumber
+    		,sd.previous
+    		,sd.birth_place
+    		,sd.position
+    		,sd.team_na
+    		,sd.phase
+    		,sd.tanka
+    		,genba_na
+    	FROM
+    		syain_dt sd
+    	LEFT JOIN
+    	(
+    		)
+
+    </select>
+    </mapper>
