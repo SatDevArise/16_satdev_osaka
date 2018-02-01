@@ -82,4 +82,11 @@
 
 
     </select>
+    
+    <select id="getUpdateEmployeeInformation" resultMap="resultSIJGM002Dto">
+    	UPDATE 
+    		syain_dt
+    	SET 
+    	
+    </select>
     </mapper>

@@ -53,7 +53,8 @@ public class SIJGM002Controller {
 		System.out.println(loginInfoDto.getUser_id());
 
 		//社員ID情報取得
-		SIJGM002Servise sijgm002Servise = new SIJGM002Servise();
+		SIJGM002Dto sijgm002Dto = new SIJGM002Dto();
+		BeanUtils.copyProperties(sijgm002Dto, sijGm002Service);
 
 
 
