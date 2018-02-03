@@ -328,22 +328,22 @@ public class SIJGM002Dto implements Serializable{
 	/**
 	 * フェーズ
 	 */
-	private String phase_kb;
+	private String phase;
 
 	/**
 	 * フェーズを取得
-	 * @return phase_kb
+	 * @return phase
 	 */
-	public String getPhase_kb() {
-		return phase_kb;
+	public String getPhase() {
+		return phase;
 	}
 
 	/**
 	 * フェーズを設定
-	 * @param phase_kb
+	 * @param phase
 	 */
-	public void setPhase_kb(String phase_kb) {
-		this.phase_kb = phase_kb;
+	public void setphase(String phase) {
+		this.phase = phase;
 	}
 
 	/**

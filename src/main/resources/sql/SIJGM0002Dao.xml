@@ -23,6 +23,71 @@
 
     </resultMap>
 
+    <insert id="" >
+    	INSERT syain_dt
+    	 INTO
+    	 	(
+    	 	 syain_id
+    	 	 ,syain_na
+    	 	 ,birth
+    	 	 ,moyori_1_station
+    	 	 ,moyori_2_station
+    	 	 ,moyori_3_station
+    	 	 ,phonenumber
+    	 	 ,previous
+    	 	 ,birth_place
+    	 	 ,position
+    	 	 ,team_na
+    	 	 ,phase
+    	 	 ,tanka
+    	 	 ,genba_na
+    	 	 )
+    	 VALUES
+    	 	(
+    	 	 #{syain_id}
+    	 	,#{syain_na}
+    	 	,#{birth}
+    	 	,#{moyori_1_station}
+    	 	,#{moyori_2_station}
+    	 	,#{moyori_3_station}
+    	 	,#{phonenumber}
+    	 	,#{previous}
+    	 	,#{birth_place}
+    	 	,#{position}
+    	 	,#{team_na}
+    	 	,#{phase}
+    	 	,#{tanka}
+    	 	,#{genba_na}
+    	 	)
+
+
+
+
+    </insert>
+
+    <update id="getUpdateEmployeeInformation" >
+    	UPDATE
+    		syain_dt
+    	SET
+    		(
+    	 	 #{syain_id}
+    	 	,#{syain_na}
+    	 	,#{birth}
+    	 	,#{moyori_1_station}
+    	 	,#{moyori_2_station}
+    	 	,#{moyori_3_station}
+    	 	,#{phonenumber}
+    	 	,#{previous}
+    	 	,#{birth_place}
+    	 	,#{position}
+    	 	,#{team_na}
+    	 	,#{phase}
+    	 	,#{tanka}
+    	 	,#{genba_na}
+    	 	)
+
+    </update>
+
     <select id="getUser" resultMap="resultSIJGM002Dto">
         SELECT username
         FROM test
@@ -47,6 +112,8 @@
     		,genba_na
     	FROM
     		syain_dt sd
+    		WHERE syain_id = #{syain_id}
+
 
     </select>
 
@@ -59,34 +126,4 @@
     		rosen_mst rm
     </select>
 
-    <select id="getEmployeeInformationNewRegistration" resultMap="resultSIJGM002Dto">
-    	INSERT syain_dt
-    	 INTO
-    	 	(
-    	 	 syain_id
-    	 	 ,syain_na
-    	 	 ,birth
-    	 	 ,moyori_1_station
-    	 	 ,moyori_2_station
-    	 	 ,moyori_3_station
-    	 	 ,phonenumber
-    	 	 ,previous
-    	 	 ,birth_place
-    	 	 ,position
-    	 	 ,team_na
-    	 	 ,phase
-    	 	 ,tanka
-    	 	 ,genba_na
-    	 	 )
-    	 VALUES
-
-
-    </select>
-    
-    <select id="getUpdateEmployeeInformation" resultMap="resultSIJGM002Dto">
-    	UPDATE 
-    		syain_dt
-    	SET 
-    	
-    </select>
     </mapper>
