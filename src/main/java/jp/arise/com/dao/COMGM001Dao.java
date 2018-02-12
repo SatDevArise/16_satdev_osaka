@@ -1,9 +1,9 @@
 package jp.arise.com.dao;
 
 import java.io.Serializable;
-import java.util.List;
 
 import jp.arise.com.dto.COMGM001Dto;
+import jp.arise.utl.LoginInfoDto;
 
 /**
  * COMGM001 ログイン画面用サービス間Daoクラス
@@ -14,8 +14,27 @@ import jp.arise.com.dto.COMGM001Dto;
 public interface COMGM001Dao extends Serializable{
 
 	/**
-	 * userを取得
-	 * @return user
+	 * ログインユーザー情報取得
+	 * @return LoginInfoDto
 	 */
-	public List<COMGM001Dto> getUser(COMGM001Dto COMGM001Dto);
+	public LoginInfoDto getLoginInfo(COMGM001Dto COMGM001Dto);
+
+	/**
+	 * ログイン履歴存在チェック
+	 * @return -
+	 */
+	public String getRireki(LoginInfoDto loginInfoDto);
+
+	/**
+	 * ログイン履歴作成処理
+	 * @return -
+	 */
+	public void createRireki(LoginInfoDto loginInfoDto);
+
+	/**
+	 * ログイン履歴更新処理
+	 * @return -
+	 */
+	public void updateRireki(LoginInfoDto loginInfoDto);
+
 }

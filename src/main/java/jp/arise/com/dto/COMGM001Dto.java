@@ -1,6 +1,7 @@
 package jp.arise.com.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * COMGM001 ログイン画面用サービス間Dtoクラス
@@ -11,45 +12,65 @@ import java.io.Serializable;
 public class COMGM001Dto implements Serializable{
 
 	/**
-	 * ユーザー
-	 */
-	private String user;
-
-	/**
 	 * ユーザーID
 	 */
-	private int userId;
+	private String user_Id;
 
 	/**
-	 * ユーザーを取得
-	 * @return user
+	 * パスワード
 	 */
-	public String getUser() {
-		return user;
-	}
+	private String password;
 
 	/**
-	 * ユーザーを設定
-	 * @param user
+	 * エラー表示
 	 */
-	public void setUser(String user) {
-		this.user = user;
-	}
+	private List<String> error_hyoji;
 
 	/**
 	 * ユーザーIDを取得
-	 * @return userId
+	 * @return user_Id
 	 */
-	public int getUserId() {
-		return userId;
+	public String getUser_id() {
+		return user_Id;
 	}
 
 	/**
 	 * ユーザーIDを設定
-	 * @param userId
+	 * @param user_Id
 	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser_id(String user_Id) {
+		this.user_Id = user_Id;
 	}
 
+	/**
+	 * パスワードを取得
+	 *@param password
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * パスワードを設定
+	 * @param password
+	 */
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	/**
+	 * エラー表示を取得
+	 *@param error_hyoji
+	 */
+	public List<String> getError_hyoji() {
+		return error_hyoji;
+	}
+
+	/**
+	 * エラー表示を設定
+	 * @param error_hyoji
+	 */
+	public void setError_hyoji(List<String> error_hyoji) {
+		this.error_hyoji = error_hyoji;
+	}
 }

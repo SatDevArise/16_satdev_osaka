@@ -1,5 +1,9 @@
 package jp.arise.com.form;
 
+import java.util.List;
+
+import jp.arise.com.dto.COMGM002Dto;
+
 /**
  * COMGM002 メニュー画面用Formクラス
  * JSPとController間の値受け渡し用
@@ -9,24 +13,24 @@ package jp.arise.com.form;
 public class COMGM002Form {
 
 	/**
-	 * ユーザー
+	 * お知らせ情報
 	 */
-	private String user;
+	private List<COMGM002Dto> news;
 
 	/**
-	 * ユーザーを取得
-	 * @return user
+	 * お知らせ情報を取得
+	 * @return news
 	 */
-	public String getUser() {
-		return user;
+	public List<COMGM002Dto> getNews() {
+		return news;
 	}
 
 	/**
-	 * ユーザーを設定
-	 * @param user
+	 * お知らせ情報を設定
+	 * @param news
 	 */
-	public void setUser(String user) {
-		this.user = user;
+	public void setNews(List<COMGM002Dto> news) {
+		this.news = news;
 	}
 
 }

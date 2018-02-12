@@ -14,8 +14,15 @@ import jp.arise.com.dto.COMGM002Dto;
 public interface COMGM002Dao extends Serializable{
 
 	/**
-	 * userを取得
+	 * お知らせ情報を取得
 	 * @return user
 	 */
-	public List<COMGM002Dto> getUser(COMGM002Dto COMGM002Dto);
+	public List<COMGM002Dto> getOsiraseInfo(Object unyoubi);
+
+	/**
+	 * ログイン履歴更新処理
+	 * @return -
+	 */
+	public void updateRireki();
+
 }

@@ -39,6 +39,11 @@ public class UTLContent {
 	public static final int INT_ONE = 1;
 
 	/**
+	 * int型：8
+	 */
+	public static final int INT_EIGHT = 8;
+
+	/**
 	 * String型：COMGM001
 	 * ログイン画面ID
 	 */

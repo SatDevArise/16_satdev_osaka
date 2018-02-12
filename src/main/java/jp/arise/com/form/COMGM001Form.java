@@ -1,5 +1,7 @@
 package jp.arise.com.form;
 
+import java.util.List;
+
 /**
  * COMGM001 ログイン画面用Formクラス
  * JSPとController間の値受け渡し用
@@ -9,15 +11,22 @@ package jp.arise.com.form;
 public class COMGM001Form {
 
 	/**
-	 * ユーザー
+	 * ユーザーID
 	 */
 	private String user_id;
 
-	/*パスワード*/
+	/**
+	 * パスワード
+	 */
 	private String password;
 
 	/**
-	 * ユーザーを取得
+	 * エラー表示
+	 */
+	private List<String> error_hyoji;
+
+	/**
+	 * ユーザーIDを取得
 	 * @return user
 	 */
 	public String getUser_id() {
@@ -25,13 +34,12 @@ public class COMGM001Form {
 	}
 
 	/**
-	 * ユーザーを設定
+	 * ユーザーIDを設定
 	 * @param user_id
 	 */
 	public void setUser_id(String user_id) {
 		this.user_id = user_id;
 	}
-
 
 	/**
 	 * パスワードを取得
@@ -49,5 +57,19 @@ public class COMGM001Form {
 		this.password = password;
 	}
 
+	/**
+	 * エラー表示を取得
+	 *@param error_hyoji
+	 */
+	public List<String> getError_hyoji() {
+		return error_hyoji;
+	}
 
+	/**
+	 * エラー表示を設定
+	 * @param error_hyoji
+	 */
+	public void setError_hyoji(List<String> error_hyoji) {
+		this.error_hyoji = error_hyoji;
+	}
 }
