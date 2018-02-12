@@ -11,45 +11,87 @@ import java.io.Serializable;
 public class COMGM002Dto implements Serializable{
 
 	/**
-	 * ユーザー
+	 * お知らせID
 	 */
-	private String user;
+	private String osirase_id;
 
 	/**
-	 * ユーザーID
+	 * カテゴリコード
 	 */
-	private int userId;
+	private int categori_cd;
 
 	/**
-	 * ユーザーを取得
+	 * お知らせ名
+	 */
+	private String osirase_na;
+
+	/**
+	 * お知らせ内容
+	 */
+	private String osirase_info;
+
+	/**
+	 * お知らせIDを取得
 	 * @return user
 	 */
-	public String getUser() {
-		return user;
+	public String getOsirase_id() {
+		return osirase_id;
 	}
 
 	/**
-	 * ユーザーを設定
+	 * お知らせIDを設定
 	 * @param user
 	 */
-	public void setUser(String user) {
-		this.user = user;
+	public void setOsirase_id(String osirase_id) {
+		this.osirase_id = osirase_id;
 	}
 
 	/**
-	 * ユーザーIDを取得
-	 * @return userId
+	 * カテゴリコードを取得
+	 * @return user
 	 */
-	public int getUserId() {
-		return userId;
+	public int getCategori_cd() {
+		return categori_cd;
 	}
 
 	/**
-	 * ユーザーIDを設定
-	 * @param userId
+	 * カテゴリコードを取得
+	 * @return user
 	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setCategori_cd(int categori_cd) {
+		this.categori_cd = categori_cd;
+	}
+
+	/**
+	 * お知らせ名を取得
+	 * @return user
+	 */
+	public String getOsirase_na() {
+		return osirase_na;
+	}
+
+	/**
+	 * お知らせ名を取得
+	 * @return user
+	 */
+	public void setOsirase_na(String osirase_na) {
+		this.osirase_na = osirase_na;
+	}
+
+	/**
+	 * お知らせ内容を取得
+	 * @return user
+	 */
+	public String getOsirase_info() {
+		return osirase_info;
+	}
+
+	/**
+	 * お知らせ内容を取得
+	 * @return user
+	 */
+	public void setOsirase_info(String osirase_info) {
+		this.osirase_info = osirase_info;
 	}
 
 }

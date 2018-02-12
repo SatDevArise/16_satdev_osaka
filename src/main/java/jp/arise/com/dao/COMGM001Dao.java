@@ -36,6 +36,26 @@ public interface COMGM001Dao extends Serializable{
 	/**
 	 * ログイン履歴更新処理
 	 * @return -
+	 * ログインユーザー情報取得
+	 * @return LoginInfoDto
+	 */
+	public LoginInfoDto getLoginInfo(COMGM001Dto COMGM001Dto);
+
+	/**
+	 * ログイン履歴存在チェック
+	 * @return -
+	 */
+	public String getRireki(LoginInfoDto loginInfoDto);
+
+	/**
+	 * ログイン履歴作成処理
+	 * @return -
+	 */
+	public void createRireki(LoginInfoDto loginInfoDto);
+
+	/**
+	 * ログイン履歴更新処理
+	 * @return -
 	 */
 	public void updateRireki(LoginInfoDto loginInfoDto);
 
