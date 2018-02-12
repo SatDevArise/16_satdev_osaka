@@ -10,10 +10,12 @@
  * 確認ダイアログの表示
  */
 function logout()
-{
+
+  {
 	if (window.confirm('ログアウトしますか?')) {
 		return true;
 	} else {
-return false;
-}
+		return false;
+	}
+
 }

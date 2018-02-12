@@ -15,6 +15,7 @@
 		<title>COMGM001 ログイン画面</title>
 	</head>
 	<body>
+
 		<div align="center">
 			<p>Arise member information management system</p>
 		<h1>社員情報管理システム</h1>
@@ -39,4 +40,5 @@
     	</form:form>
 	</div>
 	</body>
+
 </html>

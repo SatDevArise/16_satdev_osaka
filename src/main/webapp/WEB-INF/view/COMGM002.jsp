@@ -16,10 +16,11 @@
 	</head>
 	<body>
 	   <spring:url value="/initComGm002" var="actionUrl"/>
-    	<form:form modelAttribute="COMGM002Form">
-    	<div align="center">
-    		<h1>メニュー画面</h1>
-    	</div>
+
+	<form:form modelAttribute="COMGM002Form">
+		<div align="center">
+			<h1>メニュー画面</h1>
+		</div>
 		<br>
 		<div align="right" style="margin-right: 20px;">
 			<input type="submit" class="btn btn-danger" value="ログアウト" name="goComGm001" formaction="${actionUrl}" onClick="return logout();">
@@ -57,7 +58,8 @@
 			<br>
 			<input type="submit" class="btn btn-primary" value="システム管理" name="goSysComGm" style="WIDTH: 240px; HEIGHT: 50px" formaction="${actionUrl}">
 			<span style="text-decoration: underline; margin-left: 200px;">管理者用画面です</span>
-    	</div>
-    	</form:form>
-	</body>
+		</div>
+	</form:form>
+</body>
+
 </html>
