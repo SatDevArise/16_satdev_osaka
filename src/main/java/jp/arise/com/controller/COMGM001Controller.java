@@ -1,5 +1,6 @@
 package jp.arise.com.controller;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,10 +12,9 @@ import org.springframework.web.servlet.ModelAndView;
 import jp.arise.com.dto.COMGM001Dto;
 import jp.arise.com.form.COMGM001Form;
 import jp.arise.com.modelandview.COMGM001MAV;
+import jp.arise.com.modelandview.COMGM002MAV;
 import jp.arise.com.service.COMGM001Servise;
 import jp.arise.utl.LoginInfo;
-import jp.arise.utl.LoginInfoDto;
-import jp.arise.utl.UTLContent;
 
 
 /**
@@ -27,6 +27,8 @@ public class COMGM001Controller {
 
 	@Autowired
 	public LoginInfo loginInfo;
+
+	public COMGM001MAV comGm001MAV = new COMGM001MAV();
 
 	@Autowired
 	private COMGM001Servise comGm001Service;
@@ -47,14 +49,45 @@ public class COMGM001Controller {
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String initComGm001(Model model) {
-		COMGM001Form comGm001Form = new COMGM001Form();
-		comGm001Form.setUser_id("山田 太郎");
-		model.addAttribute("COMGM001Form",comGm001Form);
+
 		return "COMGM001";
 	}
 
 	/**
-	 * 確定処理
+	 * 初期処理(ログアウト後)
+	 * @param model
+	 * @return COMGM001.jsp
+	 * @throws
+	 * @author AtsushiNishizawa
+	 * @since 2017/07/17
+	 */
+	@RequestMapping(value = "/initComGm001",params = "goComGm001", method = RequestMethod.POST)
+	public String initComGm001(Model model,COMGM002MAV comGm002MAV) {
+		COMGM001Form comGm001Form = new COMGM001Form();
+		model.addAttribute("COMGM001Form",comGm001Form);
+
+		return "COMGM001";
+	}
+
+	/**
+	 * エラー画面表示
+	 * @param model
+	 * @return COMGM001.jsp
+	 * @throws
+	 * @author AtsushiNishizawa
+	 * @since 2017/07/17
+	 */
+	@RequestMapping(value = "/errorComGm001", method = RequestMethod.POST)
+	public String errorComGm001(Model model) {
+		COMGM001Form comGm001Form = new COMGM001Form();
+		BeanUtils.copyProperties(comGm001MAV, comGm001Form);
+		model.addAttribute("COMGM001Form",comGm001Form);
+
+		return "COMGM001";
+	}
+
+	/**
+	 * ログイン処理
 	 * @param COMGM001Form
 	 * @return COMGM002.jsp
 	 * @throws
@@ -62,22 +95,18 @@ public class COMGM001Controller {
 	 * @since 2017/07/17
 	 */
 	@RequestMapping(value = "/",params = "entryComGm001",method = RequestMethod.POST)
-	public ModelAndView  entryComGm001(COMGM001Form comGm001Form,Model model) {
+	public ModelAndView  entryComGm001(Model model,COMGM001Form comGm001Form) {
 		COMGM001Dto comGm001Dto = new COMGM001Dto();
-		System.out.println(comGm001Form.getUser_id());
-		comGm001Dto.setUser(comGm001Form.getUser_id());
-		comGm001Service.inputCheck(comGm001Dto);
+		BeanUtils.copyProperties(comGm001Form,comGm001Dto);
 
-		COMGM001MAV comGm001MAV = new COMGM001MAV();
-		comGm001MAV.setUser(comGm001Form.getUser_id());
+		//ユーザーチェック処理
+		comGm001Service.login(comGm001Dto);
+		if(!comGm001Dto.getError_hyoji().isEmpty()) {
+			BeanUtils.copyProperties(comGm001Dto, comGm001MAV);
+			return new ModelAndView("forward:/errorComGm001","COMGM001MAV",comGm001MAV);
+		}
 
-		//セッションに情報設定
-		LoginInfoDto loginInfoDto = new LoginInfoDto();
-		loginInfoDto.setUser_id("ログインユーザー情報テーブルから取得しセット");
-		loginInfoDto.setUser_na("ログインユーザー情報テーブルから取得しセット");
-		loginInfoDto.setUnyoubi("ログインユーザー情報テーブルから取得しセット");
-		loginInfoDto.setGamen_id(UTLContent.GMID_COMGM001);
-		loginInfo.setAttribute(loginInfoDto);
+		BeanUtils.copyProperties(comGm001Dto, comGm001MAV);
 
 		return new ModelAndView("forward:/initComGm002","COMGM001MAV",comGm001MAV);
 	}
