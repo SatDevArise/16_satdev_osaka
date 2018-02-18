@@ -39,6 +39,11 @@ public class UTLContent {
 	public static final int INT_ONE = 1;
 
 	/**
+	 * int型：4
+	 */
+	public static final int INT_FOUR = 4;
+
+	/**
 	 * int型：8
 	 */
 	public static final int INT_EIGHT = 8;

@@ -14,8 +14,14 @@ import jp.arise.com.dto.COMGM003Dto;
 public interface COMGM003Dao extends Serializable{
 
 	/**
-	 * userを取得
-	 * @return user
+	 * 社員情報検索処理
+	 * @return List<COMGM003Dto>
 	 */
-	public List<COMGM003Dto> getUser(COMGM003Dto COMGM003Dto);
+	public List<COMGM003Dto> getSyainInfoList(COMGM003Dto COMGM003Dto);
+
+	/**
+	 * 現場情報検索処理
+	 * @return List<COMGM003Dto>
+	 */
+	public List<COMGM003Dto> getGenbaInfoList(COMGM003Dto COMGM003Dto);
 }

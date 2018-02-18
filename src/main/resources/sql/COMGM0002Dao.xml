@@ -20,6 +20,7 @@
         WHERE osirase_start_dt <= #{unyoubi}
         AND   osirase_end_dt   >  #{unyoubi}
         AND   yuko_fg = '1'
+        ORDER BY osirase_id
     ]]>
     </select>
 

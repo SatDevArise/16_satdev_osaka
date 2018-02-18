@@ -39,6 +39,6 @@ return true;
 function openCOMGM003()
 {
 	window.open( 'initComGm003',
-		     '_blank',
-		     'width=800,height=600,menubar=no,toolbar=no,location=no,resizable=no,alwaysRaised=yes,dependent=yes' );
+		     	 '_blank',
+				 'width=980,height=490,menubar=no,toolbar=no,location=no,resizable=no,alwaysRaised=yes,dependent=yes' );
 }

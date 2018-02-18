@@ -4,31 +4,65 @@
  * @since 2017/07/17
  */
 
-
-
-
 /**
- * 必須チェック処理
+ * 初期処理
  */
-function requiredCheck()
-{
-var a = document.fa.NamA.value;
-var b = a.length;
-var txt = document.fa.NamA.value;
-var result = txt.match(/[^0-9]/g);
+window.onload = function () {
+	// 検索結果がある場合は呼び出し元画面に検索結果を返す
+	var resultList = document.getElementById("resultList");
+	var disp_id = document.getElementById("disp_id");
+	if(!!resultList) {
+		//検索結果が存在する場合
+		if(disp_id.value == "GBJGM001"){
+			window.opener.document.GBJGM001Form.resultList.value = resultList.value();
+			window.close();
+			return false;
+		} else if(disp_id.value == "SIJGM001"){
+			window.opener.document.SIJGM001Form.resultList.value = resultList.value();
+			window.close();
+			return false;
+		}
+	} else {
+		//検索結果が存在しない場合
+		//検索画面で処理継続
+	}
 
-if(document.fa.NamA.value == ""){
-alert("検索キーが入力されていません。");
-return false;
-} else if(b > 16) {
-alert(b +"桁入力されています。入力できる文字数は16桁です。");
-return false;
-} else if(b < 16) {
-alert(b +"桁入力されています。検索には16桁入力して下さい。");
-return false;
-} else {
-// ＊＊＊
-// OKの場合はtrueを返す
-return true;
-}
-}
+	// 画面IDがGBJGM001の場合に項目の制御を行う
+	if(disp_id.value == "GBJGM001"){
+		//社員IDを非活性にする
+		var $elementNodeReference = document.getElementById("syain_id");
+		$elementNodeReference.disabled = true;
+
+		//生年月日Fromを非活性にする
+		var $elementNodeReference = document.getElementById("seinengappi_from");
+		$elementNodeReference.disabled = true;
+
+		//生年月日Toを非活性にする
+		var $elementNodeReference = document.getElementById("seinengappi_to");
+		$elementNodeReference.disabled = true;
+
+		//前職を非活性にする
+		var $elementNodeReference = document.getElementById("seinengappi_to");
+		$elementNodeReference.disabled = true;
+
+		//役職を非活性にする
+		var $elementNodeReference = document.getElementById("position");
+		$elementNodeReference.disabled = true;
+
+		//入社日Fromを非活性にする
+		var $elementNodeReference = document.getElementById("nyusyabi_from");
+		$elementNodeReference.disabled = true;
+
+		//入社日Toを非活性にする
+		var $elementNodeReference = document.getElementById("nyusyabi_to");
+		$elementNodeReference.disabled = true;
+
+		//チームを非活性にする
+		var $elementNodeReference = document.getElementById("team_na");
+		$elementNodeReference.disabled = true;
+
+		//単価を非活性にする
+		var $elementNodeReference = document.getElementById("tanka");
+		$elementNodeReference.disabled = true;
+	}
+};
