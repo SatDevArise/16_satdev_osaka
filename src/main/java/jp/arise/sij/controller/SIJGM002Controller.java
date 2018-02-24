@@ -28,7 +28,7 @@ public class SIJGM002Controller {
 	@Autowired
 	public LoginInfo loginInfo;
 
-	public SIJGM002MAV comsijgm002MAV = new SIJGM002MAV();
+	public SIJGM002MAV sijGm002MAV = new SIJGM002MAV();
 
 	@Autowired
 	private SIJGM002Servise sijGm002Service;
@@ -91,11 +91,18 @@ public class SIJGM002Controller {
 	 * @since 2017/07/177
 	 */
 	@RequestMapping(value = "/initSijGm002",params = "entrySijGm002", method = RequestMethod.POST)
-	public String entrySijGm002(SIJGM002Form sijGm002Form,Model model) {
+	public ModelAndView entrySijGm002(SIJGM002Form sijGm002Form,Model model) {
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
 		BeanUtils.copyProperties(sijGm002Form,sijGm002Dto);
 
-		return "SIJGM002";
+		//入力チェック処理
+		sijGm002Service.inputCheck(sijGm002Dto);
+		if(!sijGm002Dto.getError_hyoji().isEmpty()) {
+			BeanUtils.copyProperties(sijGm002Dto, sijGm002MAV);
+			return new ModelAndView("forward:/sijMessage","SIJGM002MAV",sijGm002MAV);
+		}
+		BeanUtils.copyProperties(sijGm002Dto, sijGm002MAV);
+		return new ModelAndView("forward:/initSijGm002","COMGM001MAV",sijGm002MAV);
 	}
 
 	/**
