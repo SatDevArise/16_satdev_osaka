@@ -1,6 +1,7 @@
 package jp.arise.sij.dto;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * SIJGM002 社員情報新規登録・編集画面用サービス間Dtoクラス
@@ -9,27 +10,6 @@ import java.io.Serializable;
  * @since 2017/07/17
  */
 public class SIJGM002Dto implements Serializable{
-
-	/**
-	 * test
-	 */
-	private String test;
-
-	/**
-	 * testを取得
-	 * @return user
-	 */
-	public String getTest() {
-		return test;
-	}
-
-	/**
-	 * testを設定
-	 * @param test
-	 */
-	public void setTest(String test) {
-		this.test = test;
-	}
 
 	/**
 	 * ユーザー
@@ -451,6 +431,26 @@ public class SIJGM002Dto implements Serializable{
 	 */
 	public void setPage(String page) {
 		this.page = page;
+	}
+	/**
+	 * エラー表示
+	 */
+	private List<String> error_hyoji;
+	/**
+	 * エラー表示を取得
+	 *@param error_hyoji
+	 */
+
+	public List<String> getError_hyoji() {
+		return error_hyoji;
+	}
+
+	/**
+	 * エラー表示を設定
+	 * @param error_hyoji
+	 */
+	public void setError_hyoji(List<String> error_hyoji) {
+		this.error_hyoji = error_hyoji;
 	}
 
 }

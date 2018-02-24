@@ -111,7 +111,7 @@ public class SIJGM002Form {
 		return phoneNumber;
 	}
 
-		/**
+	/**
 	 * 前職を取得
 	 *
 	 * @return previous
@@ -209,7 +209,6 @@ public class SIJGM002Form {
 	public String getPage() {
 		return page;
 	}
-
 	// *下記にsetメソッドを記入
 
 	/**
@@ -223,12 +222,13 @@ public class SIJGM002Form {
 
 	/**
 	 * 社員ID を設定
+	 *
 	 * @param
 	 *
 	 * @param syain_id
 	 */
 	public void setSyain_id(String syain_id) {
-		this.syain_id =syain_id ;
+		this.syain_id = syain_id;
 	}
 
 	/**
@@ -383,9 +383,11 @@ public class SIJGM002Form {
 	public void setPage(String page) {
 		this.page = page;
 	}
+
 	/**
 	 * エラー表示を取得
-	 *@param error_hyoji
+	 *
+	 * @param error_hyoji
 	 */
 	public List<String> getError_hyoji() {
 		return error_hyoji;
@@ -393,9 +395,11 @@ public class SIJGM002Form {
 
 	/**
 	 * エラー表示を設定
+	 *
 	 * @param error_hyoji
 	 */
 	public void setError_hyoji(List<String> error_hyoji) {
 		this.error_hyoji = error_hyoji;
-}
+
+	}
 }

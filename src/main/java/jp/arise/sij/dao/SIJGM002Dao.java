@@ -46,13 +46,13 @@ public interface SIJGM002Dao extends Serializable {
 	 *
 	 * @return upSyainInfo
 	 */
-	public List<SIJGM002Dto> upSyainInfo(SIJGM002Dto SIJGM002Dto);
+	public void upSyainInfo(SIJGM002Dto SIJGM002Dto);
 
 	/**
 	 * 社員情報削除処理を取得
 	 *
 	 * @return delsyainInfo
 	 */
-	public List<SIJGM002Dto> delSyainInfo(SIJGM002Dto SIJGM002Dto);
+	public void delSyainInfo(SIJGM002Dto SIJGM002Dto);
 
 }
