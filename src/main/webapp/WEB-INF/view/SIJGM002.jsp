@@ -15,8 +15,8 @@
 	</head>
 	<body>
 	    <spring:url value="/initSijGm002" var="actionUrl"/>
-    	<form:form modelAttribute="SIJGM002Form">
-    		<form:input path="user" />
+	<form:form modelAttribute="SIJGM002Form">
+		<form:input path="user" />
     		<input type="submit" class="btn btn-default" value="新規登録" name="entrySijGm002" formaction="${actionUrl}">
     		<input type="submit" class="btn btn-success" value="更新" name="updateSijGm002" formaction="${actionUrl}">
     		<input type="submit" class="btn btn-success" value="削除" name="deleteSijGm002" formaction="${actionUrl}">
@@ -38,6 +38,13 @@
     		   単価：<form:input path = "tanka" type = "text" name = "単価" maxlength="5"/></p>
     		<p>現場名：<form:input path="genba_na" type = "text" name = "現場名" maxlength="30"/></p>
     		<p>参画日：<form:input path="sankaku_dt" type = "text" name = "参画日" maxlength="10"/></p>
-    	</form:form>
-	</body>
+			<p  class="red">
+				<c:forEach var="error_hyoji" items="${SIJGM002Form.error_hyoji}">
+					・<c:out value="${error_hyoji}" />
+					<br>
+				</c:forEach>
+			</p>
+
+	</form:form>
+</body>
 </html>

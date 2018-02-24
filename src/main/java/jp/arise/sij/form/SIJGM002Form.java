@@ -1,5 +1,7 @@
 package jp.arise.sij.form;
 
+import java.util.List;
+
 /**
  * SIJGM002 社員情報新規登録・編集画面用Formクラス JSPとController間の値受け渡し用
  *
@@ -30,6 +32,10 @@ public class SIJGM002Form {
 	private String sankaku_dt;
 	private String kensakuKeyList;
 	private String page;
+	/**
+	 * エラー表示
+	 */
+	private List<String> error_hyoji;
 
 	// *以下にgetメソッドを記入
 
@@ -377,5 +383,19 @@ public class SIJGM002Form {
 	public void setPage(String page) {
 		this.page = page;
 	}
+	/**
+	 * エラー表示を取得
+	 *@param error_hyoji
+	 */
+	public List<String> getError_hyoji() {
+		return error_hyoji;
+	}
 
+	/**
+	 * エラー表示を設定
+	 * @param error_hyoji
+	 */
+	public void setError_hyoji(List<String> error_hyoji) {
+		this.error_hyoji = error_hyoji;
+}
 }

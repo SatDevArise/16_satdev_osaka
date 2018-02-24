@@ -28,6 +28,8 @@ public class SIJGM002Controller {
 	@Autowired
 	public LoginInfo loginInfo;
 
+	public SIJGM002MAV comsijgm002MAV = new SIJGM002MAV();
+
 	@Autowired
 	private SIJGM002Servise sijGm002Service;
 
