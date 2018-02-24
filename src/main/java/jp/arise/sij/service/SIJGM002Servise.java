@@ -34,6 +34,8 @@ public class SIJGM002Servise {
 		String syain_id = dto.getSyain_id();
 		System.out.println(syain_id);
 
+		sijGm002Dao.upSyainInfo(dto);
+
 		return dto;
 	}
 
