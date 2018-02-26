@@ -1,0 +1,31 @@
+@charset "UTF-8";
+
+.doubleBox {
+    padding: 0.5em 1em 3em 1em;
+    margin: 0 auto;
+    border: double 5px #0000a0;
+    width: 800px;
+    height: 60px;
+    overflow: auto;
+}
+
+.red {
+	color: #ff0000;
+}
+
+.textfiled{
+	padding: 3px 5px;
+    margin: 0px;
+}
+
+.spancustom  {
+	width: 5em;
+	margin: 0px;
+	display: block;
+	float: left;
+}
+
+.tdcustom  {
+    padding-right:1em;
+
+}
