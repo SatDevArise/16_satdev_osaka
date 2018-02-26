@@ -28,16 +28,58 @@ public class SIJGM002Servise {
 	 * 社員ID取得処理
 	 *
 	 * @param dto
-	 * @return
+	 * @return SIJGM002Dto
 	 */
 	public SIJGM002Dto getSyain_dt(SIJGM002Dto dto) {
-		String syain_id = dto.getSyain_id();
-		System.out.println(syain_id);
-
-		sijGm002Dao.upSyainInfo(dto);
-
+		sijGm002Dao.getSyain_info(dto);
 		return dto;
 	}
+
+	/**
+	 * 最寄り駅チェック取得
+	 *
+	 * @param dto
+	 * @return
+	 */
+	public SIJGM002Dto getCheckInputStation(SIJGM002Dto dto) {
+		sijGm002Dao.getCheckInputStation(dto);
+		return dto;
+	}
+
+	/**
+	 * 社員情報更新処理
+	 *
+	 * @param dto
+	 * @return
+	 */
+	public SIJGM002Dto upSyainInfo(SIJGM002Dto dto) {
+		sijGm002Dao.upSyainInfo(dto);
+		return dto;
+	}
+	/**
+	 * 社員情報新規情報登録処理
+	 *
+	 * @param dto
+	 * @return
+	 */
+	public SIJGM002Dto insertSyainInfo(SIJGM002Dto dto) {
+		sijGm002Dao.insertSyainInfo(dto);
+		return dto;
+	}
+
+	/**
+	 * 社員情報削除処理
+	 *
+	 * @param dto
+	 * @return
+	 */
+	public SIJGM002Dto delSyainInfo(SIJGM002Dto dto) {
+		sijGm002Dao.delSyainInfo(dto);
+		return dto;
+	}
+
+
+
 
 	/**
 	 * 入力チェック
