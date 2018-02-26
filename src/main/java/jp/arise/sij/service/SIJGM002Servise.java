@@ -144,8 +144,65 @@ public class SIJGM002Servise {
 	private boolean patternCheck(String str) {
 		if (!str.matches("^[0-9A-Za-z]+$")) {
 			return false;
+
+	/**
+	 * 半角文字チェック
+	 *
+	 * @param String
+	 * @return true:OK false:NG
+	 * @suthor Masashi.Yamamoto
+	 */
+	private boolean patternCheck(String str) {
+		if (!str.matches("^[0-9A-Za-z]+$")) {
+			return false;
 		}
 		return true;
+	}
+
+
+
+	/**
+	 * 桁数チェック
+	 *
+	 * @param String,int
+	 * @return true:OK false:NG
+	 * @author MasashiYamamoto
+	 */
+	private boolean digitCheck(String str, int digit) {
+		if (!(digit == str.length())) {
+			return false;
+		}
+		return true;
+
+	/**
+	 * 半角文字チェック
+	 *
+	 * @param String
+	 * @return true:OK false:NG
+	 * @suthor Masashi.Yamamoto
+	 */
+	private boolean patternCheck(String str) {
+		if (!str.matches("^[0-9A-Za-z]+$")) {
+			return false;
+		}
+		return true;
+	}
+
+
+
+	/**
+	 * 桁数チェック
+	 *
+	 * @param String,int
+	 * @return true:OK false:NG
+	 * @author MasashiYamamoto
+	 */
+	private boolean digitCheck(String str, int digit) {
+		if (!(digit == str.length())) {
+			return false;
+		}
+		return true;
+		}
 
 	/**
 	 * 半角文字チェック
@@ -220,6 +277,8 @@ public class SIJGM002Servise {
 			return false;
 		}
 		return true;
+}
+}
 }
 }
 }
