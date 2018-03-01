@@ -25,14 +25,13 @@ public class SIJGM002Servise {
 	private SIJGM002Dao sijGm002Dao;
 
 	/**
-	 * 社員ID取得処理
+	 * 社員情報取得処理
 	 *
 	 * @param dto
 	 * @return
 	 */
-	public SIJGM002Dto getSyain_dt(SIJGM002Dto dto) {
-		String syain_id = dto.getSyain_id();
-		System.out.println(syain_id);
+	public SIJGM002Dto upSyainInfo(SIJGM002Dto dto) {
+		String upSyainInfo = dto.getSyain_id();
 
 		sijGm002Dao.upSyainInfo(dto);
 
@@ -144,7 +143,7 @@ public class SIJGM002Servise {
 	private boolean patternCheck(String str) {
 		if (!str.matches("^[0-9A-Za-z]+$")) {
 			return false;
-	
+
 		}
 		return true;
 	}
@@ -162,6 +161,5 @@ public class SIJGM002Servise {
 		}
 		return true;
 
-
-}
+	}
 }
