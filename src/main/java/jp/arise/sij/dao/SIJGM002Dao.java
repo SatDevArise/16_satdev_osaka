@@ -13,45 +13,37 @@ import jp.arise.sij.dto.SIJGM002Dto;
  */
 public interface SIJGM002Dao extends Serializable {
 
-	/**
-	 * userを取得
-	 *
-	 * @return user
-	 */
-	public List<SIJGM002Dto> getUser(SIJGM002Dto SIJGM002Dto);
+
 
 	/**
 	 * 社員情報を取得
 	 *
-	 * @return syainlistinfo
+	 * @return List<SIJGM002Dto>
 	 */
-	public List<SIJGM002Dto> getSyain_id(SIJGM002Dto SIJGM002Dto);
+	public List<SIJGM002Dto> getSyain_info(SIJGM002Dto SIJGM002Dto);
 
 	/**
 	 * 最寄り駅チェックを取得
 	 *
-	 * @return getinputcheckstation
+	 * @return List<SIJGM002Dto>
 	 */
 	public List<SIJGM002Dto> getCheckInputStation(SIJGM002Dto SIJGM002Dto);
 
 	/**
-	 * 社員情報新規登録処理を取得
+	 * 社員情報新規登録処理
 	 *
-	 * @return insertSyainInfo
 	 */
-	public List<SIJGM002Dto> insertSyainInfo(SIJGM002Dto SIJGM002Dto);
+	public void insertSyainInfo(SIJGM002Dto SIJGM002Dto);
 
 	/**
-	 * 社員情報更新処理を取得
+	 * 社員情報更新処理
 	 *
-	 * @return upSyainInfo
 	 */
 	public void upSyainInfo(SIJGM002Dto SIJGM002Dto);
 
 	/**
-	 * 社員情報削除処理を取得
+	 * 社員情報削除処理
 	 *
-	 * @return delsyainInfo
 	 */
 	public void delSyainInfo(SIJGM002Dto SIJGM002Dto);
 

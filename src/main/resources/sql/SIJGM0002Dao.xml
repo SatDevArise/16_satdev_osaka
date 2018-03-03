@@ -23,7 +23,7 @@
 
 	</resultMap>
 
-	<select id="getSyainInfo">
+	<select id="getSyain_info">
 		SELECT
 		sd.syain_id
 		,sd.syain_na
@@ -100,21 +100,23 @@
 		syain_dt
 		SET
 		(
-		#{syain_id}
-		,#{syain_na}
-		,#{birth}
-		,#{moyori_1_station}
-		,#{moyori_2_station}
-		,#{moyori_3_station}
-		,#{phonenumber}
-		,#{previous}
-		,#{birth_place}
-		,#{position}
-		,#{team_na}
-		,#{phase}
-		,#{tanka}
-		,#{genba_na}
+			syain_id = #{syain_id}
+		   ,syain_na = #{syain_na}
+		   ,birth = #{birth}
+		   ,moyori_1_station = #{moyori_1_station}
+		   ,moyori_2_station = #{moyori_2_station}
+		   ,moyori_3_station = #{moyori_3_station}
+		   ,phonenumber = #{phonenumber}
+		   ,previous = #{previous}
+		   ,birth_place = #{birth_place}
+		   ,position = #{position}
+		   ,team_na = #{team_na}
+		   ,phase = #{phase}
+		   ,tanka = #{tanka}
+		   ,genba_na = #{genba_na}
 		)
+		WHERE syain_id = #{syain_id}
+    	AND   yuko_fg = '1'
 
 	</update>
 
@@ -127,13 +129,7 @@
 		syain_id=#{syain_id}
 	</delete>
 
-	<select id="getUser" resultMap="resultSIJGM002Dto">
-		SELECT username
-		FROM test
-		WHERE userid = #{userId}
-	</select>
-
-	<select id="getSyainListInfo" resultMap="resultSIJGM002Dto">
+<!-- 	<select id="getSyainListInfo" resultMap="resultSIJGM002Dto">
 		SELECT
 		sd.syain_id
 		,sd.syain_na
@@ -155,7 +151,7 @@
 
 
 	</select>
-
+ -->
 
 
 </mapper>

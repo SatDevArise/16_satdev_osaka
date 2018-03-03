@@ -100,10 +100,10 @@ public class SIJGM002Controller {
 		//入力チェック処理
 		sijGm002Service.inputCheck(sijGm002Dto);
 		if(!sijGm002Dto.getError_hyoji().isEmpty()) {
-			BeanUtils.copyProperties(sijGm002Dto, sijGm002MAV);
+			BeanUtils.copyProperties(sijGm002Dto,sijGm002MAV);
 			return new ModelAndView("forward:/sijMessage","SIJGM002MAV",sijGm002MAV);
 		}
-		BeanUtils.copyProperties(sijGm002Dto, sijGm002MAV);
+		BeanUtils.copyProperties(sijGm002Dto,sijGm002MAV);
 		return new ModelAndView("forward:/initSijGm002","COMGM001MAV",sijGm002MAV);
 	}
 
@@ -127,7 +127,7 @@ public class SIJGM002Controller {
 					return new ModelAndView("forward:/sijMessage","SIJGM002MAV",sijGm002MAV);
 				}
 		//更新処理
-				sijGm002Service.upSyainInfo(sijGm002Dto);
+		sijGm002Service.upSyainInfo(sijGm002Dto);
 		return new ModelAndView("forward:/initSijGm002","COMGM001MAV",sijGm002MAV);
 	}
 
@@ -140,12 +140,13 @@ public class SIJGM002Controller {
 	 * @since 2017/07/177
 	 */
 	@RequestMapping(value = "/initSijGm002",params = "deleteSijGm002", method = RequestMethod.POST)
-	public String deleteSijGm002(SIJGM002Form sijGm002Form,Model model) {
+	public ModelAndView deleteSijGm002(SIJGM002Form sijGm002Form,Model model) {
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
 		BeanUtils.copyProperties(sijGm002Form, sijGm002Dto);
 
-
-		return "SIJGM002";
+		//削除処理
+		sijGm002Service.delSyainInfo(sijGm002Dto);
+			return new ModelAndView("forward:/initSijGm002","COMGM001MAV",sijGm002MAV);
 	}
 
 	/**
