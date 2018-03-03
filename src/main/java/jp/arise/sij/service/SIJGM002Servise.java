@@ -25,34 +25,14 @@ public class SIJGM002Servise {
 	private SIJGM002Dao sijGm002Dao;
 
 	/**
-	 * 社員ID取得処理
-	 *
-	 * @param dto
-	 * @return SIJGM002Dto
-	 */
-	public SIJGM002Dto getSyain_dt(SIJGM002Dto dto) {
-		sijGm002Dao.getSyain_info(dto);
-		return dto;
-	}
-
-	/**
-	 * 最寄り駅チェック取得
-	 *
-	 * @param dto
-	 * @return
-	 */
-	public SIJGM002Dto getCheckInputStation(SIJGM002Dto dto) {
-		sijGm002Dao.getCheckInputStation(dto);
-		return dto;
-	}
-
-	/**
-	 * 社員情報更新処理
+	 * 社員情報取得処理
 	 *
 	 * @param dto
 	 * @return
 	 */
 	public SIJGM002Dto upSyainInfo(SIJGM002Dto dto) {
+		String upSyainInfo = dto.getSyain_id();
+
 		sijGm002Dao.upSyainInfo(dto);
 		return dto;
 	}
@@ -67,16 +47,7 @@ public class SIJGM002Servise {
 		return dto;
 	}
 
-	/**
-	 * 社員情報削除処理
-	 *
-	 * @param dto
-	 * @return
-	 */
-	public SIJGM002Dto delSyainInfo(SIJGM002Dto dto) {
-		sijGm002Dao.delSyainInfo(dto);
-		return dto;
-	}
+
 
 
 
@@ -204,5 +175,5 @@ public class SIJGM002Servise {
 		}
 		return true;
 	}
-
 }
+
