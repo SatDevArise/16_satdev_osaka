@@ -32,26 +32,26 @@ public class SIJGM002Dto implements Serializable{
 		this.user = user;
 	}
 
-	/**
-	 * ユーザーID
-	 */
-	private int userId;
-
-	/**
-	 * ユーザーIDを取得
-	 * @return userId
-	 */
-	public int getUserId() {
-		return userId;
-	}
-
-	/**
-	 * ユーザーIDを設定
-	 * @param userId
-	 */
-	public void setUserId(int userId) {
-		this.userId = userId;
-	}
+//	/**
+//	 * ユーザーID
+//	 */
+//	private int userId;
+//
+//	/**
+//	 * ユーザーIDを取得
+//	 * @return userId
+//	 */
+//	public int getUserId() {
+//		return userId;
+//	}
+//
+//	/**
+//	 * ユーザーIDを設定
+//	 * @param userId
+//	 */
+//	public void setUserId(int userId) {
+//		this.userId = userId;
+//	}
 
 	/**
 	 * 社員ID

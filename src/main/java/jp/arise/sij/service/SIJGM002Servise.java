@@ -64,11 +64,24 @@ public class SIJGM002Servise {
 	 * @return
 	 */
 	public SIJGM002Dto inputCheck(SIJGM002Dto dto) {
-
+		//入力チェック
+		validation(dto);
+		if(!dto.getError_hyoji().isEmpty()) {
+			return dto;
+		}
+		return dto;
+	}
+		/**
+		 * 入力チェック
+		 * @param SIJGM002Dto
+		 * @return -
+		 * @author SyoriMori
+		 */
+		private void validation(SIJGM002Dto dto) {
 		List<String> resultMessage = new ArrayList<String>();
 		// 社員ID：必須入力チェック
 		if (StringUtils.isEmpty(dto.getSyain_id())) {
-			// resultMessage.add(SIJMessage.COME005.getMessage());
+			 resultMessage.add(SIJMessage.SIJE001.getMessage());
 		} else {
 			// 社員ID：半角文字チェック
 			if (!patternCheck(dto.getSyain_id())) {
@@ -109,7 +122,7 @@ public class SIJGM002Servise {
 		}
 		// 最寄り駅1：必須入力チェック
 		if (StringUtils.isEmpty(dto.getMoyori_1_station())) {
-			// resultMessage.add(SIJMessage.COME005.getMessage());
+			 resultMessage.add(SIJMessage.SIJE001.getMessage());
 		} else {
 			// 最寄り駅1：全角文字チェック
 			if (patternCheck(dto.getMoyori_1_station())) {
@@ -123,7 +136,7 @@ public class SIJGM002Servise {
 
 		// 最寄り駅2：必須入力チェック
 		if (!StringUtils.isEmpty(dto.getMoyori_3_station())) {
-			// resultMessage.add(SIJMessage.COME005.getMessage());
+			 resultMessage.add(SIJMessage.SIJE001.getMessage());
 		} else {
 			// 最寄り駅2：全角文字チェック
 			if (patternCheck(dto.getMoyori_2_station())) {
@@ -136,7 +149,7 @@ public class SIJGM002Servise {
 		}
 		// 連絡先：必須入力チェック
 		if (!StringUtils.isEmpty(dto.getPhoneNumber())) {
-			// resultMessage.add(SIJMessage.COME005.getMessage());
+			 resultMessage.add(SIJMessage.SIJE001.getMessage());
 		} else {
 			// 連絡先：半角文字チェック
 			if (!patternCheck(dto.getPhoneNumber())) {
@@ -149,9 +162,11 @@ public class SIJGM002Servise {
 		}
 
 		dto.setError_hyoji(resultMessage);
-
-		return dto;
 	}
+
+
+
+
 
 	/**
 	 * 半角文字チェック
