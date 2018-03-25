@@ -136,6 +136,7 @@ public class SIJGM002Controller {
 	 */
 	@RequestMapping(value = "/initSijGm002",params = "updateSijGm002", method = RequestMethod.POST)
 	public ModelAndView updateSijGm002(Model model,SIJGM002Form sijGm002Form) {
+		//フォームの値をDtoへコピー
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
 		BeanUtils.copyProperties(sijGm002Form,sijGm002Dto);
 
@@ -160,8 +161,16 @@ public class SIJGM002Controller {
 	 */
 	@RequestMapping(value = "/initSijGm002",params = "deleteSijGm002", method = RequestMethod.POST)
 	public ModelAndView deleteSijGm002(SIJGM002Form sijGm002Form,Model model) {
+		//フォームの値をDtoへコピー
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
 		BeanUtils.copyProperties(sijGm002Form, sijGm002Dto);
+
+		//入力チェック処理
+		sijGm002Service.inputCheck(sijGm002Dto);
+		if(!sijGm002Dto.getError_hyoji().isEmpty()) {
+			BeanUtils.copyProperties(sijGm002Dto, sijGm002MAV);
+			return new ModelAndView("forward:/sijMessage","SIJGM002MAV",sijGm002MAV);
+		}
 
 		//削除処理
 		sijGm002Service.delSyainInfo(sijGm002Dto);
