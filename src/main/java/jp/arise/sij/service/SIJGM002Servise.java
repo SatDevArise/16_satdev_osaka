@@ -27,35 +27,55 @@ public class SIJGM002Servise {
 	/**
 	 * 社員情報更新処理
 	 *
-	 * @param dto
-	 * @return
+	 * @param SIJGM002Dto
+	 * @return SIJGM002Dto
 	 */
 	public SIJGM002Dto upSyainInfo(SIJGM002Dto dto) {
 		sijGm002Dao.upSyainInfo(dto);
+
+		//セッション情報設定処理
+		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+		sijGm002Dto.setSyain_id(dto.getSyain_id());
+		sijGm002Dto.setName(dto.getName());
+
 		return dto;
 	}
 	/**
 	 * 社員情報新規情報登録処理
 	 *
-	 * @param dto
-	 * @return
+	 * @param SIJGM002Dto
+	 * @return SIJGM002Dto
 	 */
 	public SIJGM002Dto insertSyainInfo(SIJGM002Dto dto) {
 		sijGm002Dao.insertSyainInfo(dto);
+
+		//セッション情報設定処理
+		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+		sijGm002Dto.setSyain_id(dto.getSyain_id());
+		sijGm002Dto.setName(dto.getName());
+
+
 		return dto;
 	}
 
 	/**
 	 * 社員情報削除処理
 	 *
-	 * @param dto
-	 * @return
+	 * @param SIJGM002Dto
+	 * @return SIJGM002Dto
 	 *
 	 */
 	public SIJGM002Dto delSyainInfo(SIJGM002Dto dto){
 		sijGm002Dao.delSyainInfo(dto);
+
+		//セッション情報設定処理
+		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+		sijGm002Dto.setSyain_id(dto.getSyain_id());
+		sijGm002Dto.setName(dto.getName());
+
 		return dto;
 	}
+
 
 	/**
 	 * 入力チェック
