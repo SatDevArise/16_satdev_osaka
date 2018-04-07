@@ -105,79 +105,79 @@ public class SIJGM002Servise {
 		} else {
 			// 社員ID：半角文字チェック
 			if (!patternCheck(dto.getSyain_id())) {
-				resultMessage.add(SIJMessage.SIJE001.getMessage());
+				resultMessage.add(SIJMessage.SIJE008.getMessage());
 			}
 			// 社員ID：桁数チェック
 			if (!digitCheck(dto.getSyain_id(), UTLContent.INT_EIGHT)) {
-				resultMessage.add(SIJMessage.SIJE002.getMessage());
+				resultMessage.add(SIJMessage.SIJE012.getMessage());
 			}
 		}
 
 		// 氏名：必須入力チェック
 		if (StringUtils.isEmpty(dto.getName())) {
-			// resultMessage.add(SIJMessage.COME005.getMessage());
+			 resultMessage.add(SIJMessage.SIJE002.getMessage());
 		} else {
 			// 氏名：全角文字チェック
 			if (patternCheck(dto.getName())) {
-				resultMessage.add(SIJMessage.SIJE001.getMessage());
+				resultMessage.add(SIJMessage.SIJE013.getMessage());
 			}
 			// 氏名：桁数チェック
 			if (!digitCheck(dto.getName(), UTLContent.INT_EIGHT)) {
-				resultMessage.add(SIJMessage.SIJE002.getMessage());
+				resultMessage.add(SIJMessage.SIJE014.getMessage());
 			}
 		}
 
 		// 生年月日：必須入力チェック
 		if (StringUtils.isEmpty(dto.getBirth())) {
-			// resultMessage.add(SIJMessage.COME005.getMessage());
+			   resultMessage.add(SIJMessage.SIJE003.getMessage());
 		} else {
 			// 生年月日：半角文字チェック
 			if (!patternCheck(dto.getBirth())) {
-				resultMessage.add(SIJMessage.SIJE001.getMessage());
+				resultMessage.add(SIJMessage.SIJE004.getMessage());
 			}
 			// 生年月日：桁数チェック
 			if (!digitCheck(dto.getBirth(), UTLContent.INT_EIGHT)) {
-				resultMessage.add(SIJMessage.SIJE002.getMessage());
+				resultMessage.add(SIJMessage.SIJE005.getMessage());
 			}
 		}
 		// 最寄り駅1：必須入力チェック
 		if (StringUtils.isEmpty(dto.getMoyori_1_station())) {
-			 resultMessage.add(SIJMessage.SIJE001.getMessage());
+			 resultMessage.add(SIJMessage.SIJE006.getMessage());
 		} else {
 			// 最寄り駅1：全角文字チェック
 			if (patternCheck(dto.getMoyori_1_station())) {
-				resultMessage.add(SIJMessage.SIJE001.getMessage());
+				resultMessage.add(SIJMessage.SIJE015.getMessage());
 			}
 			// 最寄り駅1：桁数チェック
 			if (!digitCheck(dto.getMoyori_1_station(), UTLContent.INT_EIGHT)) {
-				resultMessage.add(SIJMessage.SIJE002.getMessage());
+				resultMessage.add(SIJMessage.SIJE016.getMessage());
 			}
 		}
 
 		// 最寄り駅2：必須入力チェック
 		if (!StringUtils.isEmpty(dto.getMoyori_3_station())) {
-			 resultMessage.add(SIJMessage.SIJE001.getMessage());
+			 resultMessage.add(SIJMessage.SIJE007.getMessage());
 		} else {
 			// 最寄り駅2：全角文字チェック
 			if (patternCheck(dto.getMoyori_2_station())) {
-				resultMessage.add(SIJMessage.SIJE001.getMessage());
+				resultMessage.add(SIJMessage.SIJE017.getMessage());
 			}
 			// 最寄り駅2：桁数チェック
 			if (!digitCheck(dto.getMoyori_2_station(), UTLContent.INT_EIGHT)) {
-				resultMessage.add(SIJMessage.SIJE002.getMessage());
+				resultMessage.add(SIJMessage.SIJE018.getMessage());
 			}
 		}
 		// 連絡先：必須入力チェック
 		if (!StringUtils.isEmpty(dto.getPhoneNumber())) {
-			 resultMessage.add(SIJMessage.SIJE001.getMessage());
+			 resultMessage.add(SIJMessage.SIJE008.getMessage());
 		} else {
 			// 連絡先：半角文字チェック
 			if (!patternCheck(dto.getPhoneNumber())) {
-				resultMessage.add(SIJMessage.SIJE001.getMessage());
+				resultMessage.add(SIJMessage.SIJE009.getMessage());
 			}
 			// 連絡先：桁数チェック
 			if (!digitCheck(dto.getPhoneNumber(), UTLContent.INT_EIGHT)) {
-				resultMessage.add(SIJMessage.SIJE002.getMessage());
+				resultMessage.add(SIJMessage.SIJE0010.getMessage());
 			}
 		}
 

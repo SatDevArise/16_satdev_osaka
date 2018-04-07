@@ -108,6 +108,11 @@ public class SIJGM002MAV {
 	 */
 	private String page;
 
+	/**
+	 * エラー表示
+	 */
+	private String error_hyoji;
+
 
 	//以下にgetterを記載
 	/**
@@ -262,6 +267,14 @@ public class SIJGM002MAV {
 		return page;
 	}
 
+	/**
+	 * エラー表示
+	 * @return error_hyoji
+	 */
+	public String getError_hyoji(){
+		return error_hyoji;
+	}
+
 	//以下にsetterを記載
 	/**
 	 * ユーザーを設定
@@ -414,6 +427,14 @@ public class SIJGM002MAV {
 	 */
 	public String setPage(String page) {
 		return page;
+	}
+
+	/**
+	 * エラー表示
+	 * @return
+	 */
+	public String setError_hyoji() {
+		return error_hyoji;
 	}
 
 
