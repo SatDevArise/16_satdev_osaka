@@ -33,10 +33,10 @@ public class SIJGM002Servise {
 	public SIJGM002Dto upSyainInfo(SIJGM002Dto dto) {
 		sijGm002Dao.upSyainInfo(dto);
 
-		//セッション情報設定処理
-		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-		sijGm002Dto.setSyain_id(dto.getSyain_id());
-		sijGm002Dto.setName(dto.getName());
+//		//セッション情報設定処理
+//		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+//		sijGm002Dto.setSyain_id(dto.getSyain_id());
+//		sijGm002Dto.setName(dto.getName());
 
 		return dto;
 	}
@@ -49,10 +49,10 @@ public class SIJGM002Servise {
 	public SIJGM002Dto insertSyainInfo(SIJGM002Dto dto) {
 		sijGm002Dao.insertSyainInfo(dto);
 
-		//セッション情報設定処理
-		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-		sijGm002Dto.setSyain_id(dto.getSyain_id());
-		sijGm002Dto.setName(dto.getName());
+//		//セッション情報設定処理
+//		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+//		sijGm002Dto.setSyain_id(dto.getSyain_id());
+//		sijGm002Dto.setName(dto.getName());
 
 
 		return dto;

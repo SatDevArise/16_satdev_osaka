@@ -49,7 +49,7 @@ public class SIJGM002Controller {
 	 * @author AtsushiNishizawa
 	 * @since 2017/07/17
 	 */
-	@RequestMapping(value = "/initSijGm002",params = "goSijGm002", method = RequestMethod.GET)
+	@RequestMapping(value = "/initSijGm002",params = "goSijGm002", method = RequestMethod.POST)
 	public String initSijGm002(Model model) {
     	//ログイン情報取得
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
@@ -76,7 +76,7 @@ public class SIJGM002Controller {
 	 * @author AtsushiNishizawa
 	 * @since 2017/07/17
 	 */
-	@RequestMapping(value = "/initSijGm002",params = "goToSijGm002",method = RequestMethod.GET)
+	@RequestMapping(value = "/initSijGm002",params = "goToSijGm002",method = RequestMethod.POST)
 	public String initSijGm002(Model model,SIJGM001MAV sijGm001MAV) {
 		SIJGM002Form sijGm002Form = new SIJGM002Form();
 		sijGm002Form.setUser(sijGm001MAV.getUser());
