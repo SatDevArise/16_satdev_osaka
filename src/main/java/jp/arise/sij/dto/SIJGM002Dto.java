@@ -32,26 +32,26 @@ public class SIJGM002Dto implements Serializable{
 		this.user = user;
 	}
 
-//	/**
-//	 * ユーザーID
-//	 */
-//	private int userId;
-//
-//	/**
-//	 * ユーザーIDを取得
-//	 * @return userId
-//	 */
-//	public int getUserId() {
-//		return userId;
-//	}
-//
-//	/**
-//	 * ユーザーIDを設定
-//	 * @param userId
-//	 */
-//	public void setUserId(int userId) {
-//		this.userId = userId;
-//	}
+	/**
+	 * ユーザーID
+	 */
+	private int user_id;
+
+	/**
+	 * ユーザーIDを取得
+	 * @return user_id
+	 */
+	public int getUser_id() {
+		return user_id;
+	}
+
+	/**
+	 * ユーザーIDを設定
+	 * @param user_id
+	 */
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
 
 	/**
 	 * 社員ID
@@ -98,169 +98,169 @@ public class SIJGM002Dto implements Serializable{
 	/**
 	 * 生年月日
 	 */
-	private String birth;
+	private String birth_dt;
 
 	/**
 	 * 生年月日を取得
-	 * @return birth
+	 * @return birth_dt
 	 */
-	public String getBirth() {
-		return birth;
+	public String getBirth_dt() {
+		return birth_dt;
 	}
 
 	/**
 	 * 生年月日を設定
-	 * @param birth
+	 * @param birth_dt
 	 */
-	public void setBirth(String birth) {
-		this.birth = birth;
+	public void setBirth_dt(String birth_dt) {
+		this.birth_dt = birth_dt;
 	}
 
 	/**
 	 * 最寄り駅1
 	 */
-	private String moyori_1_station;
+	private String moyori_eki_1;
 
 	/**
 	 * 最寄り駅1を取得
-	 * @return moyori_1_station
+	 * @return moyori_eki_1
 	 */
-	public String getMoyori_1_station() {
-		return moyori_1_station;
+	public String getMoyori_eki_1() {
+		return moyori_eki_1;
 	}
 
 	/**
 	 * 最寄り駅1を設定
-	 * @param moyori_1_station
+	 * @param moyori_eki_1
 	 */
-	public void setMoyori_1_station(String moyori_1_station) {
-		this.moyori_1_station = moyori_1_station;
+	public void setMoyori_eki_1(String moyori_eki_1) {
+		this.moyori_eki_1 = moyori_eki_1;
 	}
 
 	/**
 	 * 最寄り駅2
 	 */
-	private String moyori_2_station;
+	private String moyori_eki_2;
 
 	/**
 	 * 最寄り駅2を取得
-	 * @return moyori_2_station
+	 * @return moyori_eki_2
 	 */
-	public String getMoyori_2_station() {
-		return moyori_2_station;
+	public String getMoyori_eki_2() {
+		return moyori_eki_2;
 	}
 
 	/**
 	 * 最寄り駅2を設定
 	 * @param moyori_2_station
 	 */
-	public void setMoyori_2_station(String moyori_2_station) {
-		this.moyori_2_station = moyori_2_station;
+	public void setMoyori_eki_2(String moyori_eki_2) {
+		this.moyori_eki_2 = moyori_eki_2;
 	}
 
 	/**
 	 * 最寄り駅3
 	 */
-	private String moyori_3_station;
+	private String moyori_eki_3;
 
 	/**
 	 * 最寄り駅3を取得
-	 * @return moyori_3_station
+	 * @return moyori_eki_3
 	 */
-	public String getMoyori_3_station() {
-		return moyori_3_station;
+	public String getMoyori_eki_3() {
+		return moyori_eki_3;
 	}
 
 	/**
 	 * 最寄り駅3を設定
-	 * @param moyori_3_station
+	 * @param moyori_eki_3
 	 */
-	public void setMoyori_3_station(String moyori_3_station) {
-		this.moyori_3_station = moyori_3_station;
+	public void setMoyori_eki_3(String moyori_eki_3) {
+		this.moyori_eki_3 = moyori_eki_3;
 	}
 
 	/**
 	 * 連絡先
 	 */
-	private String phoneNumber;
+	private String syain_renrakusaki;
 
 	/**
 	 * 連絡先を取得
-	 * @return phoneNumber
+	 * @return syain_renrakusaki
 	 */
-	public String getPhoneNumber() {
-		return phoneNumber;
+	public String getSyain_renrakusaki() {
+		return syain_renrakusaki;
 	}
 
 	/**
 	 * 連絡先を設定
-	 * @param phoneNumber
+	 * @param syain_renrakusaki
 	 */
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
+	public void seSyain_renrakusaki(String syain_renrakusaki) {
+		this.syain_renrakusaki = syain_renrakusaki;
 	}
 
 	/**
 	 * 前職
 	 */
-	private String previous;
+	private String zensyoku_na;
 
 	/**
 	 * 前職を取得
-	 * @return previous
+	 * @return zensyoku_na
 	 */
-	public String getPrevious() {
-		return previous;
+	public String getzensyoku_na() {
+		return zensyoku_na;
 	}
 
 	/**
 	 * 前職を設定
-	 * @param previous
+	 * @param zensyoku_na
 	 */
-	public void setPrevious(String previous) {
-		this.previous = previous;
+	public void setZensyoku_na(String zensyoku_na) {
+		this.zensyoku_na = zensyoku_na;
 	}
 
 	/**
 	 * 出身地
 	 */
-	private String birth_place;
+	private String syussin_na;
 
 	/**
 	 * 出身地を取得
-	 * @return birth_place
+	 * @return syussin_na
 	 */
-	public String getBirth_place() {
-		return birth_place;
+	public String getSyussin_na() {
+		return syussin_na;
 	}
 
 	/**
 	 * 出身地を設定
-	 * @param birth_place
+	 * @param syussin_na
 	 */
-	public void setBirth_place(String birth_place) {
-		this.birth_place = birth_place;
+	public void setSyussin_na(String syussin_na) {
+		this.syussin_na = syussin_na;
 	}
 
 	/**
 	 * 役職
 	 */
-	private String position;
+	private String yakusyoku_cd;
 
 	/**
 	 * 役職を取得
-	 * @return position
+	 * @return yakusyoku_cd
 	 */
-	public String getPosition() {
-		return position;
+	public String getYakusyoku_cd() {
+		return yakusyoku_cd;
 	}
 
 	/**
 	 * 役職を設定
-	 * @param position
+	 * @param yakusyoku_cd
 	 */
-	public void setPosition(String position) {
-		this.position = position;
+	public void setYakusyoku_cd(String yakusyoku_cd) {
+		this.yakusyoku_cd = yakusyoku_cd;
 	}
 
 	/**
@@ -287,64 +287,64 @@ public class SIJGM002Dto implements Serializable{
 	/**
 	 * チーム名
 	 */
-	private String team_na;
+	private String syozoku_team;
 
 	/**
 	 * チーム名を取得
-	 * @return position
+	 * @return syozoku_team
 	 */
-	public String getTeam_na() {
-		return team_na;
+	public String getSyozoku_team() {
+		return syozoku_team;
 	}
 
 	/**
 	 * チーム名を設定
-	 * @param team_na
+	 * @param syozoku_team
 	 */
-	public void setTeam_na(String team_na) {
-		this.team_na = team_na;
+	public void setSyozoku_team(String syozoku_team) {
+		this.syozoku_team = syozoku_team;
 	}
 
 	/**
 	 * フェーズ
 	 */
-	private String phase;
+	private String phase_kb;
 
 	/**
 	 * フェーズを取得
-	 * @return phase
+	 * @return phase_kb
 	 */
-	public String getPhase() {
-		return phase;
+	public String getPhase_kb() {
+		return phase_kb;
 	}
 
 	/**
 	 * フェーズを設定
-	 * @param phase
+	 * @param phase_kb
 	 */
-	public void setphase(String phase) {
-		this.phase = phase;
+	public void setPhase_kb(String phase_kb) {
+		this.phase_kb = phase_kb;
 	}
 
 	/**
 	 * 単価
 	 */
-	private String tanka;
+	private Integer tanka_vl;
 
 	/**
 	 * 単価を取得
-	 * @return tanka
+	 * @return tanka_vl
 	 */
-	public String getTanka() {
-		return tanka;
+	public Integer getTanka_vl() {
+		return tanka_vl;
 	}
 
 	/**
 	 * 単価を設定
-	 * @param tanka
+	 * @param tanka_vl
 	 */
-	public void setTanka(String tanka) {
-		this.tanka = tanka;
+	public void setTanka_vl(Integer tanka_vl) {
+		this.tanka_vl = tanka_vl;
 	}
 
 	/**
@@ -371,24 +371,24 @@ public class SIJGM002Dto implements Serializable{
 	/**
 	 * 参画日
 	 */
-	private String sankaku_dt;
+	private String genba_sankaku_dt;
 
 	/**
 	 * 参画日を取得
-	 * @return sankaku_dt
+	 * @return genba_sankaku_dt
 	 */
-	public String getSankaku_dt() {
-		return sankaku_dt;
+	public String getGenba_sankaku_dt() {
+		return genba_sankaku_dt;
 	}
 
 	/**
 	 * 参画日を設定
-	 * @param sankaku_dt
+	 * @param genba_sankaku_dt
 	 */
 
-	public void setSankaku_dt(String sankaku_dt) {
+	public void setGenba_sankaku_dt(String genba_sankaku_dt) {
 
-		this.sankaku_dt = sankaku_dt;
+		this.genba_sankaku_dt = genba_sankaku_dt;
 	}
 
 	/**
@@ -452,5 +452,30 @@ public class SIJGM002Dto implements Serializable{
 	public void setError_hyoji(List<String> error_hyoji) {
 		this.error_hyoji = error_hyoji;
 	}
+
+	/**
+	 * 社員名
+	 */
+	private String syain_na;
+
+	/**
+	 * 社員名を取得
+	 * @return syain_na
+	 */
+	public String getSyain_na() {
+		return syain_na;
+	}
+
+	/**
+	 * 社員名を設定
+	 * @param syain_na
+	 */
+	public void setSyain_na(String syain_na) {
+		this.syain_na = syain_na;
+	}
+
+	/**
+	 * 電話番号
+	 */
 
 }

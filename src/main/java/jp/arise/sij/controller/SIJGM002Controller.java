@@ -93,7 +93,7 @@ public class SIJGM002Controller {
 	 * @since 2018/03/11
 	 *
 	 */
-	@RequestMapping(value = "/sijMessage", method = RequestMethod.POST)
+	@RequestMapping(value = "/errorSijGm002", method = RequestMethod.POST)
 	public String sijMessage(Model model) {
     	SIJGM002Form sijGm002Form = new SIJGM002Form();
 		BeanUtils.copyProperties(sijGm002MAV, sijGm002Form);
@@ -114,7 +114,7 @@ public class SIJGM002Controller {
 	public ModelAndView entrySijGm002(SIJGM002Form sijGm002Form,Model model) {
 		//フォームの値をDtoへコピー
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-		BeanUtils.copyProperties(sijGm002Form,sijGm002Dto);
+		BeanUtils.copyProperties(sijGm002Dto,sijGm002Form);
 
 		//入力チェック処理
 		sijGm002Service.inputCheck(sijGm002Dto);
@@ -136,20 +136,21 @@ public class SIJGM002Controller {
 	 * @since 2017/07/177
 	 */
 	@RequestMapping(value = "/initSijGm002",params = "updateSijGm002", method = RequestMethod.POST)
-	public ModelAndView updateSijGm002(Model model,SIJGM002Form sijGm002Form) {
+	public String updateSijGm002(Model model,SIJGM002Form sijGm002Form) {
 		//フォームの値をDtoへコピー
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
 		BeanUtils.copyProperties(sijGm002Form,sijGm002Dto);
 
-		//入力チェック処理
-				sijGm002Service.inputCheck(sijGm002Dto);
-				if(!sijGm002Dto.getError_hyoji().isEmpty()) {
-					BeanUtils.copyProperties(sijGm002Dto, sijGm002MAV);
-					return new ModelAndView("forward:/sijMessage","SIJGM002MAV",sijGm002MAV);
-				}
+//		//入力チェック処理
+//				sijGm002Service.inputCheck(sijGm002Dto);
+//				if(!sijGm002Dto.getError_hyoji().isEmpty()) {
+//					BeanUtils.copyProperties(sijGm002MAV, sijGm002Dto);
+//					return new ModelAndView("forward:/sijMessage","SIJGM002MAV",sijGm002MAV);
+//				}
 		//更新処理
 		sijGm002Service.upSyainInfo(sijGm002Dto);
-		return new ModelAndView("forward:/initSijGm002","COMGM001MAV",sijGm002MAV);
+		BeanUtils.copyProperties(sijGm002Dto,sijGm002MAV);
+		return "SIJGM002";
 	}
 
 	/**
