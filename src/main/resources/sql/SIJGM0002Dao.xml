@@ -99,22 +99,20 @@
 		UPDATE
 		syain_dt
 		SET
-		(
 			syain_id = #{syain_id}
 		   ,syain_na = #{syain_na}
-		   ,birth = #{birth}
-		   ,moyori_1_station = #{moyori_1_station}
-		   ,moyori_2_station = #{moyori_2_station}
-		   ,moyori_3_station = #{moyori_3_station}
-		   ,phonenumber = #{phonenumber}
-		   ,previous = #{previous}
-		   ,birth_place = #{birth_place}
-		   ,position = #{position}
-		   ,team_na = #{team_na}
-		   ,phase = #{phase}
-		   ,tanka = #{tanka}
-		   ,genba_na = #{genba_na}
-		)
+		   ,birth_dt = #{birth_dt}
+		   ,moyori_eki_1 = #{moyori_eki_1}
+		   ,moyori_eki_2 = #{moyori_eki_2}
+		   ,moyori_eki_3 = #{moyori_eki_3}
+		   ,syain_renrakusaki = #{syain_renrakusaki}
+		   ,zensyoku_na = #{zensyoku_na}
+		   ,syussin_na = #{syussin_na}
+		   ,yakusyoku_cd = #{yakusyoku_cd}
+		   ,syozoku_team = #{syozoku_team}
+		   ,phase_cd = #{phase_kb}
+		   ,tanka_vl = #{tanka_vl}
+
 		WHERE syain_id = #{syain_id}
     	AND   yuko_fg = '1'
 
