@@ -37,8 +37,6 @@ public class SIJGM002Form {
 	 */
 	private List<String> error_hyoji;
 
-	// *以下にgetメソッドを記入
-
 	/**
 	 * ユーザーを取得
 	 *

@@ -33,27 +33,6 @@ public class SIJGM002Dto implements Serializable{
 	}
 
 	/**
-	 * ユーザーID
-	 */
-	private int user_id;
-
-	/**
-	 * ユーザーIDを取得
-	 * @return user_id
-	 */
-	public int getUser_id() {
-		return user_id;
-	}
-
-	/**
-	 * ユーザーIDを設定
-	 * @param user_id
-	 */
-	public void setUser_id(int user_id) {
-		this.user_id = user_id;
-	}
-
-	/**
 	 * 社員ID
 	 */
 	private String syain_id;
@@ -75,24 +54,24 @@ public class SIJGM002Dto implements Serializable{
 	}
 
 	/**
-	 * 氏名
+	 * 社員名
 	 */
-	private String name;
+	private String syain_na;
 
 	/**
-	 * 氏名を取得
-	 * @return name
+	 * 社員名を取得
+	 * @return syain_na
 	 */
-	public String getName() {
-		return name;
+	public String getSyain_na() {
+		return syain_na;
 	}
 
 	/**
-	 * 氏名を設定
-	 * @param name
+	 * 社員名を設定
+	 * @param syain_na
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setSyain_na(String syain_na) {
+		this.syain_na = syain_na;
 	}
 
 	/**
@@ -452,30 +431,4 @@ public class SIJGM002Dto implements Serializable{
 	public void setError_hyoji(List<String> error_hyoji) {
 		this.error_hyoji = error_hyoji;
 	}
-
-	/**
-	 * 社員名
-	 */
-	private String syain_na;
-
-	/**
-	 * 社員名を取得
-	 * @return syain_na
-	 */
-	public String getSyain_na() {
-		return syain_na;
-	}
-
-	/**
-	 * 社員名を設定
-	 * @param syain_na
-	 */
-	public void setSyain_na(String syain_na) {
-		this.syain_na = syain_na;
-	}
-
-	/**
-	 * 電話番号
-	 */
-
 }

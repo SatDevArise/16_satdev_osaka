@@ -77,7 +77,7 @@ public class SIJGM002Servise {
 		//セッション情報設定処理
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
 		sijGm002Dto.setSyain_id(dto.getSyain_id());
-		sijGm002Dto.setName(dto.getName());
+		sijGm002Dto.setSyain_na(dto.getSyain_na());
 
 		return dto;
 	}
@@ -120,15 +120,15 @@ public class SIJGM002Servise {
 		}
 
 		// 氏名：必須入力チェック
-		if (StringUtils.isEmpty(dto.getName())) {
+		if (StringUtils.isEmpty(dto.getSyain_na())) {
 			 resultMessage.add(SIJMessage.SIJE002.getMessage());
 		} else {
 			// 氏名：全角文字チェック
-			if (patternCheck(dto.getName())) {
+			if (patternCheck(dto.getSyain_na())) {
 				resultMessage.add(SIJMessage.SIJE013.getMessage());
 			}
 			// 氏名：桁数チェック
-			if (!digitCheck(dto.getName(), UTLContent.INT_EIGHT)) {
+			if (!digitCheck(dto.getSyain_na(), UTLContent.INT_EIGHT)) {
 				resultMessage.add(SIJMessage.SIJE014.getMessage());
 			}
 		}
