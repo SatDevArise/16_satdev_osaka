@@ -36,7 +36,7 @@ public class SIJGM002Form {
 	 * エラー表示
 	 */
 	private List<String> error_hyoji;
-	
+
 	/**
 	 * ユーザーを取得
 	 *
