@@ -20,7 +20,7 @@ public interface SIJGM002Dao extends Serializable {
 	 *
 	 * @return List<SIJGM002Dto>
 	 */
-	public List<SIJGM002Dto> getSyain_info(SIJGM002Dto SIJGM002Dto);
+	public SIJGM002Dto getSyain_info(SIJGM002Dto SIJGM002Dto);
 
 	/**
 	 * 最寄り駅チェックを取得

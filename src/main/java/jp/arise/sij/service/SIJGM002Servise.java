@@ -24,63 +24,6 @@ public class SIJGM002Servise {
 	@Autowired
 	private SIJGM002Dao sijGm002Dao;
 
-	/**
-	 * 社員情報更新処理
-	 *
-	 * @param SIJGM002Dto
-	 * @return SIJGM002Dto
-	 */
-	public SIJGM002Dto upSyainInfo(SIJGM002Dto dto) {
-//		//入力チェック
-//		validation(dto);
-//		if(!dto.getError_hyoji().isEmpty()) {
-//			return dto;
-//		}
-
-		sijGm002Dao.upSyainInfo(dto);
-
-//		//セッション情報設定処理
-//		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-//		sijGm002Dto.setSyain_id(dto.getSyain_id());
-//		sijGm002Dto.setName(dto.getName());
-
-		return dto;
-	}
-	/**
-	 * 社員情報新規情報登録処理
-	 *
-	 * @param SIJGM002Dto
-	 * @return SIJGM002Dto
-	 */
-	public SIJGM002Dto insertSyainInfo(SIJGM002Dto dto) {
-		sijGm002Dao.insertSyainInfo(dto);
-
-//		//セッション情報設定処理
-//		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-//		sijGm002Dto.setSyain_id(dto.getSyain_id());
-//		sijGm002Dto.setName(dto.getName());
-
-
-		return dto;
-	}
-
-	/**
-	 * 社員情報削除処理
-	 *
-	 * @param SIJGM002Dto
-	 * @return SIJGM002Dto
-	 *
-	 */
-	public SIJGM002Dto delSyainInfo(SIJGM002Dto dto){
-		sijGm002Dao.delSyainInfo(dto);
-
-		//セッション情報設定処理
-		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-		sijGm002Dto.setSyain_id(dto.getSyain_id());
-		sijGm002Dto.setSyain_na(dto.getSyain_na());
-
-		return dto;
-	}
 
 
 	/**
@@ -95,8 +38,57 @@ public class SIJGM002Servise {
 		if(!dto.getError_hyoji().isEmpty()) {
 			return dto;
 		}
+
+		//社員情報データ判定処理
+		SIJGM002Dto resultDto = sijGm002Dao.getSyain_info(dto);
+
+		/**
+		 * 社員情報更新処理
+		 *
+		 * @param SIJGM002Dto
+		 * @return SIJGM002Dto
+		 */
+//		public SIJGM002Dto upSyainInfo(SIJGM002Dto dto) {
+//
+//		sijGm002Dao.upSyainInfo(dto);
+//
+//		//セッション情報設定処理
+//		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+//		sijGm002Dto.setSyain_id(dto.getSyain_id());
+//		sijGm002Dto.setName(dto.getName());
+//
+//		return dto;
+//		}
+		// 社員情報新規情報登録処理
+		if(!StringUtils.isEmpty(resultDto)) {
+			List<String> resultMessage = new ArrayList<String>();
+			resultMessage.add(SIJMessage.SIJE0099.getMessage());
+			dto.setError_hyoji(resultMessage);
+			return dto;
+		}else {
+			sijGm002Dao.insertSyainInfo(resultDto);
+		}
+
 		return dto;
 	}
+		/**
+		 * 社員情報削除処理
+		 *
+		 * @param SIJGM002Dto
+		 * @return SIJGM002Dto
+		 *
+		 */
+//		public SIJGM002Dto delSyainInfo(SIJGM002Dto dto){
+//			sijGm002Dao.delSyainInfo(dto);
+//
+//			//セッション情報設定処理
+//			SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+//			sijGm002Dto.setSyain_id(dto.getSyain_id());
+//			sijGm002Dto.setSyain_na(dto.getSyain_na());
+//
+//			return dto;
+//		}
+
 		/**
 		 * 入力チェック
 		 * @param SIJGM002Dto
@@ -106,6 +98,7 @@ public class SIJGM002Servise {
 		private void validation(SIJGM002Dto dto) {
 		List<String> resultMessage = new ArrayList<String>();
 		// 社員ID：必須入力チェック
+		System.out.println(dto.getSyain_id());
 		if (StringUtils.isEmpty(dto.getSyain_id())) {
 			 resultMessage.add(SIJMessage.SIJE001.getMessage());
 		} else {
@@ -114,7 +107,7 @@ public class SIJGM002Servise {
 				resultMessage.add(SIJMessage.SIJE008.getMessage());
 			}
 			// 社員ID：桁数チェック
-			if (!digitCheck(dto.getSyain_id(), UTLContent.INT_EIGHT)) {
+			if (!digitCheck(dto.getSyain_id(), UTLContent.INT_FOUR)) {
 				resultMessage.add(SIJMessage.SIJE012.getMessage());
 			}
 		}
@@ -128,7 +121,8 @@ public class SIJGM002Servise {
 				resultMessage.add(SIJMessage.SIJE013.getMessage());
 			}
 			// 氏名：桁数チェック
-			if (!digitCheck(dto.getSyain_na(), UTLContent.INT_EIGHT)) {
+			System.out.println(dto.getSyain_na());
+			if (!digitCheck(dto.getSyain_na(), UTLContent.TWENTY)) {
 				resultMessage.add(SIJMessage.SIJE014.getMessage());
 			}
 		}
@@ -155,37 +149,52 @@ public class SIJGM002Servise {
 				resultMessage.add(SIJMessage.SIJE015.getMessage());
 			}
 			// 最寄り駅1：桁数チェック
-			if (!digitCheck(dto.getMoyori_eki_1(), UTLContent.INT_EIGHT)) {
+			if (!digitCheck(dto.getMoyori_eki_1(), UTLContent.INT_TEN)) {
 				resultMessage.add(SIJMessage.SIJE016.getMessage());
 			}
 		}
 
-		// 最寄り駅2：必須入力チェック
-		if (!StringUtils.isEmpty(dto.getMoyori_eki_3())) {
-			 resultMessage.add(SIJMessage.SIJE007.getMessage());
-		} else {
-			// 最寄り駅2：全角文字チェック
-			if (patternCheck(dto.getMoyori_eki_2())) {
-				resultMessage.add(SIJMessage.SIJE017.getMessage());
-			}
-			// 最寄り駅2：桁数チェック
-			if (!digitCheck(dto.getMoyori_eki_2(), UTLContent.INT_EIGHT)) {
-				resultMessage.add(SIJMessage.SIJE018.getMessage());
-			}
-		}
-		// 連絡先：必須入力チェック
-		if (!StringUtils.isEmpty(dto.getSyain_renrakusaki())) {
-			 resultMessage.add(SIJMessage.SIJE008.getMessage());
-		} else {
-			// 連絡先：半角文字チェック
-			if (!patternCheck(dto.getSyain_renrakusaki())) {
-				resultMessage.add(SIJMessage.SIJE009.getMessage());
-			}
-			// 連絡先：桁数チェック
-			if (!digitCheck(dto.getSyain_renrakusaki(), UTLContent.INT_EIGHT)) {
-				resultMessage.add(SIJMessage.SIJE0010.getMessage());
-			}
-		}
+//		// 最寄り駅2：必須入力チェック
+//		if (!StringUtils.isEmpty(dto.getMoyori_eki_2())) {
+//			 resultMessage.add(SIJMessage.SIJE007.getMessage());
+//		} else {
+//			// 最寄り駅2：全角文字チェック
+//			if (patternCheck(dto.getMoyori_eki_2())) {
+//				resultMessage.add(SIJMessage.SIJE017.getMessage());
+//			}
+//			// 最寄り駅2：桁数チェック
+//			if (!digitCheck(dto.getMoyori_eki_2(), UTLContent.INT_EIGHT)) {
+//				resultMessage.add(SIJMessage.SIJE018.getMessage());
+//			}
+//		}
+//
+//		// 最寄り駅3：必須入力チェック
+//		if (!StringUtils.isEmpty(dto.getMoyori_eki_3())) {
+//			 resultMessage.add(SIJMessage.SIJE007.getMessage());
+//		} else {
+//			// 最寄り駅2：全角文字チェック
+//			if (patternCheck(dto.getMoyori_eki_3())) {
+//				resultMessage.add(SIJMessage.SIJE017.getMessage());
+//			}
+//			// 最寄り駅2：桁数チェック
+//			if (!digitCheck(dto.getMoyori_eki_3(), UTLContent.INT_EIGHT)) {
+//				resultMessage.add(SIJMessage.SIJE018.getMessage());
+//			}
+//		}
+
+//		// 連絡先：必須入力チェック
+//		if (!StringUtils.isEmpty(dto.getSyain_renrakusaki())) {
+//			 resultMessage.add(SIJMessage.SIJE008.getMessage());
+//		} else {
+//			// 連絡先：半角文字チェック
+//			if (!patternCheck(dto.getSyain_renrakusaki())) {
+//				resultMessage.add(SIJMessage.SIJE009.getMessage());
+//			}
+//			// 連絡先：桁数チェック
+//			if (!digitCheck(dto.getSyain_renrakusaki(), UTLContent.INT_EIGHT)) {
+//				resultMessage.add(SIJMessage.SIJE0010.getMessage());
+//			}
+//		}
 
 		dto.setError_hyoji(resultMessage);
 	}
@@ -218,7 +227,9 @@ public class SIJGM002Servise {
 	 * @author MasashiYamamoto
 	 */
 	private boolean digitCheck(String str, int digit) {
-		if (!(digit == str.length())) {
+		System.out.println(digit);
+		System.out.println(str.length());
+		if (!(digit >= str.length())) {
 			return false;
 		}
 		return true;

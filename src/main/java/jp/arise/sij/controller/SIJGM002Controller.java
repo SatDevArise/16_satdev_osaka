@@ -114,17 +114,30 @@ public class SIJGM002Controller {
 	public ModelAndView entrySijGm002(SIJGM002Form sijGm002Form,Model model) {
 		//フォームの値をDtoへコピー
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-		BeanUtils.copyProperties(sijGm002Dto,sijGm002Form);
+		BeanUtils.copyProperties(sijGm002Form,sijGm002Dto);
+		System.out.println("Formの値");
+		System.out.println(sijGm002Form.getSyain_id());
+		System.out.println(sijGm002Form.getSyain_na());
+		System.out.println(sijGm002Form.getBirth_dt());
+		System.out.println(sijGm002Form.getMoyori_eki_1());
+
+		System.out.println("Dtoの値");
+		System.out.println(sijGm002Dto.getSyain_id());
+		System.out.println(sijGm002Dto.getSyain_na());
+		System.out.println(sijGm002Dto.getBirth_dt());
+		System.out.println(sijGm002Dto.getMoyori_eki_1());
 
 		//入力チェック処理
 		sijGm002Service.inputCheck(sijGm002Dto);
 		if(!sijGm002Dto.getError_hyoji().isEmpty()) {
 			BeanUtils.copyProperties(sijGm002Dto,sijGm002MAV);
+			System.out.println(sijGm002MAV.getError_hyoji());
 			System.out.println(sijGm002MAV.getSyain_id());
-			return new ModelAndView("forward:/sijMessage","SIJGM002MAV",sijGm002MAV);
+			return new ModelAndView("forward:/sijMessage","initSijGm002",sijGm002MAV);
 		}
 		BeanUtils.copyProperties(sijGm002Dto,sijGm002MAV);
-		return new ModelAndView("forward:/initSijGm002","COMGM001MAV",sijGm002MAV);
+		System.out.println(sijGm002MAV.getMoyori_eki_1());
+		return new ModelAndView("forward:/initSijGm002","SIJGM002MAV",sijGm002MAV);
 	}
 
 	/**
@@ -135,23 +148,23 @@ public class SIJGM002Controller {
 	 * @author AtsushiNishizawa
 	 * @since 2017/07/177
 	 */
-	@RequestMapping(value = "/initSijGm002",params = "updateSijGm002", method = RequestMethod.POST)
-	public String updateSijGm002(Model model,SIJGM002Form sijGm002Form) {
-		//フォームの値をDtoへコピー
-		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-		BeanUtils.copyProperties(sijGm002Form,sijGm002Dto);
-
+//	@RequestMapping(value = "/initSijGm002",params = "updateSijGm002", method = RequestMethod.POST)
+//	public String updateSijGm002(Model model,SIJGM002Form sijGm002Form) {
+//		//フォームの値をDtoへコピー
+//		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+//		BeanUtils.copyProperties(sijGm002Form,sijGm002Dto);
+//
 //		//入力チェック処理
 //				sijGm002Service.inputCheck(sijGm002Dto);
 //				if(!sijGm002Dto.getError_hyoji().isEmpty()) {
 //					BeanUtils.copyProperties(sijGm002MAV, sijGm002Dto);
 //					return new ModelAndView("forward:/sijMessage","SIJGM002MAV",sijGm002MAV);
 //				}
-		//更新処理
-		sijGm002Service.upSyainInfo(sijGm002Dto);
-		BeanUtils.copyProperties(sijGm002Dto,sijGm002MAV);
-		return "SIJGM002";
-	}
+//		//更新処理
+//		sijGm002Service.upSyainInfo(sijGm002Dto);
+//		BeanUtils.copyProperties(sijGm002Dto,sijGm002MAV);
+//		return "SIJGM002";
+//	}
 
 	/**
 	 * 削除処理
@@ -161,23 +174,23 @@ public class SIJGM002Controller {
 	 * @author AtsushiNishizawa
 	 * @since 2017/07/177
 	 */
-	@RequestMapping(value = "/initSijGm002",params = "deleteSijGm002", method = RequestMethod.POST)
-	public ModelAndView deleteSijGm002(SIJGM002Form sijGm002Form,Model model) {
-		//フォームの値をDtoへコピー
-		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-		BeanUtils.copyProperties(sijGm002Form, sijGm002Dto);
-
-		//入力チェック処理
-		sijGm002Service.inputCheck(sijGm002Dto);
-		if(!sijGm002Dto.getError_hyoji().isEmpty()) {
-			BeanUtils.copyProperties(sijGm002Dto, sijGm002MAV);
-			return new ModelAndView("forward:/sijMessage","SIJGM002MAV",sijGm002MAV);
-		}
-
-		//削除処理
-		sijGm002Service.delSyainInfo(sijGm002Dto);
-			return new ModelAndView("forward:/initSijGm002","COMGM001MAV",sijGm002MAV);
-	}
+//	@RequestMapping(value = "/initSijGm002",params = "deleteSijGm002", method = RequestMethod.POST)
+//	public ModelAndView deleteSijGm002(SIJGM002Form sijGm002Form,Model model) {
+//		//フォームの値をDtoへコピー
+//		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+//		BeanUtils.copyProperties(sijGm002Form, sijGm002Dto);
+//
+//		//入力チェック処理
+//		sijGm002Service.inputCheck(sijGm002Dto);
+//		if(!sijGm002Dto.getError_hyoji().isEmpty()) {
+//			BeanUtils.copyProperties(sijGm002Dto, sijGm002MAV);
+//			return new ModelAndView("forward:/sijMessage","SIJGM002MAV",sijGm002MAV);
+//		}
+//
+//		//削除処理
+//		sijGm002Service.delSyainInfo(sijGm002Dto);
+//			return new ModelAndView("forward:/initSijGm002","COMGM001MAV",sijGm002MAV);
+//	}
 
 	/**
 	 * 戻る処理（遷移先：メニュー画面）

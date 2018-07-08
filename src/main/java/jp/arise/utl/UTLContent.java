@@ -1,10 +1,11 @@
 package jp.arise.utl;
 
 /**
- * COM用定数用クラス
+ * COM/SIJ用定数用クラス
  * プロジェクト内で共通利用される定数
  * @author AtsushiNishizawa
  * @since 2017/07/17
+ * @update 2018/07/08
  */
 public class UTLContent {
 
@@ -47,6 +48,16 @@ public class UTLContent {
 	 * int型：8
 	 */
 	public static final int INT_EIGHT = 8;
+
+	/**
+	 * int型：10
+	 */
+	public static final int INT_TEN = 10;
+
+	/**
+	 * int型：20
+	 */
+	public static final int TWENTY = 20;
 
 	/**
 	 * String型：COMGM001
