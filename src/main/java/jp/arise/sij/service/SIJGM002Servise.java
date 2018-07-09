@@ -36,6 +36,7 @@ public class SIJGM002Servise {
 		//入力チェック
 		validation(dto);
 		if(!dto.getError_hyoji().isEmpty()) {
+
 			return dto;
 		}
 
@@ -110,6 +111,7 @@ public class SIJGM002Servise {
 			if (!digitCheck(dto.getSyain_id(), UTLContent.INT_FOUR)) {
 				resultMessage.add(SIJMessage.SIJE012.getMessage());
 			}
+
 		}
 
 		// 氏名：必須入力チェック
