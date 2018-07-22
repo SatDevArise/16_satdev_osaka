@@ -8,6 +8,7 @@ import java.util.List;
  * Controller以降の処理での値が格納されるクラス
  * @author AtsushiNishizawa
  * @since 2017/07/17
+ * @update 森
  */
 public class SIJGM002Dto implements Serializable{
 

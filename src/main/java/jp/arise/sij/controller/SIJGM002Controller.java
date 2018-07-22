@@ -148,6 +148,7 @@ public class SIJGM002Controller {
 	 * @author AtsushiNishizawa
 	 * @since 2017/07/177
 	 */
+//	調査の為、コメントアウト
 //	@RequestMapping(value = "/initSijGm002",params = "updateSijGm002", method = RequestMethod.POST)
 //	public String updateSijGm002(Model model,SIJGM002Form sijGm002Form) {
 //		//フォームの値をDtoへコピー

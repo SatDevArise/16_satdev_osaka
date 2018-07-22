@@ -7,6 +7,7 @@ import java.util.List;
  *
  * @author AtsushiNishizawa
  * @since 2017/07/17
+ * @update 森
  */
 public class SIJGM002Form {
 

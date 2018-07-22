@@ -5,6 +5,7 @@ package jp.arise.sij.modelandview;
  * Controller間の値受け渡し用
  * @author AtsushiNishizawa
  * @since 2017/07/17
+ * @update 森
  */
 public class SIJGM002MAV {
 

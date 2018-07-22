@@ -79,16 +79,16 @@ public class SIJGM002Servise {
 		 * @return SIJGM002Dto
 		 *
 		 */
-//		public SIJGM002Dto delSyainInfo(SIJGM002Dto dto){
-//			sijGm002Dao.delSyainInfo(dto);
-//
-//			//セッション情報設定処理
-//			SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-//			sijGm002Dto.setSyain_id(dto.getSyain_id());
-//			sijGm002Dto.setSyain_na(dto.getSyain_na());
-//
-//			return dto;
-//		}
+		public SIJGM002Dto delSyainInfo(SIJGM002Dto dto){
+			sijGm002Dao.delSyainInfo(dto);
+
+			//セッション情報設定処理
+			SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+			sijGm002Dto.setSyain_id(dto.getSyain_id());
+			sijGm002Dto.setSyain_na(dto.getSyain_na());
+
+			return dto;
+		}
 
 		/**
 		 * 入力チェック

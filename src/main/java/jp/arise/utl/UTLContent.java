@@ -5,7 +5,7 @@ package jp.arise.utl;
  * プロジェクト内で共通利用される定数
  * @author AtsushiNishizawa
  * @since 2017/07/17
- * @update 2018/07/08
+ * @update 2018/07/08　森
  */
 public class UTLContent {
 
