@@ -25,26 +25,11 @@
 
 	<select id="getSyain_info">
 		SELECT
-		sd.syain_id
-		,sd.syain_na
-		,sd.birth
-		,sd.moyori_1_station
-		,sd.moyori_2_station
-		,sd.moyori_3_station
-		,sd.phonenumber
-		,sd.previous
-		,sd.nyusya_dt
-		,sd.birth_place
-		,sd.potision
-		,sd.team_na
-		,sd.phase
-		,sd.tanka
-		,sd.genba_na
-		,sankaku_dt
+		*
 		FROM
-		syain_dt sd
+			syain_dt sd
 		WHERE
-		syain_id=#{syain_id}
+			sd.syain_id=#{syain_id}
 	</select>
 
 	<select id="getCheckInputStation" resultMap="resultSIJGM002Dto">
@@ -95,7 +80,7 @@
 
 	</insert>
 
-	<update id="upSyainInfo">
+	<update id="upSyainInfo" >
 		UPDATE
 		syain_dt
 		SET
@@ -109,9 +94,12 @@
 		   ,zensyoku_na = #{zensyoku_na}
 		   ,syussin_na = #{syussin_na}
 		   ,yakusyoku_cd = #{yakusyoku_cd}
+		   ,nyusya_dt = #{nyusya_dt}
 		   ,syozoku_team = #{syozoku_team}
-		   ,phase_cd = #{phase_kb}
+		   ,phase_cd = #{phase_cd}
 		   ,tanka_vl = #{tanka_vl}
+		   ,genba_na = #{genba_na}
+		   ,genba_sankaku_dt = #{genba_sankaku_dt}
 
 		WHERE syain_id = #{syain_id}
     	AND   yuko_fg = '1'
@@ -126,6 +114,15 @@
 		WHERE
 		syain_id=#{syain_id}
 	</delete>
+
+	<select id = "getSyainId" resultType = "String">
+		SELECT
+			MAX(syain_id)
+		FROM
+			syain_dt
+		WHERE
+			syain_id = #{syain_id}
+	</select>
 
 <!-- 	<select id="getSyainListInfo" resultMap="resultSIJGM002Dto">
 		SELECT

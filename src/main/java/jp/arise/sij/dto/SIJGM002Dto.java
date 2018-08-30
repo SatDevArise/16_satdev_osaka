@@ -8,14 +8,50 @@ import java.util.List;
  * Controller以降の処理での値が格納されるクラス
  * @author AtsushiNishizawa
  * @since 2017/07/17
- * @update 森
+ * @update 山本
  */
 public class SIJGM002Dto implements Serializable{
 
-	/**
-	 * ユーザー
-	 */
+	// ユーザー
 	private String user;
+	// 社員ID
+	private String syain_id;
+	// 社員名
+	private String syain_na;
+	// 生年月日
+	private String birth_dt;
+	// 最寄り駅1
+	private String moyori_eki_1;
+	// 最寄り駅2
+	private String moyori_eki_2;
+	// 最寄り駅3
+	private String moyori_eki_3;
+	// 連絡先
+	private String syain_renrakusaki;
+	// 前職
+	private String zensyoku_na;
+	// 出身地
+	private String syussin_na;
+	// 役職
+	private String yakusyoku_cd;
+	// 入社日
+	private String nyusya_dt;
+	//チーム名
+	private String syozoku_team;
+	// フェーズ
+	private String phase_cd;
+	// 単価
+	private Integer tanka_vl;
+	//現場名
+	private String genba_na;
+	// 参画日
+	private String genba_sankaku_dt;
+	// 検索キー
+	private String kensakuKeyList;
+	// ページ
+	private String page;
+	// エラー表示
+	private List<String> error_hyoji;
 
 	/**
 	 * ユーザーを取得
@@ -34,11 +70,6 @@ public class SIJGM002Dto implements Serializable{
 	}
 
 	/**
-	 * 社員ID
-	 */
-	private String syain_id;
-
-	/**
 	 * 社員IDを取得
 	 * @return syain_id
 	 */
@@ -54,12 +85,7 @@ public class SIJGM002Dto implements Serializable{
 		this.syain_id = syain_id;
 	}
 
-	/**
-	 * 社員名
-	 */
-	private String syain_na;
-
-	/**
+		/**
 	 * 社員名を取得
 	 * @return syain_na
 	 */
@@ -75,12 +101,7 @@ public class SIJGM002Dto implements Serializable{
 		this.syain_na = syain_na;
 	}
 
-	/**
-	 * 生年月日
-	 */
-	private String birth_dt;
-
-	/**
+		/**
 	 * 生年月日を取得
 	 * @return birth_dt
 	 */
@@ -95,11 +116,6 @@ public class SIJGM002Dto implements Serializable{
 	public void setBirth_dt(String birth_dt) {
 		this.birth_dt = birth_dt;
 	}
-
-	/**
-	 * 最寄り駅1
-	 */
-	private String moyori_eki_1;
 
 	/**
 	 * 最寄り駅1を取得
@@ -118,11 +134,6 @@ public class SIJGM002Dto implements Serializable{
 	}
 
 	/**
-	 * 最寄り駅2
-	 */
-	private String moyori_eki_2;
-
-	/**
 	 * 最寄り駅2を取得
 	 * @return moyori_eki_2
 	 */
@@ -137,11 +148,6 @@ public class SIJGM002Dto implements Serializable{
 	public void setMoyori_eki_2(String moyori_eki_2) {
 		this.moyori_eki_2 = moyori_eki_2;
 	}
-
-	/**
-	 * 最寄り駅3
-	 */
-	private String moyori_eki_3;
 
 	/**
 	 * 最寄り駅3を取得
@@ -160,11 +166,6 @@ public class SIJGM002Dto implements Serializable{
 	}
 
 	/**
-	 * 連絡先
-	 */
-	private String syain_renrakusaki;
-
-	/**
 	 * 連絡先を取得
 	 * @return syain_renrakusaki
 	 */
@@ -179,11 +180,6 @@ public class SIJGM002Dto implements Serializable{
 	public void seSyain_renrakusaki(String syain_renrakusaki) {
 		this.syain_renrakusaki = syain_renrakusaki;
 	}
-
-	/**
-	 * 前職
-	 */
-	private String zensyoku_na;
 
 	/**
 	 * 前職を取得
@@ -202,11 +198,6 @@ public class SIJGM002Dto implements Serializable{
 	}
 
 	/**
-	 * 出身地
-	 */
-	private String syussin_na;
-
-	/**
 	 * 出身地を取得
 	 * @return syussin_na
 	 */
@@ -221,11 +212,6 @@ public class SIJGM002Dto implements Serializable{
 	public void setSyussin_na(String syussin_na) {
 		this.syussin_na = syussin_na;
 	}
-
-	/**
-	 * 役職
-	 */
-	private String yakusyoku_cd;
 
 	/**
 	 * 役職を取得
@@ -244,11 +230,6 @@ public class SIJGM002Dto implements Serializable{
 	}
 
 	/**
-	 * 入社日
-	 */
-	private String nyusya_dt;
-
-	/**
 	 * 入社日を取得
 	 * @return position
 	 */
@@ -263,11 +244,6 @@ public class SIJGM002Dto implements Serializable{
 	public void setNyusya_dt(String nyusya_dt) {
 		this.nyusya_dt = nyusya_dt;
 	}
-
-	/**
-	 * チーム名
-	 */
-	private String syozoku_team;
 
 	/**
 	 * チーム名を取得
@@ -286,30 +262,20 @@ public class SIJGM002Dto implements Serializable{
 	}
 
 	/**
-	 * フェーズ
-	 */
-	private String phase_kb;
-
-	/**
 	 * フェーズを取得
-	 * @return phase_kb
+	 * @return phase_cd
 	 */
-	public String getPhase_kb() {
-		return phase_kb;
+	public String getPhase_cd() {
+		return phase_cd;
 	}
 
 	/**
 	 * フェーズを設定
-	 * @param phase_kb
+	 * @param phase_cd
 	 */
-	public void setPhase_kb(String phase_kb) {
-		this.phase_kb = phase_kb;
+	public void setPhase_cd(String phase_cd) {
+		this.phase_cd = phase_cd;
 	}
-
-	/**
-	 * 単価
-	 */
-	private Integer tanka_vl;
 
 	/**
 	 * 単価を取得
@@ -328,11 +294,6 @@ public class SIJGM002Dto implements Serializable{
 	}
 
 	/**
-	 * 現場名
-	 */
-	private String genba_na;
-
-	/**
 	 * 現場名を取得
 	 * @return genba_na
 	 */
@@ -347,11 +308,6 @@ public class SIJGM002Dto implements Serializable{
 	public void setGenba_na(String genba_na) {
 		this.genba_na = genba_na;
 	}
-
-	/**
-	 * 参画日
-	 */
-	private String genba_sankaku_dt;
 
 	/**
 	 * 参画日を取得
@@ -372,11 +328,6 @@ public class SIJGM002Dto implements Serializable{
 	}
 
 	/**
-	 * 検索キー
-	 */
-	private String kensakuKeyList;
-
-	/**
 	 * 検索キーを取得
 	 * @return kensakuKeyList
 	 */
@@ -393,11 +344,6 @@ public class SIJGM002Dto implements Serializable{
 	}
 
 	/**
-	 * ページ
-	 */
-	private String page;
-
-	/**
 	 * ページを取得
 	 * @return page
 	 */
@@ -412,10 +358,7 @@ public class SIJGM002Dto implements Serializable{
 	public void setPage(String page) {
 		this.page = page;
 	}
-	/**
-	 * エラー表示
-	 */
-	private List<String> error_hyoji;
+
 	/**
 	 * エラー表示を取得
 	 *@param error_hyoji

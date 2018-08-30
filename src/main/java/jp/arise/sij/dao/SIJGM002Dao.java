@@ -47,4 +47,8 @@ public interface SIJGM002Dao extends Serializable {
 	 */
 	public void delSyainInfo(SIJGM002Dto SIJGM002Dto);
 
+	/**
+	 * 社員ID取得処理
+	 */
+	public String getSyainId();
 }

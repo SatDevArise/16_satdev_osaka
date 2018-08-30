@@ -24,54 +24,49 @@ public class SIJGM002Servise {
 	@Autowired
 	private SIJGM002Dao sijGm002Dao;
 
-
-
-	/**
-	 * 入力チェック
-	 *
-	 * @param dto
-	 * @return
-	 */
-	public SIJGM002Dto inputCheck(SIJGM002Dto dto) {
-		//入力チェック
-		validation(dto);
-		if(!dto.getError_hyoji().isEmpty()) {
-
-			return dto;
-		}
-
-		//社員情報データ判定処理
-		SIJGM002Dto resultDto = sijGm002Dao.getSyain_info(dto);
+//	/**
+//	 * 入力チェック
+//	 *
+//	 * @param dto
+//	 * @return
+//	 */
+//	public SIJGM002Dto inputCheck(SIJGM002Dto dto) {
+//
+//		//入力チェック
+//		validation(dto);
+//		if(!dto.getError_hyoji().isEmpty()) {
+//
+//			return dto;
+//		}
+//
+//		//社員情報データ判定処理
+//		SIJGM002Dto resultDto = sijGm002Dao.getSyain_info(dto);
+//		return resultDto;
+//	}
 
 		/**
 		 * 社員情報更新処理
-		 *
-		 * @param SIJGM002Dto
-		 * @return SIJGM002Dto
 		 */
-//		public SIJGM002Dto upSyainInfo(SIJGM002Dto dto) {
-//
-//		sijGm002Dao.upSyainInfo(dto);
-//
-//		//セッション情報設定処理
-//		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-//		sijGm002Dto.setSyain_id(dto.getSyain_id());
-//		sijGm002Dto.setName(dto.getName());
-//
-//		return dto;
-//		}
-		// 社員情報新規情報登録処理
-		if(!StringUtils.isEmpty(resultDto)) {
-			List<String> resultMessage = new ArrayList<String>();
-			resultMessage.add(SIJMessage.SIJE0099.getMessage());
-			dto.setError_hyoji(resultMessage);
-			return dto;
-		}else {
-			sijGm002Dao.insertSyainInfo(resultDto);
-		}
+		public SIJGM002Dto updateSyainInfo(SIJGM002Dto dto) {
+
+		sijGm002Dao.upSyainInfo(dto);
 
 		return dto;
-	}
+		}
+
+//* 動作確認のため一旦コメントアウト
+//		// 社員情報新規情報登録処理
+//		if(!StringUtils.isEmpty(resultDto)) {
+//			List<String> resultMessage = new ArrayList<String>();
+//			resultMessage.add(SIJMessage.SIJE0099.getMessage());
+//			dto.setError_hyoji(resultMessage);
+//			return dto;
+//		}else {
+//			sijGm002Dao.insertSyainInfo(resultDto);
+//		}
+
+//		return dto;
+//	}
 		/**
 		 * 社員情報削除処理
 		 *
@@ -96,7 +91,7 @@ public class SIJGM002Servise {
 		 * @return -
 		 * @author SyoriMori
 		 */
-		private void validation(SIJGM002Dto dto) {
+		public SIJGM002Dto inputCheck(SIJGM002Dto dto) {
 		List<String> resultMessage = new ArrayList<String>();
 		// 社員ID：必須入力チェック
 		System.out.println(dto.getSyain_id());
@@ -199,6 +194,8 @@ public class SIJGM002Servise {
 //		}
 
 		dto.setError_hyoji(resultMessage);
+
+		return dto;
 	}
 
 
@@ -236,5 +233,35 @@ public class SIJGM002Servise {
 		}
 		return true;
 	}
+
+
+/**
+ *  社員ID採番処理
+ */
+public String getSyainId() {
+	// 採番ID取得
+	String syainId = sijGm002Dao.getSyainId();
+
+	// 社員IDが取得できなかったら
+	String result = "0001";
+	if(syainId == null || syainId.isEmpty()) {
+		return result;
+	}
+	// DBで取得した値の不要な空白除去
+	syainId = syainId.replaceAll(" ","");
+
+	// 最新の社員IDを１インクリメントする
+	syainId = String.valueOf(Integer.parseInt(syainId) + 1);
+
+	if(syainId.length() == 1) {
+		return "000" + syainId;
+	}else if(syainId.length() == 2) {
+		return "00" + syainId;
+	}else if(syainId.length() == 3) {
+		return"000" + syainId;
+	}
+
+	return syainId;
+}
 }
 

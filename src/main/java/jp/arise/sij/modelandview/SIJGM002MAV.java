@@ -1,118 +1,57 @@
 package jp.arise.sij.modelandview;
 
+import java.io.Serializable;
+import java.util.List;
+
 /**
  * SIJGM002 社員情報新規登録・編集画面用ModelAndViewクラス
  * Controller間の値受け渡し用
  * @author AtsushiNishizawa
  * @since 2017/07/17
- * @update 森
+ * @update 山本
  */
-public class SIJGM002MAV {
+public class SIJGM002MAV implements Serializable{
 
-
-
-	/**
-	 * ユーザー
-	 */
+	// ユーザー
 	private String user;
-
-	/**
-	 * 社員ID
-	 */
+	// 社員ID
 	private String syain_id;
-
-	/**
-	 * 名前
-	 */
+	// 名前
 	private String syain_na;
-
-	/**
-	 * 生年月日
-	 */
+	// 生年月日
 	private String birth_dt;
-
-	/**
-	 * 最寄り駅1
-	 *
-	 */
+	// 最寄り駅1
 	private String moyori_eki_1;
-
-	/**
-	 * 最寄り駅2
-	 *
-	 */
+	// 最寄り駅2
 	private String moyori_eki_2;
-
-	/**
-	 * 最寄り駅3
-	 *
-	 */
+	// 最寄り駅3
 	private String moyori_eki_3;
-
-	/**
-	 * 連絡先
-	 */
+	// 連絡先
 	private String syain_renrakusaki;
-
-	/**
-	 * 前職
-	 */
+	// 前職
 	private String zensyoku_na;
-
-	/**
-	 * 出身地
-	 */
+	// 出身地
 	private String syussin_na;
-
-	/**
-	 * 役職
-	 */
+	//役職
 	private String yakusyoku_cd;
-
-	/**
-	 * 入社日
-	 */
+	//入社日
 	private String nyusya_dt;
-
-	/**
-	 * チーム名
-	 */
+	//チーム名
 	private String syozoku_team;
-
-	/**
-	 * フェーズ
-	 */
-	private String phase_kb;
-
-	/**
-	 * 単価
-	 */
-	private String tanka_vl;
-
-	/**
-	 * 現場名
-	 */
+	//フェーズ
+	private String phase_cd;
+	//単価
+	private Integer tanka_vl;
+	//現場名
 	private String genba_na;
-
-	/**
-	 * 参画日
-	 */
+	//参画日
 	private String genba_sankaku_dt;
-
-	/**
-	 * 検索キーリスト
-	 */
+	//検索キーリスト
 	private String kensakuKeyList;
-
-	/**
-	 * ページ
-	 */
+	//ページ
 	private String page;
-
-	/**
-	 * エラー表示
-	 */
-	private String error_hyoji;
+	//エラー表示
+	private List<String> error_hyoji;
 
 
 	//以下にgetterを記載
@@ -182,7 +121,7 @@ public class SIJGM002MAV {
 
 	/**
 	 * 前職を取得
-	 * @return  previous
+	 * @return  zensyoku_na
 	 */
 	public String getZensyoku_na() {
 		return zensyoku_na;
@@ -222,17 +161,17 @@ public class SIJGM002MAV {
 
 	/**
 	 * フェーズ
-	 * @return  phase_kb
+	 * @return  phase_cd
 	 */
-	public String getPhase_kb() {
-		return phase_kb;
+	public String getPhase_cd() {
+		return phase_cd;
 	}
 
 	/**
 	 * 単価
 	 * @return tanka
 	 */
-	public String getTanka_vl() {
+	public Integer getTanka_vl() {
 		return tanka_vl;
 	}
 
@@ -272,7 +211,7 @@ public class SIJGM002MAV {
 	 * エラー表示
 	 * @return error_hyoji
 	 */
-	public String getError_hyoji(){
+	public List<String> getError_hyoji(){
 		return error_hyoji;
 	}
 
@@ -345,8 +284,8 @@ public class SIJGM002MAV {
 	 * 前職を設定
 	 * @param previous
 	 */
-	public void setPrevious(String syain_renrakusaki) {
-		this.syain_renrakusaki = syain_renrakusaki;
+	public void setZensyoku_na(String zensyoku_na) {
+		this.zensyoku_na = zensyoku_na;
 	}
 
 	/**
@@ -385,15 +324,15 @@ public class SIJGM002MAV {
 	 * フェーズを設定
 	 * @param phase_kb
 	 */
-	public void setPhase_kb(String phase_kb) {
-		this.phase_kb = phase_kb;
+	public void setPhase_cd(String phase_cd) {
+		this.phase_cd = phase_cd;
 	}
 
 	/**
 	 * 単価を設定
 	 * @param tanka
 	 */
-	public void setTanka_vl(String tanka_vl) {
+	public void setTanka_vl(Integer tanka_vl) {
 		this.tanka_vl = tanka_vl;
 	}
 
@@ -416,26 +355,25 @@ public class SIJGM002MAV {
 	/**
 	 * 検索キーリスト
 	 * @param string
-	 * @return  kensakuKeyList
 	 */
-	public String setKensakuKeyList(String kensakukeylist) {
-		return  kensakuKeyList;
+	public void setKensakuKeyList(String kensakuKeyList) {
+		this.kensakuKeyList = kensakuKeyList;
 	}
 
 	/**
 	 * ページ
 	 * @return page
 	 */
-	public String setPage(String page) {
-		return page;
+	public void setPage(String page) {
+		this.page = page;
 	}
 
 	/**
 	 * エラー表示
 	 * @return
 	 */
-	public String setError_hyoji() {
-		return error_hyoji;
+	public void setError_hyoji(List<String> error_hyoji) {
+		this.error_hyoji = error_hyoji;
 	}
 
 

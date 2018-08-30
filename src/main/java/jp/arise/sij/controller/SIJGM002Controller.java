@@ -1,5 +1,9 @@
 package jp.arise.sij.controller;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import jp.arise.sij.dto.SIJGM002Dto;
 import jp.arise.sij.form.SIJGM002Form;
+import jp.arise.sij.message.SIJMessage;
 import jp.arise.sij.modelandview.SIJGM001MAV;
 import jp.arise.sij.modelandview.SIJGM002MAV;
 import jp.arise.sij.service.SIJGM002Servise;
@@ -60,6 +65,9 @@ public class SIJGM002Controller {
 		SIJGM002Dto sijgm002Dto = new SIJGM002Dto();
 		BeanUtils.copyProperties(sijgm002Dto, sijGm002Service);
 
+		// Serviceクラスの社員ID採番処理を呼び出す
+		String syainId = sijGm002Service.getSyainId();
+
 
 
 		SIJGM002Form sijGm002Form = new SIJGM002Form();
@@ -85,6 +93,23 @@ public class SIJGM002Controller {
 	}
 
 	/**
+	 * 初期処理(新規作成・更新後)
+	 * @param model
+	 * @return SIJGM002.jsp
+	 * @throws
+	 * @author MasashiYamamoto
+	 * @since 2018/08/23
+	 */
+	@RequestMapping(value = "/reInitSijGm002", method = RequestMethod.GET)
+	public String reinitSijGm002(Model model) {
+		SIJGM002Form sijGm002Form = new SIJGM002Form();
+		BeanUtils.copyProperties(sijGm002MAV, sijGm002Form);
+		model.addAttribute("SIJGM002Form",sijGm002Form);
+
+		return "SIJGM002";
+	}
+
+	/**
 	 * エラー画面表示
 	 * @param model
 	 * @return SIJGM002.jsp
@@ -93,7 +118,7 @@ public class SIJGM002Controller {
 	 * @since 2018/03/11
 	 *
 	 */
-	@RequestMapping(value = "/errorSijGm002", method = RequestMethod.POST)
+	@RequestMapping(value = "/sijMessage", method = RequestMethod.POST)
 	public String sijMessage(Model model) {
     	SIJGM002Form sijGm002Form = new SIJGM002Form();
 		BeanUtils.copyProperties(sijGm002MAV, sijGm002Form);
@@ -148,24 +173,53 @@ public class SIJGM002Controller {
 	 * @author AtsushiNishizawa
 	 * @since 2017/07/177
 	 */
-//	調査の為、コメントアウト
-//	@RequestMapping(value = "/initSijGm002",params = "updateSijGm002", method = RequestMethod.POST)
-//	public String updateSijGm002(Model model,SIJGM002Form sijGm002Form) {
-//		//フォームの値をDtoへコピー
-//		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-//		BeanUtils.copyProperties(sijGm002Form,sijGm002Dto);
-//
-//		//入力チェック処理
-//				sijGm002Service.inputCheck(sijGm002Dto);
-//				if(!sijGm002Dto.getError_hyoji().isEmpty()) {
-//					BeanUtils.copyProperties(sijGm002MAV, sijGm002Dto);
-//					return new ModelAndView("forward:/sijMessage","SIJGM002MAV",sijGm002MAV);
-//				}
-//		//更新処理
-//		sijGm002Service.upSyainInfo(sijGm002Dto);
-//		BeanUtils.copyProperties(sijGm002Dto,sijGm002MAV);
-//		return "SIJGM002";
-//	}
+
+	@RequestMapping(value = "/initSijGm002",params = "updateSijGm002", method = RequestMethod.POST)
+	public ModelAndView updateSijGm002(SIJGM002Form sijGm002Form,Model model) {
+		//フォームの値をDtoへコピー
+		SIJGM002Dto sijGm002Dto = setSijGm002dto(sijGm002Form);
+		BeanUtils.copyProperties(sijGm002Form,sijGm002Dto);
+
+		//入力チェック処理
+		sijGm002Dto = sijGm002Service.inputCheck(sijGm002Dto);
+		if(!sijGm002Dto.getError_hyoji().isEmpty()) {
+			BeanUtils.copyProperties(sijGm002MAV,sijGm002Dto);
+			return new ModelAndView("forward:/sijMessage","SIJGM002MAV",sijGm002MAV);
+		}
+		//更新処理
+		sijGm002Dto = sijGm002Service.updateSyainInfo(sijGm002Dto);
+//		sijGm002Service.updateSyainInfo(sijGm002Dto);
+		if(!sijGm002Dto.getError_hyoji().isEmpty()) {
+			List<String> resultMessage = new ArrayList<String>();
+			resultMessage.add(SIJMessage.SIJE001.getMessage());
+			resultMessage.add(SIJMessage.SIJE002.getMessage());
+			resultMessage.add(SIJMessage.SIJE003.getMessage());
+			resultMessage.add(SIJMessage.SIJE004.getMessage());
+			resultMessage.add(SIJMessage.SIJE005.getMessage());
+			resultMessage.add(SIJMessage.SIJE006.getMessage());
+			resultMessage.add(SIJMessage.SIJE007.getMessage());
+			resultMessage.add(SIJMessage.SIJE008.getMessage());
+			resultMessage.add(SIJMessage.SIJE009.getMessage());
+			resultMessage.add(SIJMessage.SIJE0010.getMessage());
+			resultMessage.add(SIJMessage.SIJE011.getMessage());
+			resultMessage.add(SIJMessage.SIJE012.getMessage());
+			resultMessage.add(SIJMessage.SIJE013.getMessage());
+			resultMessage.add(SIJMessage.SIJE014.getMessage());
+			resultMessage.add(SIJMessage.SIJE015.getMessage());
+			resultMessage.add(SIJMessage.SIJE016.getMessage());
+			resultMessage.add(SIJMessage.SIJE017.getMessage());
+			resultMessage.add(SIJMessage.SIJE018.getMessage());
+			resultMessage.add(SIJMessage.SIJE0019.getMessage());
+			resultMessage.add(SIJMessage.SIJE020.getMessage());
+			resultMessage.add(SIJMessage.SIJE021.getMessage());
+//			sijGm002Dto.setError_hyoji(resultMessage);
+			sijGm002MAV.setError_hyoji(resultMessage);
+			BeanUtils.copyProperties(sijGm002Dto,sijGm002MAV);
+			return new ModelAndView("forward:/sijMessage","SIJGM002MAV",sijGm002MAV);
+		}
+		BeanUtils.copyProperties(sijGm002Dto,sijGm002MAV);
+		return new ModelAndView("forward:/reInitSijGm002","SIJGM002MAV",sijGm002MAV);
+	}
 
 	/**
 	 * 削除処理
@@ -231,4 +285,34 @@ public class SIJGM002Controller {
 		return new ModelAndView("forward:/initSijGm001","SIJGM002MAV",sijGm002MAV);
 	}
 
+
+
+private SIJGM002Dto setSijGm002dto(SIJGM002Form sijgm002Form) {
+
+	// Dtoを生成
+	SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+
+	// 日付を取得
+	Date date = new Date();
+	// ログイン情報を取得
+	LoginInfoDto loginInfoDto = new LoginInfoDto();
+	String userId = (String)loginInfo.getAttribute().getUser_id();
+
+	// DtoにFormの値を設定する
+	BeanUtils.copyProperties(sijgm002Form,sijGm002Dto);
+
+	return sijGm002Dto;
 }
+
+private SIJGM002Form setSijGm002Form(SIJGM002Dto sijgm002Dto) {
+
+	// Formを生成
+	SIJGM002Form sijGm002Form = new SIJGM002Form();
+
+	// FormにDtoの値を設定する
+	BeanUtils.copyProperties(sijgm002Dto, sijGm002Form);
+
+	return sijGm002Form;
+}
+}
+

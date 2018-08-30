@@ -31,4 +31,27 @@ return false;
 // OK場合はtrueを返す
 return true;
 }
+
+}
+
+/**
+ *  削除確認処理
+ */
+
+function confirmDelete() {
+	if (window.confirm('本当に削除しますか？')) {
+		// 社員IDを活性化する
+		undisabled();
+		return true;
+	} else {
+		window.alert('キャンセルしました。');
+		return true;
+	};
+};
+
+/**
+ * 非活性解除処理
+ **/
+function undisabled(){
+	document.getElementById("syainId").disabled = false;
 }

@@ -7,31 +7,47 @@ import java.util.List;
  *
  * @author AtsushiNishizawa
  * @since 2017/07/17
- * @update 森
+ * @update 山本
  */
 public class SIJGM002Form {
 
-	/**
-	 * ユーザー
-	 */
+	// ユーザー
 	private String user;
+	// 社員ID
 	private String syain_id;
+	// 社員名
 	private String syain_na;
+	// 生年月日
 	private String birth_dt;
+	// 最寄り駅1
 	private String moyori_eki_1;
+	// 最寄り駅2
 	private String moyori_eki_2;
+	// 最寄り駅3
 	private String moyori_eki_3;
+	// 連絡先
 	private String syain_renrakusaki;
+	// 前職
 	private String zensyoku_na;
+	// 出身地
 	private String syussin_na;
+	// 役職
 	private String yakusyoku_cd;
+	// 入社日
 	private String nyusya_dt;
+	// チーム名
 	private String syozoku_team;
-	private String phase_kb;
+	// フェーズ
+	private String phase_cd;
+	// 単価
 	private Integer tanka_vl;
+	// 現場名
 	private String genba_na;
+	// 参画日
 	private String genba_sankaku_dt;
+	// 検索キー
 	private String kensakuKeyList;
+	// ページ
 	private String page;
 	/**
 	 * エラー表示
@@ -275,24 +291,6 @@ public class SIJGM002Form {
 	}
 
 	/**
-	 * フェーズを取得
-	 *
-	 * @return phase_kb
-	 */
-	public String getPhase_kb() {
-		return phase_kb;
-	}
-
-	/**
-	 * フェーズを設定
-	 *
-	 * @param phase_kb
-	 */
-	public void setPhase_kb(String phase_kb) {
-		this.phase_kb = phase_kb;
-	}
-
-	/**
 	 * 単価を取得
 	 *
 	 * @return tanka_vl
@@ -400,5 +398,23 @@ public class SIJGM002Form {
 	public void setError_hyoji(List<String> error_hyoji) {
 		this.error_hyoji = error_hyoji;
 
+	}
+
+	/**
+	 * フェーズを取得
+	 *
+	 * @return phase_kb
+	 */
+	public String getPhase_cd() {
+		return phase_cd;
+	}
+
+	/**
+	 * フェーズを設定
+	 *
+	 * @param phase_kb
+	 */
+	public void setPhase_cd(String phase_cd) {
+		this.phase_cd = phase_cd;
 	}
 }
