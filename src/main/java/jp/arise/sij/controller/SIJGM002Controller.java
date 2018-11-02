@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import jp.arise.com.modelandview.COMGM002MAV;
 import jp.arise.sij.dto.SIJGM002Dto;
 import jp.arise.sij.form.SIJGM002Form;
 import jp.arise.sij.message.SIJMessage;
@@ -55,8 +56,11 @@ public class SIJGM002Controller {
 	 * @since 2017/07/17
 	 */
 	@RequestMapping(value = "/initSijGm002",params = "goSijGm002", method = RequestMethod.POST)
-	public String initSijGm002(Model model) {
-    	//ログイン情報取得
+	public String initSijGm002(COMGM002MAV comGm002MAV,Model model) {
+//    	//画面ID更新処理
+//		sijGm002Service.upSession(UTLContent.GMID_COMGM002);
+
+		//ログイン情報取得
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
 		loginInfoDto = loginInfo.getAttribute();
 		System.out.println(loginInfoDto.getUser_id());
@@ -68,8 +72,7 @@ public class SIJGM002Controller {
 		// Serviceクラスの社員ID採番処理を呼び出す
 		String syainId = sijGm002Service.getSyainId();
 
-
-
+		//Formを生成
 		SIJGM002Form sijGm002Form = new SIJGM002Form();
 		sijGm002Form.setUser(" ");
 		model.addAttribute("SIJGM002Form",sijGm002Form);
@@ -162,7 +165,7 @@ public class SIJGM002Controller {
 		}
 		BeanUtils.copyProperties(sijGm002Dto,sijGm002MAV);
 		System.out.println(sijGm002MAV.getMoyori_eki_1());
-		return new ModelAndView("forward:/initSijGm002","SIJGM002MAV",sijGm002MAV);
+		return new ModelAndView("forward:/reInitSijGm002","SIJGM002MAV",sijGm002MAV);
 	}
 
 	/**

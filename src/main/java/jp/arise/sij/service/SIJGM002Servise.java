@@ -235,33 +235,40 @@ public class SIJGM002Servise {
 	}
 
 
-/**
- *  社員ID採番処理
- */
-public String getSyainId() {
-	// 採番ID取得
-	String syainId = sijGm002Dao.getSyainId();
+	/**
+	 * 社員ID採番処理
+	 */
+	public String getSyainId() {
+		// 採番ID取得
+		String syainId = sijGm002Dao.getSyainId();
 
-	// 社員IDが取得できなかったら
-	String result = "0001";
-	if(syainId == null || syainId.isEmpty()) {
-		return result;
+		// 社員IDが取得できなかったら
+		String result = "0001";
+		if (syainId == null || syainId.isEmpty()) {
+			return result;
+		}
+		// DBで取得した値の不要な空白除去
+		syainId = syainId.replaceAll(" ", "");
+
+		// 最新の社員IDを１インクリメントする
+		syainId = String.valueOf(Integer.parseInt(syainId) + 1);
+
+		if (syainId.length() == 1) {
+			return "000" + syainId;
+		} else if (syainId.length() == 2) {
+			return "00" + syainId;
+		} else if (syainId.length() == 3) {
+			return "000" + syainId;
+		}
+
+		return syainId;
 	}
-	// DBで取得した値の不要な空白除去
-	syainId = syainId.replaceAll(" ","");
 
-	// 最新の社員IDを１インクリメントする
-	syainId = String.valueOf(Integer.parseInt(syainId) + 1);
-
-	if(syainId.length() == 1) {
-		return "000" + syainId;
-	}else if(syainId.length() == 2) {
-		return "00" + syainId;
-	}else if(syainId.length() == 3) {
-		return"000" + syainId;
-	}
-
-	return syainId;
-}
+//	/*
+//	 *  画面IDを更新する処理
+//	 */
+//	public void upSession(String gamenId) {
+//		loginInfo.updateAttributeGmenId(gamenId);
+//	}
 }
 
