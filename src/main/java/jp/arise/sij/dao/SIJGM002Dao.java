@@ -51,4 +51,9 @@ public interface SIJGM002Dao extends Serializable {
 	 * 社員ID取得処理
 	 */
 	public String getSyainId();
+
+	/**
+	 * seq追加処理
+	 */
+	public String insertSeq(SIJGM002Dto SIJGM002Dto);
 }

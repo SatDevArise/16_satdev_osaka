@@ -69,11 +69,16 @@ public class SIJGM002Controller {
 		SIJGM002Dto sijgm002Dto = new SIJGM002Dto();
 		BeanUtils.copyProperties(sijgm002Dto, sijGm002Service);
 
+		//Formを生成
+		SIJGM002Form sijGm002Form = new SIJGM002Form();
+
 		// Serviceクラスの社員ID採番処理を呼び出す
 		String syainId = sijGm002Service.getSyainId();
 
-		//Formを生成
-		SIJGM002Form sijGm002Form = new SIJGM002Form();
+		//Formに社員IDをセット
+		sijGm002Form.setSyain_id(syainId);
+
+		//Formにユーザを設定
 		sijGm002Form.setUser(" ");
 		model.addAttribute("SIJGM002Form",sijGm002Form);
 		return "SIJGM002";
@@ -103,7 +108,7 @@ public class SIJGM002Controller {
 	 * @author MasashiYamamoto
 	 * @since 2018/08/23
 	 */
-	@RequestMapping(value = "/reInitSijGm002", method = RequestMethod.GET)
+	@RequestMapping(value = "/reInitSijGm002", method = RequestMethod.POST)
 	public String reinitSijGm002(Model model) {
 		SIJGM002Form sijGm002Form = new SIJGM002Form();
 		BeanUtils.copyProperties(sijGm002MAV, sijGm002Form);
@@ -143,29 +148,17 @@ public class SIJGM002Controller {
 		//フォームの値をDtoへコピー
 		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
 		BeanUtils.copyProperties(sijGm002Form,sijGm002Dto);
-		System.out.println("Formの値");
-		System.out.println(sijGm002Form.getSyain_id());
-		System.out.println(sijGm002Form.getSyain_na());
-		System.out.println(sijGm002Form.getBirth_dt());
-		System.out.println(sijGm002Form.getMoyori_eki_1());
 
-		System.out.println("Dtoの値");
-		System.out.println(sijGm002Dto.getSyain_id());
-		System.out.println(sijGm002Dto.getSyain_na());
-		System.out.println(sijGm002Dto.getBirth_dt());
-		System.out.println(sijGm002Dto.getMoyori_eki_1());
 
 		//入力チェック処理
 		sijGm002Service.inputCheck(sijGm002Dto);
 		if(!sijGm002Dto.getError_hyoji().isEmpty()) {
 			BeanUtils.copyProperties(sijGm002Dto,sijGm002MAV);
-			System.out.println(sijGm002MAV.getError_hyoji());
-			System.out.println(sijGm002MAV.getSyain_id());
 			return new ModelAndView("forward:/sijMessage","initSijGm002",sijGm002MAV);
 		}
+		sijGm002Service.insertSyainInfo(sijGm002Dto);
 		BeanUtils.copyProperties(sijGm002Dto,sijGm002MAV);
-		System.out.println(sijGm002MAV.getMoyori_eki_1());
-		return new ModelAndView("forward:/reInitSijGm002","SIJGM002MAV",sijGm002MAV);
+		return new ModelAndView("forward:/reInitSijGm002","COMGM001MAV",sijGm002MAV);
 	}
 
 	/**

@@ -32,6 +32,19 @@ public class LoginInfo {
 	}
 
 	/**
+	 * セッション設定(遷移元画面)
+	 * @param gamenId
+	 * @author MasahikoHayashi
+	 * @since 2017/12/10
+	 */
+	public void updateAttributeGamenId(String gamenId) {
+		LoginInfoDto loginInfoDto = new LoginInfoDto();
+		loginInfoDto = this.getAttribute();
+		loginInfoDto.setGamen_id(gamenId);
+		this.setAttribute(loginInfoDto);
+	}
+
+	/**
 	 * セッション取得
 	 * @return LoginInfoDto
 	 * @author AtsushiNishizawa

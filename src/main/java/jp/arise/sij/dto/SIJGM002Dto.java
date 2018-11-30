@@ -1,6 +1,7 @@
 package jp.arise.sij.dto;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,6 +17,8 @@ public class SIJGM002Dto implements Serializable{
 	private String user;
 	// 社員ID
 	private String syain_id;
+	// 現場id
+	private String genba_id;
 	// 社員名
 	private String syain_na;
 	// 生年月日
@@ -52,6 +55,8 @@ public class SIJGM002Dto implements Serializable{
 	private String page;
 	// エラー表示
 	private List<String> error_hyoji;
+	// 日付
+	private Date date;
 
 	/**
 	 * ユーザーを取得
@@ -374,5 +379,37 @@ public class SIJGM002Dto implements Serializable{
 	 */
 	public void setError_hyoji(List<String> error_hyoji) {
 		this.error_hyoji = error_hyoji;
+	}
+
+	/**
+	 * 現場IDを取得
+	 * @return genba_id
+	 */
+	public String getGenba_id() {
+		return genba_id;
+	}
+
+	/**
+	 *  現場IDを設定
+	 * @param genba_id
+	 */
+	public void setGenba_id(String genba_id) {
+		this.genba_id = genba_id;
+	}
+
+	/**
+	 * 日付を取得
+	 * @return date
+	 */
+	public Date getDate() {
+		return date;
+	}
+
+	/**
+	 * 日付を設定
+	 * @param date
+	 */
+	public void setDate(Date date) {
+		this.date = date;
 	}
 }

@@ -49,6 +49,7 @@ public class SIJGM002Form {
 	private String kensakuKeyList;
 	// ページ
 	private String page;
+	//
 	/**
 	 * エラー表示
 	 */
@@ -417,4 +418,5 @@ public class SIJGM002Form {
 	public void setPhase_cd(String phase_cd) {
 		this.phase_cd = phase_cd;
 	}
+
 }

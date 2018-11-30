@@ -10,6 +10,7 @@ import org.springframework.util.StringUtils;
 import jp.arise.sij.dao.SIJGM002Dao;
 import jp.arise.sij.dto.SIJGM002Dto;
 import jp.arise.sij.message.SIJMessage;
+import jp.arise.utl.LoginInfo;
 import jp.arise.utl.UTLContent;
 
 /**
@@ -24,49 +25,60 @@ public class SIJGM002Servise {
 	@Autowired
 	private SIJGM002Dao sijGm002Dao;
 
-//	/**
-//	 * 入力チェック
-//	 *
-//	 * @param dto
-//	 * @return
-//	 */
-//	public SIJGM002Dto inputCheck(SIJGM002Dto dto) {
-//
-//		//入力チェック
-//		validation(dto);
-//		if(!dto.getError_hyoji().isEmpty()) {
-//
-//			return dto;
-//		}
-//
-//		//社員情報データ判定処理
-//		SIJGM002Dto resultDto = sijGm002Dao.getSyain_info(dto);
-//		return resultDto;
-//	}
+	@Autowired
+	private LoginInfo loginInfo;
+
+	/**
+	 * 社員ID採番処理
+	 */
+	public String getSyainId() {
+		// 採番ID取得
+		String syainId = sijGm002Dao.getSyainId();
+
+		// 社員IDが取得できなかったら
+		String result = "0001";
+		if (syainId == null || syainId.isEmpty()) {
+			return result;
+		}
+		// DBで取得した値の不要な空白除去
+		syainId = syainId.replaceAll(" ", "");
+
+		// 最新の社員IDを１インクリメントする
+		syainId = String.valueOf(Integer.parseInt(syainId) + 1);
+
+		if (syainId.length() == 1) {
+			return "000" + syainId;
+		} else if (syainId.length() == 2) {
+			return "00" + syainId;
+		} else if (syainId.length() == 3) {
+			return "000" + syainId;
+		}
+
+		return syainId;
+	}
+
+//	// 社員情報新規情報登録処理
+	public SIJGM002Dto insertSyainInfo(SIJGM002Dto dto){
+
+		sijGm002Dao.insertSeq(dto);
+
+		sijGm002Dao.insertSyainInfo(dto);
+
+
+
+		return dto;
+	}
 
 		/**
 		 * 社員情報更新処理
 		 */
 		public SIJGM002Dto updateSyainInfo(SIJGM002Dto dto) {
 
-		sijGm002Dao.upSyainInfo(dto);
+			sijGm002Dao.upSyainInfo(dto);
 
 		return dto;
 		}
 
-//* 動作確認のため一旦コメントアウト
-//		// 社員情報新規情報登録処理
-//		if(!StringUtils.isEmpty(resultDto)) {
-//			List<String> resultMessage = new ArrayList<String>();
-//			resultMessage.add(SIJMessage.SIJE0099.getMessage());
-//			dto.setError_hyoji(resultMessage);
-//			return dto;
-//		}else {
-//			sijGm002Dao.insertSyainInfo(resultDto);
-//		}
-
-//		return dto;
-//	}
 		/**
 		 * 社員情報削除処理
 		 *
@@ -84,6 +96,8 @@ public class SIJGM002Servise {
 
 			return dto;
 		}
+
+
 
 		/**
 		 * 入力チェック
@@ -193,11 +207,19 @@ public class SIJGM002Servise {
 //			}
 //		}
 
-		dto.setError_hyoji(resultMessage);
 
-		return dto;
-	}
 
+//		// 重複チェック
+//		if(!StringUtils.isEmpty(dto.getSyain_id()) && ) {
+//			resultMessage.add(SIJMessage.SIJE0099.getMessage());
+//			dto.setError_hyoji(resultMessage);
+//			return dto;
+//
+//		}
+			dto.setError_hyoji(resultMessage);
+
+			return dto;
+		}
 
 
 
@@ -234,41 +256,11 @@ public class SIJGM002Servise {
 		return true;
 	}
 
-
-	/**
-	 * 社員ID採番処理
+	/*
+	 *  画面IDを更新する処理
 	 */
-	public String getSyainId() {
-		// 採番ID取得
-		String syainId = sijGm002Dao.getSyainId();
-
-		// 社員IDが取得できなかったら
-		String result = "0001";
-		if (syainId == null || syainId.isEmpty()) {
-			return result;
-		}
-		// DBで取得した値の不要な空白除去
-		syainId = syainId.replaceAll(" ", "");
-
-		// 最新の社員IDを１インクリメントする
-		syainId = String.valueOf(Integer.parseInt(syainId) + 1);
-
-		if (syainId.length() == 1) {
-			return "000" + syainId;
-		} else if (syainId.length() == 2) {
-			return "00" + syainId;
-		} else if (syainId.length() == 3) {
-			return "000" + syainId;
-		}
-
-		return syainId;
+	public void upSession(String gamenId) {
+		loginInfo.updateAttributeGamenId(gamenId);
 	}
-
-//	/*
-//	 *  画面IDを更新する処理
-//	 */
-//	public void upSession(String gamenId) {
-//		loginInfo.updateAttributeGmenId(gamenId);
-//	}
 }
 
