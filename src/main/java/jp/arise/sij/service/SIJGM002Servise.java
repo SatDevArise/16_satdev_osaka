@@ -57,14 +57,55 @@ public class SIJGM002Servise {
 		return syainId;
 	}
 
+	/**
+	 * 現場ID採番処理
+	 * @return genba_id
+	 */
+	public String getGenbaId() {
+		// 採番ID取得
+		String genbaId = sijGm002Dao.getGenbaId();
+
+		// 現場IDが取得できなかったら
+		String result = "0001";
+		if (genbaId == null || genbaId.isEmpty()) {
+			return result;
+		}
+		//DBで取得した値の不要な空白除去
+		genbaId = genbaId.replaceAll(" ","");
+
+		// 最新の現場IDを１インクリメントする
+		genbaId = String.valueOf(Integer.parseInt(genbaId) + 1);
+
+		if (genbaId.length() == 1) {
+			return "000" + genbaId;
+		} else if (genbaId.length() == 2) {
+			return "00" + genbaId;
+		} else if (genbaId.length() == 3) {
+			return "000" + genbaId;
+		}
+		return genbaId;
+	}
+
+	/**
+	 * 社員情報取得処理
+	 * @param dto
+	 * @return dto
+	 */
+	public SIJGM002Dto getSyain_info(String syain_id) {
+		List<SIJGM002Dto> resultList = sijGm002Dao.getSyain_info(syain_id);
+		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+		for(SIJGM002Dto result:resultList) {
+			sijGm002Dto = result;
+		}
+		return sijGm002Dto;
+	}
+
 //	// 社員情報新規情報登録処理
 	public SIJGM002Dto insertSyainInfo(SIJGM002Dto dto){
 
-		sijGm002Dao.insertSeq(dto);
-
 		sijGm002Dao.insertSyainInfo(dto);
 
-
+		sijGm002Dao.insertSeq(dto);
 
 		return dto;
 	}
@@ -89,10 +130,10 @@ public class SIJGM002Servise {
 		public SIJGM002Dto delSyainInfo(SIJGM002Dto dto){
 			sijGm002Dao.delSyainInfo(dto);
 
-			//セッション情報設定処理
-			SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-			sijGm002Dto.setSyain_id(dto.getSyain_id());
-			sijGm002Dto.setSyain_na(dto.getSyain_na());
+//			//セッション情報設定処理
+//			SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+//			sijGm002Dto.setSyain_id(dto.getSyain_id());
+//			sijGm002Dto.setSyain_na(dto.getSyain_na());
 
 			return dto;
 		}
@@ -107,21 +148,21 @@ public class SIJGM002Servise {
 		 */
 		public SIJGM002Dto inputCheck(SIJGM002Dto dto) {
 		List<String> resultMessage = new ArrayList<String>();
-		// 社員ID：必須入力チェック
-		System.out.println(dto.getSyain_id());
-		if (StringUtils.isEmpty(dto.getSyain_id())) {
-			 resultMessage.add(SIJMessage.SIJE001.getMessage());
-		} else {
-			// 社員ID：半角文字チェック
-			if (!patternCheck(dto.getSyain_id())) {
-				resultMessage.add(SIJMessage.SIJE008.getMessage());
-			}
-			// 社員ID：桁数チェック
-			if (!digitCheck(dto.getSyain_id(), UTLContent.INT_FOUR)) {
-				resultMessage.add(SIJMessage.SIJE012.getMessage());
-			}
-
-		}
+//		// 社員ID：必須入力チェック
+//		System.out.println(dto.getSyain_id());
+//		if (StringUtils.isEmpty(dto.getSyain_id())) {
+//			 resultMessage.add(SIJMessage.SIJE001.getMessage());
+//		} else {
+//			// 社員ID：半角文字チェック
+//			if (!patternCheck(dto.getSyain_id())) {
+//				resultMessage.add(SIJMessage.SIJE008.getMessage());
+//			}
+//			// 社員ID：桁数チェック
+//			if (!digitCheck(dto.getSyain_id(), UTLContent.INT_FOUR)) {
+//				resultMessage.add(SIJMessage.SIJE012.getMessage());
+//			}
+//
+//		}
 
 		// 氏名：必須入力チェック
 		if (StringUtils.isEmpty(dto.getSyain_na())) {

@@ -20,6 +20,8 @@ public class SIJGM002MAV implements Serializable{
 	private String syain_na;
 	// 生年月日
 	private String birth_dt;
+	// 住所
+	private String syain_address;
 	// 最寄り駅1
 	private String moyori_eki_1;
 	// 最寄り駅2
@@ -374,6 +376,22 @@ public class SIJGM002MAV implements Serializable{
 	 */
 	public void setError_hyoji(List<String> error_hyoji) {
 		this.error_hyoji = error_hyoji;
+	}
+
+	/**
+	 * 住所を取得
+	 * @return
+	 */
+	public String getSyain_address() {
+		return syain_address;
+	}
+
+	/**
+	 * 住所を設定
+	 * @param syain_address
+	 */
+	public void setSyain_address(String syain_address) {
+		this.syain_address = syain_address;
 	}
 
 

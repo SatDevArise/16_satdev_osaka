@@ -4,13 +4,32 @@
 
 <mapper namespace="jp.arise.com.dao.COMGM002Dao">
     <resultMap id="resultCOMGM002Dto" type="jp.arise.com.dto.COMGM002Dto">
-        <result column="username" property="user"/>
-        <result column="userid" property="userId"/>
+        <result column="osirase_id" property="osirase_id"/>
+        <result column="categori_cd" property="categori_cd"/>
+        <result column="osirase_na" property="osirase_na"/>
+        <result column="osirase_info" property="osirase_info"/>
     </resultMap>
 
-    <select id="getUser" resultMap="resultCOMGM002Dto">
-        SELECT username
-        FROM test
-        WHERE userid = #{userId}
+    <select id="getOsiraseInfo" resultMap="resultCOMGM002Dto">
+    <![CDATA[
+        SELECT osirase_id,
+        	   categori_cd,
+        	   osirase_na,
+        	   osirase_info
+        FROM osirase_mst
+        WHERE osirase_start_dt <= #{unyoubi}
+        AND   osirase_end_dt   >  #{unyoubi}
+        AND   yuko_fg = '1'
+        ORDER BY osirase_id
+    ]]>
     </select>
+
+    <update id="updateRireki">
+    	UPDATE login_rireki_dt
+    	SET logout_date = TO_CHAR(CURRENT_DATE,'YYYYMMDD'),
+    	    update_user = #{user_id},
+    	    update_ts = TO_CHAR(CURRENT_DATE,'YYYYMMDD')
+    	WHERE user_id = #{user_id}
+    	AND   yuko_fg = '1'
+	</update>
 </mapper>

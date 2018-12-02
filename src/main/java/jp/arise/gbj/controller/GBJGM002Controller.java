@@ -11,13 +11,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import jp.arise.gbj.dto.GBJGM002Dto;
 import jp.arise.gbj.form.GBJGM002Form;
 import jp.arise.gbj.modelandview.GBJGM001MAV;
-import jp.arise.gbj.modelandview.GBJGM002MAV;
 import jp.arise.gbj.service.GBJGM002Servise;
+import jp.arise.sij.form.SIJGM002Form;
 import jp.arise.utl.LoginInfo;
 import jp.arise.utl.LoginInfoDto;
+import jp.arise.utl.UTLContent;
 
 /**
  * GBJGM002 現場情報新規登録・編集画面用コントローラー
@@ -124,33 +124,23 @@ public class GBJGM002Controller {
 	 * @since 2017/07/177
 	 */
 	@RequestMapping(value = "/initGbjGm002",params = "backComGm002", method = RequestMethod.POST)
-	public ModelAndView backComGm002(GBJGM002Form gbjGm002Form,Model model) {
-		GBJGM002Dto gbjGm002Dto = new GBJGM002Dto();
-		gbjGm002Dto.setUser(gbjGm002Form.getUser());
-		gbjGm002Service.inputCheck(gbjGm002Dto);
+	public ModelAndView back(SIJGM002Form sijGm002Form,Model model){
+		// ログイン情報取得
+		LoginInfoDto loginInfoDto = new LoginInfoDto();
+		loginInfoDto = loginInfo.getAttribute();
 
-		GBJGM002MAV gbjGm002MAV = new GBJGM002MAV();
-		gbjGm002MAV.setUser(gbjGm002Form.getUser());
-		return new ModelAndView("forward:/initComGm002","GBJGM002MAV",gbjGm002MAV);
-	}
+		// セッション情報の遷移元画面を取得
+		String strGamenId = (String) loginInfoDto.getGamen_id();
 
-	/**
-	 * 戻る処理（遷移先：現場情報一覧表示画面）
-	 * @param GBJGM002Form
-	 * @return GBJGM001Controller.java
-	 * @throws
-	 * @author AtsushiNishizawa
-	 * @since 2017/07/177
-	 */
-	@RequestMapping(value = "/initGbjGm002",params = "backGbjGm001", method = RequestMethod.POST)
-	public ModelAndView backGbjGm001(GBJGM002Form gbjGm002Form,Model model) {
-		GBJGM002Dto gbjGm002Dto = new GBJGM002Dto();
-		gbjGm002Dto.setUser(gbjGm002Form.getUser());
-		gbjGm002Service.inputCheck(gbjGm002Dto);
+		// 戻り先画面格納用変数
+		String returnGamen = null;
 
-		GBJGM002MAV gbjGm002MAV = new GBJGM002MAV();
-		gbjGm002MAV.setUser(gbjGm002Form.getUser());
-		return new ModelAndView("forward:/initGbjGm001","GBJGM002MAV",gbjGm002MAV);
+		if(strGamenId.equals(UTLContent.GMID_GBJGM001)) {
+			returnGamen = "forward:/initGbjGm001";
+		} else if (strGamenId.equals(UTLContent.GMID_COMGM002)) {
+			returnGamen ="forward://initComGm002";
+		}
+		return new ModelAndView(returnGamen);
 	}
 	//プルダウンリストを作成
 	@RequestMapping(value = "/sample", method = RequestMethod.GET)

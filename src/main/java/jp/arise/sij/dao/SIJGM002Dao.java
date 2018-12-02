@@ -20,7 +20,7 @@ public interface SIJGM002Dao extends Serializable {
 	 *
 	 * @return List<SIJGM002Dto>
 	 */
-	public SIJGM002Dto getSyain_info(SIJGM002Dto SIJGM002Dto);
+	public List<SIJGM002Dto> getSyain_info(String syain_id);
 
 	/**
 	 * 最寄り駅チェックを取得
@@ -43,7 +43,6 @@ public interface SIJGM002Dao extends Serializable {
 
 	/**
 	 * 社員情報削除処理
-	 *
 	 */
 	public void delSyainInfo(SIJGM002Dto SIJGM002Dto);
 
@@ -51,6 +50,11 @@ public interface SIJGM002Dao extends Serializable {
 	 * 社員ID取得処理
 	 */
 	public String getSyainId();
+
+	/**
+	 * 現場ID取得処理
+	 */
+	public String getGenbaId();
 
 	/**
 	 * seq追加処理

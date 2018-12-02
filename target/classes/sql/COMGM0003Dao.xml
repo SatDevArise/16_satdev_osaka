@@ -4,13 +4,184 @@
 
 <mapper namespace="jp.arise.com.dao.COMGM003Dao">
     <resultMap id="resultCOMGM003Dto" type="jp.arise.com.dto.COMGM003Dto">
-        <result column="username" property="user"/>
-        <result column="userid" property="userId"/>
+        <result column="syain_id" property="syain_id"/>
+        <result column="genba_id" property="genba_id" />
+        <result column="syain_na" property="syain_na"/>
+        <result column="syain_group_cd" property="syain_group_cd" />
+        <result column="nyusya_dt" property="nyusya_dt" />
+        <result column="genba_sankaku_dt" property="genba_sankaku_dt" />
+        <result column="yakusyoku_cd" property="position"/>
+        <result column="moyori_eki_1" property="moyori_1_station" />
+		<result column="moyori_eki_2" property="moyori_2_station" />
+		<result column="moyori_eki_3" property="moyori_3_station" />
+        <result column="birth_dt" property="birth_dt"/>
+        <result column="syozoku_team" property="team_na"/>
+        <result column="genba_na" property="genba_na"/>
+		<result column="keika_ym" property="keika_ym"/>
+		<result column="phase_cd" property="phase"/>
+		<result column="siyo_rosen_na" property="siyo_rosen_na"/>
+		<result column="tanka_vl" property="tanka"/>
+		<result column="zensyoku_na" property="previous" />
+		<result column="syain_address" property="syain_address" />
+		<result column="syussin_na" property="syussin_na" />
+		<result column="syain_renrakusaki" property="syain_renrakusaki" />
+		<result column="genba_group_cd" property="genba_group_cd" />
+		<result column="anken_na" property="anken_na" />
+		<result column="sagyonaiyo" property="sagyonaiyo" />
+		<result column="pj_start_dt" property="pj_start_dt" />
+		<result column="pj_end_dt" property="pj_end_dt" />
+		<result column="genba_address" property="genba_address" />
+		<result column="genba_moyori_eki_1" property="genba_moyori_eki_1" />
+		<result column="genba_moyori_eki_2" property="genba_moyori_eki_2" />
+		<result column="genba_moyori_eki_3" property="genba_moyori_eki_3" />
+		<result column="genba_phone_nm" property="genba_phone_nm" />
+		<result column="yuko_fg" property="yuko_fg" />
+		<result column="sakujo_fg" property="sakujo_fg" />
     </resultMap>
 
-    <select id="getUser" resultMap="resultCOMGM003Dto">
-        SELECT username
-        FROM test
-        WHERE userid = #{userId}
+    <select id="getSyainInfoList" resultMap="resultCOMGM003Dto">
+    <![CDATA[
+        SELECT
+			  sd.syain_id
+			, sd.genba_id
+			, sd.syain_na
+			, sd.syain_group_cd
+			, sd.nyusya_dt
+			, sd.genba_sankaku_dt
+			, sd.yakusyoku_cd
+			, sd.phase_cd
+			, sd.moyori_eki_1
+			, sd.moyori_eki_2
+			, sd.moyori_eki_3
+			, sd.siyo_rosen_na
+			, sd.syozoku_team
+			, sd.birth_dt
+			, sd.keika_ym
+			, sd.tanka_vl
+			, sd.zensyoku_na
+			, sd.syain_address
+			, sd.syussin_na
+			, sd.syain_renrakusaki
+			, gd.genba_na
+			, sd.yuko_fg
+			, sd.sakujo_fg
+		FROM
+			syain_dt sd
+		LEFT JOIN
+		(
+			SELECT
+		         genba_id
+			   , sakujo_fg
+		  	   , MAX(genba_na) AS genba_na
+		  	FROM
+		  		genba_dt
+		  	GROUP BY
+		  		  genba_id
+		  		, sakujo_fg
+		)  gd
+		ON
+			sd.genba_id = gd.genba_id
+			AND gd.sakujo_fg = '0'
+		<where>
+			<if test="syain_id != null">
+		    	sd.syain_id = #{syain_id}
+		    </if>
+		    <if test="seinengappi_from != null">
+				AND sd.birth_dt >= #{seinengappi_from}
+			</if>
+		    <if test="seinengappi_to != null">
+				AND sd.birth_dt <= #{seinengappi_to}
+			</if>
+		    <if test="previous != null">
+				AND sd.zensyoku_na = #{previous}
+			</if>
+		    <if test="position != null">
+				AND sd.yakusyoku_cd = #{position}
+			</if>
+		    <if test="nyusyabi_from != null">
+				AND sd.nyusya_dt >= #{nyusyabi_from}
+			</if>
+		    <if test="nyusyabi_to != null">
+				AND sd.nyusya_dt <= #{nyusyabi_to}
+			</if>
+		    <if test="team_na != null">
+				AND sd.syozoku_team = #{team_na}
+			</if>
+		    <if test="genba_na != null">
+				AND gd.genba_na = #{genba_na}
+			</if>
+		    <if test="phase != null">
+				AND sd.phase_cd = #{phase}
+			</if>
+		    <if test="tanka != null">
+				AND sd.tanka_vl = #{tanka}
+			</if>
+		    <if test="moyori_1_station != null">
+				AND sd.moyori_eki_1 = #{moyori_1_station}
+			</if>
+		    <if test="moyori_2_station != null">
+				AND sd.moyori_eki_2 = #{moyori_2_station}
+			</if>
+		    <if test="moyori_3_station != null">
+				AND sd.moyori_eki_3 = #{moyori_3_station}
+			</if>
+		    <if test="syain_address != null">
+				AND sd.syain_address = #{syain_address}
+			</if>
+			AND sd.yuko_fg = '1'
+			AND sd.sakujo_fg = '0'
+		</where>
+		ORDER BY
+			sd.syain_id
+	]]>
     </select>
+
+    <select id="getGenbaInfoList" resultMap="resultCOMGM003Dto">
+    <![CDATA[
+		SELECT
+			  genba_id
+			, pj_id
+			, genba_group_cd
+			, syain_group_cd
+			, genba_na
+			, anken_na
+			, sagyonaiyo
+			, pj_start_dt
+			, pj_end_dt
+			, phase_cd
+			, genba_moyori_eki_1
+			, genba_moyori_eki_2
+			, genba_moyori_eki_3
+			, genba_phone_nm
+			, genba_address
+			, tanka_vl
+			, yuko_fg
+			, sakujo_fg
+		 FROM genba_dt
+		<where>
+			<if test="genba_na != null">
+				genba_na = #{genba_na}
+			</if>
+		    <if test="phase != null">
+				AND sd.phase_cd = #{phase}
+			</if>
+			<if test="moyori_1_station != null">
+				AND genba_moyori_eki_1 = #{genba_moyori_eki_1}
+			</if>
+		    <if test="moyori_2_station != null">
+				AND genba_moyori_eki_2 = #{genba_moyori_eki_2}
+			</if>
+		    <if test="moyori_3_station != null">
+				AND genba_moyori_eki_3 = #{genba_moyori_eki_3}
+			</if>
+		    <if test="genba_address != null">
+				AND genba_address = #{genba_address}
+			</if>
+			AND sd.yuko_fg = '1'
+			AND sd.sakujo_fg = '0'
+		</where>
+		ORDER BY genba_id
+   	]]>
+    </select>
+
 </mapper>

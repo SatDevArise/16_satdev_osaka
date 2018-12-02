@@ -13,11 +13,13 @@
 		<script src="<c:url value="/resources/js/GBJGM002.js" />"></script>
 		<title>GBJGM002 現場情報新規登録・編集画面</title>
 	</head>
+	<header>
+		<h1>現場情報新規登録・編集画面</h1>
+	</header>
 	<body>
-		<font size="2"style="position: absolute; right: 32.5%; top: 0px" color="blue">現場情報新規登録・編集画面</font><br>
 	    <spring:url value="/initGbjGm002" var="actionUrl"/>
-    	<form:form modelAttribute="GBJGM002Form">
-    		<p>
+    	<form:form modelAttribute="GBJGM002Form" id ="register" name = "GBJGN002">
+ 			<p>
     現場ID：<form:input path="genba_id" />
     		</p>
     		<p>
@@ -37,12 +39,20 @@
 				<form:options items="${phaseList}"/>
 			</form:select><br>
 			</p>
+			<p class = "right">
+    		<div id="error_hyoji"></div>
+    		<input type="submit" class="btn btn-default" value="新規作成" name="entryGbjGm002" formaction="${actionUrl}"/>
+    		<input type="submit" class="btn btn-success" value="更新" name="updateGbjGm002" formaction="${actionUrl}"/>
+    		<input type="submit" class="btn btn-success" value="削除" name="deleteGbjGm002" formaction="${actionUrl}"/>
+    		<input type="submit" class="btn btn-info" value="戻る" name="backComGm002" formaction="${actionUrl}"/>
+    		<input type="submit" class="btn btn-warning" value="戻る" name="backGbjGm001" formaction="${actionUrl}"/>
     		<p>
-    		<input style="position: absolute; right: 31.5%; bottom: 0px" class="btn btn-default" value="新規作成" name="entryGbjGm002" formaction="${actionUrl}"/>
-    		<input style="position: absolute; right: 26.5%; bottom: 0px" class="btn btn-success" value="更新" name="updateGbjGm002" formaction="${actionUrl}"/>
-    		<input style="position: absolute; right: 21.5%; bottom: 0px" class="btn btn-success" value="削除" name="deleteGbjGm002" formaction="${actionUrl}"/>
-    		<input style="position: absolute;right: 0px; top: 0px" class="btn btn-info" value="戻る" name="backComGm002" formaction="${actionUrl}"/>
-    		<input style="position: absolute;right: 0px; bottom: 0px" class="btn btn-warning" value="戻る" name="backGbjGm001" formaction="${actionUrl}"/>
+    		</p>
+			<p class="red">
+				<c:forEach var="error_hyoji" items="${SIJGM002Form.error_hyoji}">
+					・<c:out value="${error_hyoji}" />
+					<br>
+				</c:forEach>
 			</p>
 
     	</form:form>

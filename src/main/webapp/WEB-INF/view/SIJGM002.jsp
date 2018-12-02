@@ -22,15 +22,15 @@
 		<form:input type="hidden" path="user" />
 		<p class ="right">
 		<div id="error_hyoji"></div>
-    		<input type="submit" class="btn btn-default" value="新規登録" name="entrySijGm002" formaction="${actionUrl}">
-    		<input type="submit" class="btn btn-success" value="更新" name="updateSijGm002" formaction="${actionUrl}">
-    		<input type="submit" class="btn btn-success" value="削除" name="deleteSijGm002" formaction="${actionUrl}">
-    		<input type="submit" class="btn btn-info" value="戻る" name="backComGm002" formaction="${actionUrl}">
-    		<input type="submit" class="btn btn-warning" value="戻る" name="backSijGm001" formaction="${actionUrl}">
+
+    		<p>
+
     		</p>
-    		<p>社員ID：<form:input path="syain_id" type = "text" name = "社員ID" maxlength="4"/></p>
+    		<p>社員ID:<form:input path="syain_id" type = "text" name="社員ID" maxlength="4" readonly="readonly"/>
+    		   現場ID：<form:input path="genba_id" type="hidden"/></p>
 			<p>氏名：<form:input path="syain_na" type = "text" name = "氏名" maxlength="20"/>
 			   生年月日：<form:input path="birth_dt" type ="text" name = "生年月日" maxlength="8"/></p>
+			<p>住所：<form:input path ="syain_address" type = "text" name = "住所" maxlength="100"/></p>
     		<p>最寄り駅：<form:input path="moyori_eki_1" type = "text" name = "最寄り駅" maxlength="10"/>
     					 <form:input path="moyori_eki_2" type = "text" name = "最寄り駅2" maxlength="10"/>
     					 <form:input path="moyori_eki_3" type = "text" name = "最寄り駅3" maxlength="10"/></p>
@@ -44,6 +44,14 @@
     		   単価：<form:input path = "tanka_vl" type = "text" name = "単価" maxlength="5"/></p>
     		<p>現場名：<form:input path="genba_na" type = "text" name = "現場名" maxlength="30"/></p>
     		<p>参画日：<form:input path="genba_sankaku_dt" type = "text" name = "参画日" maxlength="8"/></p>
+    		<p>
+
+    		</p>
+    		<input type="submit" class="btn btn-default" value="新規登録" name="entrySijGm002" formaction="${actionUrl}">
+    		<input type="submit" class="btn btn-success" value="更新" name="updateSijGm002" formaction="${actionUrl}">
+    		<input type="submit" class="btn btn-success" value="削除" name="deleteSijGm002" formaction="${actionUrl}">
+    		<input type="submit" class="btn btn-info" value="戻る" name="backComGm002" formaction="${actionUrl}">
+    		<input type="submit" class="btn btn-warning" value="戻る" name="backSijGm001" formaction="${actionUrl}">
 			<p class="red">
 				<c:forEach var="error_hyoji" items="${SIJGM002Form.error_hyoji}">
 					・<c:out value="${error_hyoji}" />

@@ -11,17 +11,18 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import jp.arise.com.modelandview.COMGM002MAV;
 import jp.arise.sij.dto.SIJGM002Dto;
 import jp.arise.sij.form.SIJGM002Form;
 import jp.arise.sij.message.SIJMessage;
-import jp.arise.sij.modelandview.SIJGM001MAV;
 import jp.arise.sij.modelandview.SIJGM002MAV;
 import jp.arise.sij.service.SIJGM002Servise;
 import jp.arise.utl.LoginInfo;
 import jp.arise.utl.LoginInfoDto;
+import jp.arise.utl.UTLContent;
 
 /**
  * SIJGM002 社員情報新規登録・編集画面用コントローラー
@@ -75,8 +76,12 @@ public class SIJGM002Controller {
 		// Serviceクラスの社員ID採番処理を呼び出す
 		String syainId = sijGm002Service.getSyainId();
 
-		//Formに社員IDをセット
+		// Serviceクラスの社員ID採番処理を呼び出す
+		String genbaId = sijGm002Service.getGenbaId();
+
+		//Formに社員ID・現場IDをセット
 		sijGm002Form.setSyain_id(syainId);
+		sijGm002Form.setGenba_id(genbaId);
 
 		//Formにユーザを設定
 		sijGm002Form.setUser(" ");
@@ -92,11 +97,18 @@ public class SIJGM002Controller {
 	 * @author AtsushiNishizawa
 	 * @since 2017/07/17
 	 */
-	@RequestMapping(value = "/initSijGm002",params = "goToSijGm002",method = RequestMethod.POST)
-	public String initSijGm002(Model model,SIJGM001MAV sijGm001MAV) {
-		SIJGM002Form sijGm002Form = new SIJGM002Form();
-		sijGm002Form.setUser(sijGm001MAV.getUser());
-		model.addAttribute("SIJGM002Form",sijGm002Form);
+	@RequestMapping(value = "/initSijGm002",params = "goToSijGm002",method = RequestMethod.GET)
+	public String initSijGm002(@RequestParam("syainId") String syainId,Model model) {
+		// 画面ID更新処理
+		sijGm002Service.upSession(UTLContent.GMID_SIJGM001);
+
+		// GETパラメータから社員情報を取得
+		SIJGM002Dto sijGm002Dto = sijGm002Service.getSyain_info(syainId);
+
+		// FormにSIJGM001MAVの情報を設定
+		SIJGM002Form sijgm002Form = setSijGm002Form(sijGm002Dto);
+
+		model.addAttribute("SIJGM002Form",sijgm002Form);
 		return "SIJGM002";
 	}
 
@@ -174,17 +186,16 @@ public class SIJGM002Controller {
 	public ModelAndView updateSijGm002(SIJGM002Form sijGm002Form,Model model) {
 		//フォームの値をDtoへコピー
 		SIJGM002Dto sijGm002Dto = setSijGm002dto(sijGm002Form);
-		BeanUtils.copyProperties(sijGm002Form,sijGm002Dto);
 
 		//入力チェック処理
-		sijGm002Dto = sijGm002Service.inputCheck(sijGm002Dto);
+		sijGm002Service.inputCheck(sijGm002Dto);
 		if(!sijGm002Dto.getError_hyoji().isEmpty()) {
-			BeanUtils.copyProperties(sijGm002MAV,sijGm002Dto);
-			return new ModelAndView("forward:/sijMessage","SIJGM002MAV",sijGm002MAV);
+			BeanUtils.copyProperties(sijGm002Dto,sijGm002MAV);
+			return new ModelAndView("forward:/sijMessage","initSijGm002",sijGm002MAV);
 		}
 		//更新処理
-		sijGm002Dto = sijGm002Service.updateSyainInfo(sijGm002Dto);
-//		sijGm002Service.updateSyainInfo(sijGm002Dto);
+//		sijGm002Dto = sijGm002Service.updateSyainInfo(sijGm002Dto);
+		sijGm002Service.updateSyainInfo(sijGm002Dto);
 		if(!sijGm002Dto.getError_hyoji().isEmpty()) {
 			List<String> resultMessage = new ArrayList<String>();
 			resultMessage.add(SIJMessage.SIJE001.getMessage());
@@ -214,7 +225,7 @@ public class SIJGM002Controller {
 			return new ModelAndView("forward:/sijMessage","SIJGM002MAV",sijGm002MAV);
 		}
 		BeanUtils.copyProperties(sijGm002Dto,sijGm002MAV);
-		return new ModelAndView("forward:/reInitSijGm002","SIJGM002MAV",sijGm002MAV);
+		return new ModelAndView("forward:/reInitSijGm002","COMGM001MAV",sijGm002MAV);
 	}
 
 	/**
@@ -223,63 +234,71 @@ public class SIJGM002Controller {
 	 * @return SIJGM002.jsp
 	 * @throws
 	 * @author AtsushiNishizawa
-	 * @since 2017/07/177
+	 * @since 2017/07/17
 	 */
-//	@RequestMapping(value = "/initSijGm002",params = "deleteSijGm002", method = RequestMethod.POST)
-//	public ModelAndView deleteSijGm002(SIJGM002Form sijGm002Form,Model model) {
-//		//フォームの値をDtoへコピー
-//		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-//		BeanUtils.copyProperties(sijGm002Form, sijGm002Dto);
-//
-//		//入力チェック処理
-//		sijGm002Service.inputCheck(sijGm002Dto);
-//		if(!sijGm002Dto.getError_hyoji().isEmpty()) {
-//			BeanUtils.copyProperties(sijGm002Dto, sijGm002MAV);
-//			return new ModelAndView("forward:/sijMessage","SIJGM002MAV",sijGm002MAV);
-//		}
-//
-//		//削除処理
-//		sijGm002Service.delSyainInfo(sijGm002Dto);
-//			return new ModelAndView("forward:/initSijGm002","COMGM001MAV",sijGm002MAV);
-//	}
+	@RequestMapping(value = "/initSijGm002",params = "deleteSijGm002", method = RequestMethod.POST)
+	public String deleteSijGm002(SIJGM002Form sijGm002Form,Model model) {
+		//フォームの値をDtoへコピー
+		SIJGM002Dto sijGm002Dto = setSijGm002dto(sijGm002Form);
+
+		//削除処理
+		sijGm002Service.delSyainInfo(sijGm002Dto);
+			return "SIJGM002";
+	}
 
 	/**
-	 * 戻る処理（遷移先：メニュー画面）
+	 * 戻る処理（遷移先：メニュー画面・社員情報一覧画面）
 	 * @param SIJGM002Form
 	 * @return COMGM002Controller.java
 	 * @throws
 	 * @author AtsushiNishizawa
-	 * @since 2017/07/177
+	 * @since 2017/07/17
 	 */
 	@RequestMapping(value = "/initSijGm002",params = "backComGm002", method = RequestMethod.POST)
-	public ModelAndView backComGm002(SIJGM002Form sijGm002Form,Model model) {
-		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-		BeanUtils.copyProperties(sijGm002Form, sijGm002Dto);
+	public ModelAndView back(SIJGM002Form sijGm002Form,Model model){
+		// ログイン情報取得
+		LoginInfoDto loginInfoDto = new LoginInfoDto();
+		loginInfoDto = loginInfo.getAttribute();
 
-		SIJGM002MAV sijGm002MAV = new SIJGM002MAV();
-		BeanUtils.copyProperties(sijGm002Form, sijGm002MAV);
+		// セッション情報の遷移元画面を取得
+		String strGamenId = (String) loginInfoDto.getGamen_id();
 
-		return new ModelAndView("forward:/initComGm002","SIJGM002MAV",sijGm002MAV);
+		// 戻り先画面格納用変数
+		String returnGamen = null;
+
+		if(strGamenId.equals(UTLContent.GMID_SIJGM001)) {
+			returnGamen = "forward:/initSijGm001";
+		} else if (strGamenId.equals(UTLContent.GMID_COMGM002)) {
+			returnGamen ="forward://initComGm002";
+		}
+		return new ModelAndView(returnGamen);
+//		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+//		BeanUtils.copyProperties(sijGm002Form, sijGm002Dto);
+//
+//		SIJGM002MAV sijGm002MAV = new SIJGM002MAV();
+//		BeanUtils.copyProperties(sijGm002Form, sijGm002MAV);
+
+//		return new ModelAndView("forward:/initComGm002","SIJGM002MAV",sijGm002MAV);
 	}
 
-	/**
-	 * 戻る処理（遷移先：社員情報一覧表示画面）
-	 * @param SIJGM002Form
-	 * @return SiJGM001Controller.java
-	 * @throws
-	 * @author AtsushiNishizawa
-	 * @since 2017/07/177
-	 */
-	@RequestMapping(value = "/initSijGm002",params = "backSijGm001", method = RequestMethod.POST)
-	public ModelAndView backSijGm001(SIJGM002Form sijGm002Form,Model model) {
-		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-		BeanUtils.copyProperties(sijGm002Form, sijGm002Dto);
-
-		SIJGM002MAV sijGm002MAV = new SIJGM002MAV();
-		BeanUtils.copyProperties(sijGm002Form, sijGm002MAV);
-
-		return new ModelAndView("forward:/initSijGm001","SIJGM002MAV",sijGm002MAV);
-	}
+//	/**
+//	 * 戻る処理（遷移先：社員情報一覧表示画面）
+//	 * @param SIJGM002Form
+//	 * @return SiJGM001Controller.java
+//	 * @throws
+//	 * @author AtsushiNishizawa
+//	 * @since 2017/07/177
+//	 */
+//	@RequestMapping(value = "/initSijGm002",params = "backSijGm001", method = RequestMethod.POST)
+//	public ModelAndView backSijGm001(SIJGM002Form sijGm002Form,Model model) {
+//		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+//		BeanUtils.copyProperties(sijGm002Form, sijGm002Dto);
+//
+//		SIJGM002MAV sijGm002MAV = new SIJGM002MAV();
+//		BeanUtils.copyProperties(sijGm002Form, sijGm002MAV);
+//
+//		return new ModelAndView("forward:/initSijGm001","SIJGM002MAV",sijGm002MAV);
+//	}
 
 
 

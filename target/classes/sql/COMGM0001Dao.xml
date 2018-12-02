@@ -3,14 +3,56 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="jp.arise.com.dao.COMGM001Dao">
-    <resultMap id="resultCOMGM001Dto" type="jp.arise.com.dto.COMGM001Dto">
-        <result column="username" property="user"/>
-        <result column="userid" property="userId"/>
+    <!-- resultMapはDBからの返却値を指定のクラスに格納したい場合に利用 -->
+    <!-- columnはSELECT文等で取得した項目名を指定　propertyはtableの値を格納するDtoの項目名を指定 -->
+    <resultMap id="resultLoginInfoDto" type="jp.arise.utl.LoginInfoDto">
+        <result column="user_id" property="user_id"/>
+        <result column="user_na" property="user_na"/>
+        <result column="unyoubi" property="unyoubi"/>
     </resultMap>
 
-    <select id="getUser" resultMap="resultCOMGM001Dto">
-        SELECT username
-        FROM test
-        WHERE userid = #{userId}
+   <!-- 定義したresultMapを利用する場合 -->
+    <select id="getLoginInfo" resultMap="resultLoginInfoDto">
+        SELECT user_id,
+               user_na,
+               TO_CHAR(CURRENT_DATE,'YYYYMMDD') AS unyoubi
+        FROM login_user_dt
+        WHERE user_id = #{user_id}
+        AND   password = #{password}
+        AND   yuko_fg = '1'
     </select>
+
+    <!-- 特定のクラスを利用しない場合はresultTypeを指定 -->
+    <select id="getRireki" resultType="String">
+        SELECT user_id
+        FROM login_rireki_dt
+        WHERE user_id = #{user_id}
+        AND   yuko_fg = '1'
+    </select>
+
+    <insert id="createRireki">
+        INSERT INTO login_rireki_dt
+        VALUES(	#{user_id},
+                #{user_na},
+                TO_CHAR(CURRENT_DATE,'YYYYMMDD'),
+				'',
+				'1',
+				'',
+				#{user_id},
+				TO_CHAR(CURRENT_DATE,'YYYYMMDD'),
+				'',
+				'',
+				'',
+				''
+        )
+    </insert>
+
+    <update id="updateRireki">
+    	UPDATE login_rireki_dt
+    	SET login_date = TO_CHAR(CURRENT_DATE,'YYYYMMDD'),
+    	    update_user = #{user_id},
+    	    update_ts = TO_CHAR(CURRENT_DATE,'YYYYMMDD')
+    	WHERE user_id = #{user_id}
+    	AND   yuko_fg = '1'
+	</update>
 </mapper>

@@ -21,7 +21,7 @@ public class LoginInfo {
 	 * セッション登録
 	 * @param LoginInfoDto
 	 * @author AtsushiNishizawa
-	 * @since 2017/07/177
+	 * @since 2017/07/17
 	 */
 	public void setAttribute(LoginInfoDto loginInfoDto) {
 		    session.setAttribute("USERID", loginInfoDto.getUser_id());

@@ -15,10 +15,14 @@ public class SIJGM002Form {
 	private String user;
 	// 社員ID
 	private String syain_id;
+	// 現場ID
+	private String genba_id;
 	// 社員名
 	private String syain_na;
 	// 生年月日
 	private String birth_dt;
+	// 住所
+	private String syain_address;
 	// 最寄り駅1
 	private String moyori_eki_1;
 	// 最寄り駅2
@@ -417,6 +421,38 @@ public class SIJGM002Form {
 	 */
 	public void setPhase_cd(String phase_cd) {
 		this.phase_cd = phase_cd;
+	}
+
+	/**
+	 * 現場IDを取得
+	 * @return genba_id
+	 */
+	public String getGenba_id() {
+		return genba_id;
+	}
+
+	/**
+	 * 現場IDを設定
+	 * @param genba_id
+	 */
+	public void setGenba_id(String genba_id) {
+		this.genba_id = genba_id;
+	}
+
+	/**
+	 * 住所を取得
+	 * @return
+	 */
+	public String getSyain_address() {
+		return syain_address;
+	}
+
+	/**
+	 * 住所を設定
+	 * @param syain_address
+	 */
+	public void setSyain_address(String syain_address) {
+		this.syain_address = syain_address;
 	}
 
 }
