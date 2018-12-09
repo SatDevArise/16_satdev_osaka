@@ -49,6 +49,8 @@ function confirmDelete() {
 	};
 };
 
+
+
 /**
  * 非活性解除処理
  **/
