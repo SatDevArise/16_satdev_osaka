@@ -41,7 +41,8 @@
     		<p>前職：<form:input path="zensyoku_na" type = "text" name = "前職" maxlength="20" style = "ime-mode:active"/>
     		   出身地：<form:input path="syussin_na" type = "text" name = "出身地" maxlength="20" style = "ime-mode:active"/></p>
     		<p>役職：<form:input path="yakusyoku_cd" type = "text" name = "役職" maxlength="2" style = "ime-mode:disabled"/>
-    		   入社日：<form:input path="nyusya_dt" type = "text" name = "入社日" maxlength="8" style = "ime-mode:disabled"/></p>
+    		   入社日：<form:input path="nyusya_dt" type = "text" name = "入社日" maxlength="8" style = "ime-mode:disabled"/>
+    		   役職の凡例：01:メンバー　02:サブリーダー　03:リーダー　04:マネージャー　05:部長</p>
     		<p>チーム：<form:input path="syozoku_team" type = "text" name = "チーム" maxlength="30" style = "ime-mode:disabled"/></p>
     		<p>フェーズ：<form:input path="phase_cd" type = "text" name = "フェーズ" maxlength="8" style = "ime-mode:disabled"/>
     		   単価：<form:input path="tanka_vl" type = "text" name = "単価" maxlength="5" style = "ime-mode:disabled"/></p>
@@ -51,8 +52,8 @@
 
     		</p>
     		<input type="submit" class="btn btn-default" value="新規登録" name="entrySijGm002" formaction="${actionUrl}">
-    		<input type="submit" class="btn btn-success" value="更新" name="updateSijGm002" formaction="${actionUrl}">
-    		<input type="submit" class="btn btn-success" value="削除" name="deleteSijGm002" formaction="${actionUrl}">
+    		<input type="submit" class="btn btn-success" value="更新" onclick="confirmUpload();" name="updateSijGm002" formaction="${actionUrl}">
+    		<input type="submit" class="btn btn-success" value="削除" onclick="confirmDelete();" name="deleteSijGm002" formaction="${actionUrl}">
     		<input type="submit" class="btn btn-info" value="戻る" name="backComGm002" formaction="${actionUrl}">
     		<input type="submit" class="btn btn-warning" value="戻る" name="backSijGm001" formaction="${actionUrl}">
 			<p class="red">

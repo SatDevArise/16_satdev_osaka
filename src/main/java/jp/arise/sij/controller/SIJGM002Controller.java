@@ -122,9 +122,26 @@ public class SIJGM002Controller {
 	 */
 	@RequestMapping(value = "/reInitSijGm002", method = RequestMethod.POST)
 	public String reinitSijGm002(Model model) {
-		SIJGM002Form sijGm002Form = new SIJGM002Form();
-		BeanUtils.copyProperties(sijGm002MAV, sijGm002Form);
-		model.addAttribute("SIJGM002Form",sijGm002Form);
+		//社員ID情報取得
+				SIJGM002Dto sijgm002Dto = new SIJGM002Dto();
+				BeanUtils.copyProperties(sijgm002Dto, sijGm002Service);
+
+				//Formを生成
+				SIJGM002Form sijGm002Form = new SIJGM002Form();
+
+				// Serviceクラスの社員ID採番処理を呼び出す
+				String syainId = sijGm002Service.getSyainId();
+
+				// Serviceクラスの社員ID採番処理を呼び出す
+				String genbaId = sijGm002Service.getGenbaId();
+
+				//Formに社員ID・現場IDをセット
+				sijGm002Form.setSyain_id(syainId);
+				sijGm002Form.setGenba_id(genbaId);
+
+				//Formにユーザを設定
+				sijGm002Form.setUser(" ");
+				model.addAttribute("SIJGM002Form",sijGm002Form);
 
 		return "SIJGM002";
 	}
@@ -289,16 +306,16 @@ public class SIJGM002Controller {
 //	 * @author AtsushiNishizawa
 //	 * @since 2017/07/177
 //	 */
-//	@RequestMapping(value = "/initSijGm002",params = "backSijGm001", method = RequestMethod.POST)
-//	public ModelAndView backSijGm001(SIJGM002Form sijGm002Form,Model model) {
-//		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
-//		BeanUtils.copyProperties(sijGm002Form, sijGm002Dto);
-//
-//		SIJGM002MAV sijGm002MAV = new SIJGM002MAV();
-//		BeanUtils.copyProperties(sijGm002Form, sijGm002MAV);
-//
-//		return new ModelAndView("forward:/initSijGm001","SIJGM002MAV",sijGm002MAV);
-//	}
+	@RequestMapping(value = "/initSijGm002",params = "backSijGm001", method = RequestMethod.POST)
+	public ModelAndView backSijGm001(SIJGM002Form sijGm002Form,Model model) {
+		SIJGM002Dto sijGm002Dto = new SIJGM002Dto();
+		BeanUtils.copyProperties(sijGm002Form, sijGm002Dto);
+
+		SIJGM002MAV sijGm002MAV = new SIJGM002MAV();
+		BeanUtils.copyProperties(sijGm002Form, sijGm002MAV);
+
+		return new ModelAndView("forward:/initSijGm001","SIJGM002MAV",sijGm002MAV);
+	}
 
 
 

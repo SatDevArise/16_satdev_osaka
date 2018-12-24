@@ -37,7 +37,7 @@ public class SIJGM002Servise {
 
 		// 社員IDが取得できなかったら
 		String result = "0001";
-		if (syainId == null || syainId.isEmpty()) {
+		if (syainId == "0001" || syainId == null || syainId.isEmpty()) {
 			return result;
 		}
 		// DBで取得した値の不要な空白除去
@@ -148,21 +148,6 @@ public class SIJGM002Servise {
 		 */
 		public SIJGM002Dto inputCheck(SIJGM002Dto dto) {
 		List<String> resultMessage = new ArrayList<String>();
-//		// 社員ID：必須入力チェック
-//		System.out.println(dto.getSyain_id());
-//		if (StringUtils.isEmpty(dto.getSyain_id())) {
-//			 resultMessage.add(SIJMessage.SIJE001.getMessage());
-//		} else {
-//			// 社員ID：半角文字チェック
-//			if (!patternCheck(dto.getSyain_id())) {
-//				resultMessage.add(SIJMessage.SIJE008.getMessage());
-//			}
-//			// 社員ID：桁数チェック
-//			if (!digitCheck(dto.getSyain_id(), UTLContent.INT_FOUR)) {
-//				resultMessage.add(SIJMessage.SIJE012.getMessage());
-//			}
-//
-//		}
 
 		// 氏名：必須入力チェック
 		if (StringUtils.isEmpty(dto.getSyain_na())) {
@@ -233,6 +218,12 @@ public class SIJGM002Servise {
 //				resultMessage.add(SIJMessage.SIJE018.getMessage());
 //			}
 //		}
+
+			// 役職コード：半角文字チェック
+			if (!patternCheck(dto.getYakusyoku_cd())) {
+				resultMessage.add(SIJMessage.SIJE022.getMessage());
+			}
+
 
 //		// 連絡先：必須入力チェック
 //		if (!StringUtils.isEmpty(dto.getSyain_renrakusaki())) {

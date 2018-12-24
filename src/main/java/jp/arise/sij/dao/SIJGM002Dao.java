@@ -59,5 +59,5 @@ public interface SIJGM002Dao extends Serializable {
 	/**
 	 * seq追加処理
 	 */
-	public String insertSeq(SIJGM002Dto SIJGM002Dto);
+	public void insertSeq(SIJGM002Dto SIJGM002Dto);
 }

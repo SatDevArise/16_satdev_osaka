@@ -3,6 +3,7 @@ package jp.arise.sij.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -107,7 +108,9 @@ public class SIJGM001Controller {
 		// sijGm001Service.inputCheck(sijGm001Dto);
 
 		SIJGM001MAV sijGm001MAV = new SIJGM001MAV();
+		BeanUtils.copyProperties(sijGm001Form, sijGm001MAV);
 		// sijGm001MAV.setUser(sijGm001Form.getUser());
+		   sijGm001MAV.setSyainId(sijGm001Form.getSyainId());
 
 		return new ModelAndView("forward:/initSijGm002", "SIJGM001MAV", sijGm001MAV);
 	}
@@ -144,7 +147,7 @@ public class SIJGM001Controller {
 	 */
 	private List<SIJGM001Form> setSijgm001FormList(List<SIJGM001Dto> syainList) {
 
-		List<SIJGM001Form> sijgm001FormList = new ArrayList<SIJGM001Form>();
+ 		List<SIJGM001Form> sijgm001FormList = new ArrayList<SIJGM001Form>();
 
 		if (syainList != null) {
 			for (int i = 0; i < syainList.size(); i++) {
