@@ -7,6 +7,7 @@
 		<result column="syain_id" property="syain_id" />
 		<result column="syain_na" property="syain_na" />
 		<result column="birth" property="birth" />
+		<result column="syain_address" property="syain_address"/>
 		<result column="moyori_1_station" property="moyori_1_station" />
 		<result column="moyori_2_station" property="moyori_2_station" />
 		<result column="moyori_3_station" property="moyori_3_station" />
@@ -23,28 +24,13 @@
 
 	</resultMap>
 
-	<select id="getSyain_info">
+	<select id="getSyain_info" resultMap="resultSIJGM002Dto">
 		SELECT
-		sd.syain_id
-		,sd.syain_na
-		,sd.birth
-		,sd.moyori_1_station
-		,sd.moyori_2_station
-		,sd.moyori_3_station
-		,sd.phonenumber
-		,sd.previous
-		,sd.nyusya_dt
-		,sd.birth_place
-		,sd.potision
-		,sd.team_na
-		,sd.phase
-		,sd.tanka
-		,sd.genba_na
-		,sankaku_dt
+		*
 		FROM
-		syain_dt sd
+			syain_dt
 		WHERE
-		syain_id=#{syain_id}
+			syain_id=#{syain_id}
 	</select>
 
 	<select id="getCheckInputStation" resultMap="resultSIJGM002Dto">
@@ -56,76 +42,107 @@
 		rosen_mst rm
 	</select>
 
-	<insert id="insertSyainInfo">
-		INSERT syain_dt
-		INTO
+	<insert id="insertSyainInfo" parameterType="jp.arise.sij.dto.SIJGM002Dto">
+		INSERT INTO
+		syain_dt
 		(
 		syain_id
+		,genba_id
 		,syain_na
-		,birth
-		,moyori_1_station
-		,moyori_2_station
-		,moyori_3_station
-		,phonenumber
-		,previous
-		,birth_place
-		,position
-		,team_na
-		,phase
-		,tanka
-		,genba_na
+		,yakusyoku_cd
+		,phase_cd
+		,moyori_eki_1
+		,moyori_eki_2
+		,moyori_eki_3
+		,nyusya_dt
+		,syozoku_team
+		,birth_dt
+		,tanka_vl
+		,zensyoku_na
+		,syain_address
+		,syussin_na
+		,syain_renrakusaki
+		,yuko_fg
+		,sakujo_fg
+		,insert_user
+		,insert_ts
 		)
 		VALUES
 		(
-		#{syain_id}
+		 #{syain_id}
+		,#{genba_id}
 		,#{syain_na}
-		,#{birth}
-		,#{moyori_1_station}
-		,#{moyori_2_station}
-		,#{moyori_3_station}
-		,#{phonenumber}
-		,#{previous}
-		,#{birth_place}
-		,#{position}
-		,#{team_na}
-		,#{phase}
-		,#{tanka}
-		,#{genba_na}
+		,#{yakusyoku_cd}
+		,#{phase_cd}
+		,#{moyori_eki_1}
+		,#{moyori_eki_2}
+		,#{moyori_eki_3}
+		,#{nyusya_dt}
+		,#{syozoku_team}
+		,#{birth_dt}
+		,#{tanka_vl}
+		,#{zensyoku_na}
+		,#{syain_address}
+		,#{syussin_na}
+		,#{syain_renrakusaki}
+		,1
+		,0
+		,#{user}
+		,#{date}
 		)
 
 	</insert>
 
-	<update id="upSyainInfo">
+	<update id="upSyainInfo" parameterType="jp.arise.sij.dto.SIJGM002Dto">
 		UPDATE
 		syain_dt
 		SET
-			syain_id = #{syain_id}
-		   ,syain_na = #{syain_na}
-		   ,birth_dt = #{birth_dt}
+			syain_na = #{syain_na}
+		   ,yakusyoku_cd = #{yakusyoku_cd}
+		   ,phase_cd = #{phase_cd}
 		   ,moyori_eki_1 = #{moyori_eki_1}
 		   ,moyori_eki_2 = #{moyori_eki_2}
 		   ,moyori_eki_3 = #{moyori_eki_3}
-		   ,syain_renrakusaki = #{syain_renrakusaki}
-		   ,zensyoku_na = #{zensyoku_na}
-		   ,syussin_na = #{syussin_na}
-		   ,yakusyoku_cd = #{yakusyoku_cd}
+		   ,nyusya_dt = #{nyusya_dt}
 		   ,syozoku_team = #{syozoku_team}
-		   ,phase_cd = #{phase_kb}
+		   ,birth_dt = #{birth_dt}
 		   ,tanka_vl = #{tanka_vl}
-
+		   ,zensyoku_na = #{zensyoku_na}
+		   ,syain_renrakusaki = #{syain_renrakusaki}
+		   ,syussin_na = #{syussin_na}
 		WHERE syain_id = #{syain_id}
-    	AND   yuko_fg = '1'
 
 	</update>
 
 	<delete id="delSyainInfo">
 		UPDATE
-		syain_dt
+			syain_dt
 		SET
-		delete_flag =1
+			yuko_fg = 0
+			,sakujo_fg =1
 		WHERE
-		syain_id=#{syain_id}
+			syain_id=#{syain_id}
 	</delete>
+
+	<select id = "getSyainId" resultType = "String">
+		SELECT
+			MAX(syain_id)
+		FROM
+			seq
+	</select>
+
+	<select id="getGenbaId" resultType="String">
+		SELECT
+			max(genba_id)
+		FROM
+			seq
+	</select>
+
+	<insert id="insertSeq" parameterType="jp.arise.sij.dto.SIJGM002Dto">
+		INSERT INTO seq(syain_id,genba_id)
+	    VALUES(#{syain_id}, #{genba_id})
+
+	</insert>
 
 <!-- 	<select id="getSyainListInfo" resultMap="resultSIJGM002Dto">
 		SELECT

@@ -58,6 +58,8 @@ public class SIJGM001Dto implements Serializable{
 	private String yukoFg;
 	/** 削除フラグ **/
 	private String sakujoFg;
+	/** ユーザー **/
+	private String user;
 
 	/**
 	 * 社員IDを取得します．
@@ -425,5 +427,21 @@ public class SIJGM001Dto implements Serializable{
 	 */
 	public void setSakujoFg(String sakujoFg) {
 		this.sakujoFg = sakujoFg;
+	}
+
+	/**
+	 * ユーザーを取得します
+	 * @return
+	 */
+	public String getUser() {
+		return user;
+	}
+
+	/**
+	 * ユーザーを設定します
+	 * @param user
+	 */
+	public void setUser(String user) {
+		this.user = user;
 	}
 }

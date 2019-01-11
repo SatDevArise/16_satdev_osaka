@@ -118,7 +118,8 @@
 		UPDATE
 			syain_dt
 		SET
-			sakujo_fg =1
+			yuko_fg = 0
+			,sakujo_fg =1
 		WHERE
 			syain_id=#{syain_id}
 	</delete>

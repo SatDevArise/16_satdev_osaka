@@ -59,7 +59,7 @@ public class SIJGM002Controller {
 	@RequestMapping(value = "/initSijGm002",params = "goSijGm002", method = RequestMethod.POST)
 	public String initSijGm002(COMGM002MAV comGm002MAV,Model model) {
 //    	//画面ID更新処理
-//		sijGm002Service.upSession(UTLContent.GMID_COMGM002);
+		sijGm002Service.upSession(UTLContent.GMID_COMGM002);
 
 		//ログイン情報取得
 		LoginInfoDto loginInfoDto = new LoginInfoDto();
